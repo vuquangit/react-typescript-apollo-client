@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
-import GlobalStyle from 'theme/globalStyles'
+import GlobalStyle from 'Theme/globalStyles'
 import Main from './Template/main'
 import { ThemeProvider } from 'styled-components'
-import * as theme from 'theme/theme'
+import * as theme from 'Theme/theme'
 
 const App: FC = () => {
   return (
