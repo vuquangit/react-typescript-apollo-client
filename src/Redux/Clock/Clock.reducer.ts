@@ -1,6 +1,6 @@
-import { actionTypes, IClockState, ClockActionTypes } from './actionTypes';
+import { actionTypes, IClockState } from './actionTypes'
 // import { HYDRATE } from 'next-redux-wrapper'
-import { Reducer } from 'redux';
+import { Reducer } from 'redux'
 
 const initialState = {
   count: 0,
@@ -8,7 +8,7 @@ const initialState = {
   lastUpdate: 0,
   light: false,
   placeholderData: null,
-};
+}
 
 const clockReducer: Reducer<IClockState> = (
   state: IClockState = initialState,
@@ -23,41 +23,41 @@ const clockReducer: Reducer<IClockState> = (
       return {
         ...state,
         ...{ error: action.error },
-      };
+      }
 
     case actionTypes.INCREMENT:
       return {
         ...state,
         ...{ count: state.count + 1 },
-      };
+      }
 
     case actionTypes.DECREMENT:
       return {
         ...state,
         ...{ count: state.count - 1 },
-      };
+      }
 
     case actionTypes.RESET:
       return {
         ...state,
         ...{ count: initialState.count },
-      };
+      }
 
     case actionTypes.LOAD_DATA_SUCCESS:
       return {
         ...state,
         ...{ placeholderData: action.data },
-      };
+      }
 
     case actionTypes.TICK_CLOCK:
       return {
         ...state,
         ...{ lastUpdate: action.ts, light: !!action.light },
-      };
+      }
 
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default clockReducer;
+export default clockReducer

@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import PrivateRoute from 'Container/PrivateRoute'
+import PrivateRoute from 'Containers/PrivateRoute'
 import pageConfigs from './pageConfigs'
 import Page404 from 'Template/Pages/404'
 

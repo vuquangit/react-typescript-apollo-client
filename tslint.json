@@ -1,0 +1,28 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-react",
+    "tslint-eslint-rules",
+    "tslint-config-prettier"
+  ],
+  "defaultSeverity": "warning",
+  "rules": {
+    "no-implicit-dependencies": [
+      true,
+      [
+        "Components",
+        "Containers",
+        "theme",
+        "Utils",
+        "@storybook",
+        "@testing-library/react",
+        "@testing-library/user-event",
+        "@testing-library/react-hooks",
+        "css-mediaquery"
+      ]
+    ],
+    "no-submodule-imports": false,
+    "ordered-imports": false,
+    "no-unexpected-multiline": 0
+  }
+}

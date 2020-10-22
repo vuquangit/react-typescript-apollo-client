@@ -1,29 +1,48 @@
-import { applyMiddleware, createStore, compose, Store } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import { createLogger } from 'redux-logger'
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
+import { createInjectorsEnhancer, forceReducerReload } from 'redux-injectors'
 import createSagaMiddleware from 'redux-saga'
+import { createLogger } from 'redux-logger'
 
-import rootReducer, { IStoreState } from './rootReducer'
-import rootSaga from './Clock/Clock.saga'
+import createReducer, { IStoreState } from './rootReducer'
+import { rootSaga } from './rootSaga'
 
 export const initializeStore = (preloadedState: IStoreState) => {
   const isDev: boolean = process.env.NODE_ENV === 'development'
 
-  const sagaMiddleware = createSagaMiddleware()
+  const reduxSagaMonitorOptions = {}
+  const sagaMiddleware = createSagaMiddleware(reduxSagaMonitorOptions)
+  const { run: runSaga } = sagaMiddleware
 
   const middlewares = isDev
     ? [sagaMiddleware, createLogger()]
     : [sagaMiddleware]
-  const middlewareEnhancer = applyMiddleware(...middlewares)
 
-  return {
-    ...createStore(
-      rootReducer,
-      preloadedState,
-      isDev
-        ? composeWithDevTools(middlewareEnhancer)
-        : compose(middlewareEnhancer)
-    ),
-    runSaga: sagaMiddleware.run(rootSaga),
+  const enhancers = [
+    createInjectorsEnhancer({
+      createReducer,
+      runSaga,
+    }),
+  ]
+
+  const store = configureStore({
+    reducer: createReducer(),
+    middleware: [...getDefaultMiddleware(), ...middlewares],
+    preloadedState: preloadedState,
+    devTools: isDev,
+    enhancers,
+  })
+
+  sagaMiddleware.run(rootSaga)
+
+  // Make reducers hot reloadable, see http://mxs.is/googmo
+  /* istanbul ignore next */
+  if (isDev && module.hot) {
+    module.hot.accept('./rootReducer', () => {
+      // const newRootReducer = require('./rootReducer').default
+      // store.replaceReducer(newRootReducer)
+      forceReducerReload(store)
+    })
   }
+
+  return store
 }

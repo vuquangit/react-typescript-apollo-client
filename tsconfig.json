@@ -28,6 +28,7 @@
     ]
   },
   "include": [
-    "src"
+    "src",
+    "./extend-expect.d.ts"
   ]
 }
