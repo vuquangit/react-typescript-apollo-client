@@ -10,9 +10,9 @@ import {
 
 import { setContext } from '@apollo/client/link/context'
 
-import GlobalStyle from 'Theme/globalStyles'
+import GlobalStyle from 'theme/globalStyles'
 import Main from './Template/main'
-import * as theme from 'Theme/theme'
+import * as theme from 'theme/theme'
 import { cache } from './cache'
 
 const App: FC = () => {
@@ -24,7 +24,7 @@ const App: FC = () => {
 
   const authLink = setContext((_, { headers }) => {
     // get the authentication token from local storage if it exists
-    const token = localStorage.getItem('token')
+    // const token = localStorage.getItem('token')
     // return the headers to the context so httpLink can read them
     return {
       headers: {
