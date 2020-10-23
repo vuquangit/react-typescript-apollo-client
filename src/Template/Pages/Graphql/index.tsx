@@ -106,7 +106,11 @@ const Profile: FC = () => {
   const inputMedia = useRef(null)
   const [
     updateMediaEntry,
-    { data: mutationData, loading: mutationLoading, error: mutationError },
+    {
+      data: mutationData,
+      // loading: mutationLoading,
+      // error: mutationError
+    },
   ] = useMutation(UPDATE_MEDIA)
 
   console.log('mutationData:', mutationData)
