@@ -11,11 +11,9 @@ export const HeaderWrap = styled.div`
   height: 70px;
   padding: 8px 20px;
   border-bottom: 1px solid #e2e2e2;
-`
 
-// ${(props) => props.theme.respondTo.sm`
-//   flex-direction: columns;
-// `}
+  order: 0;
+`
 
 export const NavItem = styled(NavLink).attrs({
   activeClassName,
@@ -29,5 +27,8 @@ export const NavItem = styled(NavLink).attrs({
 
   &.${activeClassName} {
     color: red;
+    padding-bottom: 5px;
+    margin-bottom: -6px;
+    border-bottom: 1px solid red;
   }
 `

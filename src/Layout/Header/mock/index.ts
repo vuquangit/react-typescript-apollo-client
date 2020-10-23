@@ -7,8 +7,8 @@ export const navList = [
   },
   {
     id: 2,
-    label: 'Profile',
-    link: '/profile',
+    label: 'Graphql',
+    link: '/graphql',
     exact: true,
   },
   {

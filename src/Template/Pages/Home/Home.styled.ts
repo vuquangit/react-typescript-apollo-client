@@ -15,6 +15,6 @@ import styled from 'styled-components'
 //     `}
 // `
 
-export const CLickCouterWrap = styled.div`
+export const CLickCounterWrap = styled.div`
   margin: 64px 0;
 `

@@ -1,0 +1,71 @@
+name: Node.js CI
+
+# This workflow is triggered on pushes to the repository
+on: push
+
+env:
+  NODE_VERSION: 14.2
+
+jobs:
+  ci:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{env.NODE_VERSION}}
+
+    # Note: It is not recommended to cache node_modules, as it can break across Node versions and won't work with npm ci
+    - name: Cache node_modules
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: yarn-packages-{{ checksum "yarn.lock" }}
+        restore-keys: yarn-packages-
+
+    # installation and build then run test
+    - name: yarn install
+      run: yarn install
+    
+    - name: build
+      run: yarn build
+
+    - name: test
+      run: yarn test-all
+
+  cd:
+    runs-on: ubuntu-latest
+    needs: ci
+    if: ${{ github.ref == 'refs/heads/master' && success() }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Vercel Deployment
+        uses: xmflsct/action-vercel-deployment@v0.5.3
+        with:
+          vercelToken: ${{ secrets.VERCEL_TOKEN }}
+          vercelOrgId: ${{ secrets.ORG_ID }}
+          vercelProjectId: ${{ secrets.PROJECT_ID }}
+          githubToken: ${{ secrets.VERCEL_GITHUB_TOKEN }}
+          sourceDirectory: "src"
+
+      # Set message env for success or failure
+      - if: ${{ success() }}
+        run: echo "Congratulations on your successful release for production."
+
+      - if: ${{ failure() }}
+        run: echo "Release production failed, Please try again or release manually."
+
+      - if: ${{ cancelled() }}
+        run: echo "Release production cancelled."

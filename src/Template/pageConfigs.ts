@@ -2,7 +2,7 @@ import { RouteProps, RouteComponentProps } from 'react-router-dom'
 import HomePage from './Pages/Home/Loadable'
 import LoginPage from './Pages/Login/Loadable'
 import SignupPage from './Pages/Signup/Loadable'
-import ProfilePage from './Pages/Profile/Loadable'
+import GraphqlPage from './Pages/Graphql/Loadable'
 // import Page404 from "./Pages/Page404/Loadable";
 
 interface IPageConfigs extends RouteProps {
@@ -38,8 +38,8 @@ const pageConfigs: IPageConfigs[] = [
     privatePage: false,
   },
   {
-    path: '/profile',
-    component: ProfilePage,
+    path: '/graphql',
+    component: GraphqlPage,
     exact: true,
     privatePage: true,
   },

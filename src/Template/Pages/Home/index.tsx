@@ -7,7 +7,7 @@ import { increment, decrement, reset } from 'Redux/Clock/Clock.action'
 import { addCount, minusCount } from 'Redux/Counter'
 import { actionTypes as CounterActionTypes } from 'Redux/Counter/actionTypes'
 
-import { CLickCouterWrap } from './Home.styled'
+import { CLickCounterWrap } from './Home.styled'
 import Button from 'Components/Button'
 
 export const incrementAsync = () => ({
@@ -65,7 +65,7 @@ const HomePage: FC = () => {
         <button onClick={() => dispatch(reset())}>Reset</button>
       </div>
 
-      <CLickCouterWrap>
+      <CLickCounterWrap>
         <h2>Click counter:</h2>
         <button onClick={onCounterIncrementAsync} className="button">
           Increment after 1 second
@@ -78,7 +78,7 @@ const HomePage: FC = () => {
         </button>
         <hr />
         <div>Clicked: {clicks} times</div>
-      </CLickCouterWrap>
+      </CLickCounterWrap>
     </DefaultLayout>
   )
 }

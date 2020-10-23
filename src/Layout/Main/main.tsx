@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
+import { MainWrapper } from './Main.styled'
 
 const Main: FC = ({ children }) => {
-  return <main className="container">{children}</main>
+  return <MainWrapper>{children}</MainWrapper>
 }
 
 export default Main
