@@ -128,6 +128,7 @@ const Profile: FC = () => {
 
   // get access token
   const getAccesToken = async () => {
+    // https://anilist.co/api/v2/oauth/null?code=def50200329c48caa49a7bc81e770fcda516290d3d49f94bb84a38f9ecf68589f40171a35d916e985392d3dc2c9296ac25cb3e33097507393c9e05bfdd5cb613249995a9be655a92220db0a2937b35a9033c0cf33429b4ae3448a19d9088f6aaaa578c43c6a3eb166f2c67cf70a1e5d021873366cb90db572a3739c529a7bd9fb9ca852f31985981f057aa527949c8caafda132ced39be5df9abd4ae3007f8bc1ddaef1bc851ed4190a8a73b9edb0fc80f10701a361ef0338ba3e2a71c73e776b088d92bd1665e92a33c147a0ee4befa4996daff74915aed8940a5cba916a1576900f393f77a7a980e003d601cd2e7ea2289b093ce5519f238b05b4ddd4f3b5741caec4e1067ca32786e9723392de8e4eca71854144aa0ac2585fae1fdb3ca1594533e903804ed093a44adf42518fc1a41be5cfadc2a14789c75709ad40feed44f909d6aa5a99cccdb7c0b
     const options: AxiosRequestConfig = {
       url: 'https://anilist.co/api/v2/oauth/token',
       method: 'POST',
@@ -140,7 +141,8 @@ const Profile: FC = () => {
         client_id: '4235',
         client_secret: 'lrNKk35Z8hzIcuy0HRQqrECBgWHLHIgpwa7a76Hk',
         redirect_uri: 'http://localhost:3000/graphql', // http://example.com/callback
-        // 'code': '{code}', // The Authorization Code received previously
+        code:
+          'def50200329c48caa49a7bc81e770fcda516290d3d49f94bb84a38f9ecf68589f40171a35d916e985392d3dc2c9296ac25cb3e33097507393c9e05bfdd5cb613249995a9be655a92220db0a2937b35a9033c0cf33429b4ae3448a19d9088f6aaaa578c43c6a3eb166f2c67cf70a1e5d021873366cb90db572a3739c529a7bd9fb9ca852f31985981f057aa527949c8caafda132ced39be5df9abd4ae3007f8bc1ddaef1bc851ed4190a8a73b9edb0fc80f10701a361ef0338ba3e2a71c73e776b088d92bd1665e92a33c147a0ee4befa4996daff74915aed8940a5cba916a1576900f393f77a7a980e003d601cd2e7ea2289b093ce5519f238b05b4ddd4f3b5741caec4e1067ca32786e9723392de8e4eca71854144aa0ac2585fae1fdb3ca1594533e903804ed093a44adf42518fc1a41be5cfadc2a14789c75709ad40feed44f909d6aa5a99cccdb7c0b', // The Authorization Code received previously
       },
     }
 
@@ -159,7 +161,10 @@ const Profile: FC = () => {
       <br />
 
       <button>
-        <a href="https://anilist.co/api/v2/oauth/authorize?client_id=4235&redirect_uri=https://react-typescript-saga.vercel.app&response_type=code">
+        <a
+          target="blank"
+          href="https://anilist.co/api/v2/oauth/authorize?client_id=4235&response_type=code"
+        >
           Login with AniList
         </a>
       </button>
