@@ -1,18 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
 import * as serviceWorker from './serviceWorker'
 import { Provider } from 'react-redux'
+import { ApolloProvider } from '@apollo/client'
 
+import App from './App'
+import clientConfig from './graphql.config'
 import { initializeStore } from './Redux/store'
 
 const initState: any = {}
 const store = initializeStore(initState)
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <ApolloProvider client={clientConfig}>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </ApolloProvider>,
   document.getElementById('root')
 )
 
