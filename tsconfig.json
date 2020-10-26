@@ -30,5 +30,10 @@
   "include": [
     "src",
     "./extend-expect.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "src/setupTests.ts"
   ]
 }

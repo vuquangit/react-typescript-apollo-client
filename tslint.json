@@ -24,5 +24,13 @@
     "no-submodule-imports": false,
     "ordered-imports": false,
     "no-unexpected-multiline": 0
+  },
+  "linterOptions": {
+    "exclude": [
+      "config/**/*.js",
+      "node_modules/**/*.ts",
+      "coverage/lcov-report/*.js",
+      "build"
+    ]
   }
 }

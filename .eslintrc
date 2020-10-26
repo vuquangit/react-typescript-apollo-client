@@ -8,7 +8,11 @@
       "modules": true,
       "tsx": true
     },
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -26,7 +30,10 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
-    "rootDirs": ["src", "stories"]
+    "rootDirs": [
+      "src",
+      "stories"
+    ]
   },
   "extends": [
     "eslint:recommended",
@@ -34,7 +41,11 @@
     "prettier",
     "plugin:react/recommended"
   ],
-  "plugins": ["react-hooks", "@typescript-eslint", "prettier"],
+  "plugins": [
+    "react-hooks",
+    "@typescript-eslint",
+    "prettier"
+  ],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
@@ -49,16 +60,25 @@
   },
   "overrides": [
     {
-      "files": ["**/*.ts?(x)"],
+      "files": [
+        "**/*.ts?(x)"
+      ],
       "rules": {
         "no-unexpected-multiline": 0
       }
     },
     {
-      "files": ["**/*.styled.ts?(x)"],
+      "files": [
+        "**/*.styled.ts?(x)"
+      ],
       "rules": {
         "@typescript-eslint/explicit-function-return-type": 0
       }
     }
-  ]
+  ],
+  "settings": {
+    "react": {
+      "version": "latest"
+    }
+  }
 }
