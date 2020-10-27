@@ -1,6 +1,7 @@
 import React, { FC, createRef } from 'react'
 import { DefaultLayout } from 'Layout'
 import { useSelector, useDispatch } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 import { IStoreState, RootState } from 'Redux/rootReducer'
 import { increment, decrement, reset } from 'Redux/Clock/Clock.action'
@@ -36,9 +37,28 @@ const HomePage: FC = () => {
     console.log('handle click btn:', buttonRef.current)
   }
 
+  // i18n
+  const { t, i18n } = useTranslation()
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng)
+  }
+
   return (
     <DefaultLayout>
       <div className="home-page">Home page</div>
+      <hr />
+      <br />
+
+      <div> i18n: </div>
+      <span>{t('Welcome to React')}</span>
+      <div style={{ display: 'flex' }}>
+        <div>CHange language: </div>
+        <button onClick={() => changeLanguage('en')}>en</button>
+        <button onClick={() => changeLanguage('vi')}>vi</button>
+      </div>
+      <hr />
+      <br />
+
       <Button disabled>Disable button</Button>
 
       <Button

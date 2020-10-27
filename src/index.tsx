@@ -7,6 +7,7 @@ import { ApolloProvider } from '@apollo/client'
 import App from './App'
 import clientConfig from './graphql.config'
 import { initializeStore } from './Redux/store'
+import 'i18n'
 
 const initState: any = {}
 const store = initializeStore(initState)
