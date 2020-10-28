@@ -11,13 +11,13 @@ export const AppButton = styled.button<BaseButtonProps>`
   ${flexbox};
   ${buttonStyle};
 
-  color: ${prop('theme.colors.white', '#fff')};
+  color: ${prop('theme.textColor', '#fff')};
+  background-color: ${prop('theme.primary', '#000')};
   font-size: ${ifProp(
     { size: 'large' },
     prop('theme.sizes.lg', '20px'),
     prop('theme.sizes.md', '14px')
   )};
-  background-color: ${prop('theme.colors.black', '#000')};
 
   ${switchProp('kind', {
     dark: css`

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import { prop } from 'styled-tools'
 
 export const activeClassName = 'nav-item-active'
 
@@ -7,7 +8,7 @@ export const HeaderWrap = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   height: 70px;
   padding: 8px 20px;
   border-bottom: 1px solid #e2e2e2;
@@ -19,7 +20,7 @@ export const NavItem = styled(NavLink).attrs({
   activeClassName,
 })`
   margin-right: 16px;
-  color: #000;
+  color: ${prop('theme.textColor', '#fff')};
 
   &:last-child {
     margin-right: 0;

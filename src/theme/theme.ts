@@ -21,3 +21,15 @@ const breakpoints: BreakPoint = {
 }
 
 export { breakpoints }
+
+export const darkTheme = {
+  backgroundColor: '#1e1e1e',
+  textColor: '#fff',
+  primary: '#ececec',
+}
+
+export const lightTheme = {
+  backgroundColor: '#fff',
+  textColor: '#000',
+  primary: '#55aacc',
+}

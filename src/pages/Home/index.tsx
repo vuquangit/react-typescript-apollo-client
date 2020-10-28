@@ -3,7 +3,7 @@ import { DefaultLayout } from 'layouts'
 import { useSelector, useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 
-import { IStoreState, RootState } from 'redux/rootReducer'
+import { RootState } from 'redux/rootReducer'
 import { increment, decrement, reset } from 'redux/Clock/Clock.action'
 import { addCount, minusCount } from 'redux/Counter'
 import { actionTypes as CounterActionTypes } from 'redux/Counter/actionTypes'
@@ -16,7 +16,7 @@ export const incrementAsync = () => ({
 })
 
 const HomePage: FC = () => {
-  const count = useSelector((state: IStoreState) => state.clock.count)
+  const count = useSelector((state: RootState) => state.clock.count)
 
   const dispatch = useDispatch()
 
@@ -53,8 +53,8 @@ const HomePage: FC = () => {
       <span>{t('Welcome to React')}</span>
       <div style={{ display: 'flex' }}>
         <div>CHange language: </div>
-        <button onClick={() => changeLanguage('en')}>en</button>
-        <button onClick={() => changeLanguage('vi')}>vi</button>
+        <Button onClick={() => changeLanguage('en')}>en</Button>
+        <Button onClick={() => changeLanguage('vi')}>vi</Button>
       </div>
       <hr />
       <br />

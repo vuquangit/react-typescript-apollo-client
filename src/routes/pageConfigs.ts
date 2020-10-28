@@ -1,9 +1,8 @@
 import { RouteProps, RouteComponentProps } from 'react-router-dom'
-import HomePage from './Pages/Home/Loadable'
-import LoginPage from './Pages/Login/Loadable'
-import SignupPage from './Pages/Signup/Loadable'
-import GraphqlPage from './Pages/GraphqlPage/Loadable'
-// import Page404 from "./Pages/Page404/Loadable";
+import HomePage from '../pages/Home/Loadable'
+import LoginPage from '../pages/Login/Loadable'
+import SignupPage from '../pages/Signup/Loadable'
+import GraphqlPage from '../pages/GraphqlPage/Loadable'
 
 interface IPageConfigs extends RouteProps {
   component:
@@ -19,12 +18,6 @@ const pageConfigs: IPageConfigs[] = [
     exact: true,
     privatePage: false,
   },
-  // {
-  //   path: "/404",
-  //   component: Page404,
-  //   exact: true,
-  //   privatePage: false,
-  // },
   {
     path: '/login',
     component: LoginPage,

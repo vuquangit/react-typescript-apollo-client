@@ -5,8 +5,8 @@ exports[`Button disable btn 1`] = `
   width: medium;
   height: medium;
   color: #fff;
-  font-size: 14px;
   background-color: #000;
+  font-size: 14px;
   background-color: #999;
   border-color: #999;
   pointer-events: none;
@@ -62,8 +62,8 @@ exports[`Button primary large btn 1`] = `
   width: large;
   height: large;
   color: #fff;
-  font-size: 20px;
   background-color: #000;
+  font-size: 20px;
 }
 
 <Button

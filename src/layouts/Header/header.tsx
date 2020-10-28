@@ -3,6 +3,7 @@ import React, { FC } from 'react'
 import { HeaderWrap, NavItem, activeClassName } from './Header.styled'
 import { INavList } from './Home.types'
 import { navList } from './mock'
+import SwitchTheme from 'components/SwitchTheme'
 
 const Header: FC = () => {
   const navListRender = navList.map((item: INavList) => (
@@ -18,7 +19,10 @@ const Header: FC = () => {
 
   return (
     <header>
-      <HeaderWrap>{navListRender}</HeaderWrap>
+      <HeaderWrap>
+        <div>{navListRender}</div>
+        <SwitchTheme />
+      </HeaderWrap>
     </header>
   )
 }
