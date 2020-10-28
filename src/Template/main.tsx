@@ -1,9 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import PrivateRoute from 'Containers/PrivateRoute'
+import PrivateRoute from 'containers/PrivateRoute'
 import pageConfigs from './pageConfigs'
-import Page404 from 'Template/Pages/Page404/Loadable'
+import Page404 from 'template/Pages/Page404/Loadable'
 
 const Main = () => {
   const _renderPage = () =>

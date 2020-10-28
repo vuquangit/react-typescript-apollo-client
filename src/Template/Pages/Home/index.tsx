@@ -1,15 +1,15 @@
 import React, { FC, createRef } from 'react'
-import { DefaultLayout } from 'Layout'
+import { DefaultLayout } from 'layouts'
 import { useSelector, useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 
-import { IStoreState, RootState } from 'Redux/rootReducer'
-import { increment, decrement, reset } from 'Redux/Clock/Clock.action'
-import { addCount, minusCount } from 'Redux/Counter'
-import { actionTypes as CounterActionTypes } from 'Redux/Counter/actionTypes'
+import { IStoreState, RootState } from 'redux/rootReducer'
+import { increment, decrement, reset } from 'redux/Clock/Clock.action'
+import { addCount, minusCount } from 'redux/Counter'
+import { actionTypes as CounterActionTypes } from 'redux/Counter/actionTypes'
 
 import { CLickCounterWrap } from './Home.styled'
-import Button from 'Components/Button'
+import Button from 'components/Button'
 
 export const incrementAsync = () => ({
   type: CounterActionTypes.INCREMENT_ASYNC,

@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { DefaultLayout } from 'Layout'
+import { DefaultLayout } from 'layouts'
 
 const Signup: FC = () => {
   return (

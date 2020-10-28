@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { DefaultLayout } from 'Layout'
+import { DefaultLayout } from 'layouts'
 import { Page404Wrapper } from './Page404.styled'
 
 const Page404: FC = () => {

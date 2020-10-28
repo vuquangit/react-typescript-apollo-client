@@ -1,11 +1,11 @@
 import React, { FC, useRef, useState } from 'react'
-import { DefaultLayout } from 'Layout'
+import { DefaultLayout } from 'layouts'
 import { useQuery, useMutation } from '@apollo/client'
 import { get } from 'lodash'
 import axios, { AxiosRequestConfig } from 'axios'
 
-import { GET_MEDIA, GET_PAGE_INFO } from 'Graphql/queries'
-import { UPDATE_MEDIA } from 'Graphql/mutations'
+import { GET_MEDIA, GET_PAGE_INFO } from 'graphql/queries'
+import { UPDATE_MEDIA } from 'graphql/mutations'
 
 const GraphqlPage: FC = () => {
   const {

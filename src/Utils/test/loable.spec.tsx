@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import loadable from 'Utils/loadable'
+import loadable from 'utils/loadable'
 
 const LoadingIndicator = () => <div>Loading</div>
 

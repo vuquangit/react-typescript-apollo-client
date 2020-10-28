@@ -1,14 +1,14 @@
 import React, { FC } from 'react'
 import { withRouter } from 'react-router'
-import { DefaultLayout } from 'Layout'
+import { DefaultLayout } from 'layouts'
 
 type Props = {
   history: any
 }
 
 const Login: FC<Props> = ({ history = {} }) => {
-  console.log('history', history);
-  
+  console.log('history', history)
+
   return (
     <DefaultLayout>
       <div className="login">Login</div>
