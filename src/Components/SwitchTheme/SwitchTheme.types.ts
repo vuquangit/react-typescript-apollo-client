@@ -1,14 +1,13 @@
-export interface BaseSwitchLight {
-  isLightMode: boolean
-}
+import { ReactHTMLElement } from 'react'
 
-export interface BaseSwitchDark {
-  isDarkMode: boolean
+interface IThemeMode {
+  themeMode: 'light' | 'dark'
 }
+export declare type BaseSwitchLight = IThemeMode
 
-export interface BaseSwitchToggleThumb {
-  checked: boolean
-}
+export declare type BaseSwitchDark = IThemeMode
+
+export declare type BaseSwitchToggleThumb = IThemeMode
 
 export declare type BaseSwitchScreenReader = React.InputHTMLAttributes<
   HTMLInputElement

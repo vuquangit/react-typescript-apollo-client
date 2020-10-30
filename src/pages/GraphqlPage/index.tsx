@@ -4,6 +4,7 @@ import { useQuery, useMutation } from '@apollo/client'
 import { get } from 'lodash'
 import axios, { AxiosRequestConfig } from 'axios'
 
+import Container from 'components/Container'
 import { GET_MEDIA, GET_PAGE_INFO } from 'graphql/queries'
 import { UPDATE_MEDIA } from 'graphql/mutations'
 
@@ -101,66 +102,68 @@ const GraphqlPage: FC = () => {
 
   return (
     <DefaultLayout>
-      <h1 className="profile">GRAPHQL</h1>
-      <br />
+      <Container>
+        <h1 className="profile">GRAPHQL</h1>
+        <br />
 
-      <button>
-        {/* <a
+        <button>
+          {/* <a
           target="blank"
           href={`https://anilist.co/api/v2/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`}
         >
           Login with AniList
         </a> */}
-        <a
-          href={`https://anilist.co/api/v2/oauth/authorize?client_id=${clientId}&response_type=token`}
-        >
-          Login with AniList
-        </a>
-      </button>
-      <br />
-      <br />
+          <a
+            href={`https://anilist.co/api/v2/oauth/authorize?client_id=${clientId}&response_type=token`}
+          >
+            Login with AniList
+          </a>
+        </button>
+        <br />
+        <br />
 
-      <button onClick={getAccesToken}>GET ACCESS TOKEN</button>
-      <hr />
-      <br />
-
-      <div>
-        <h2>Media:</h2>
-        {mediaLoading && <div>Media is loading</div>}
-        {mediaData && (
-          <div>
-            <div>id: {mediaData.Media.id}</div>
-            <div>Status: {mediaData.Media.status}</div>
-            <div>Title</div>
-            <div>English: {mediaData.Media.title.english}</div>
-            <div>Native: {mediaData.Media.title.native}</div>
-            <div>Romaji: {mediaData.Media.title.romaji}</div>
-          </div>
-        )}
-        {mediaError && <div>Media is error</div>}
-        <button onClick={() => mediaRefetch()}>Refetch media!</button>
+        <button onClick={getAccesToken}>GET ACCESS TOKEN</button>
         <hr />
         <br />
-      </div>
 
-      <div>
-        <h2>Pagination:</h2>
-        {pageInfoLoading && <div>Page is loading</div>}
         <div>
-          Page lenght: {pageInfoData ? pageInfoData.Page.media.length : 0}{' '}
+          <h2>Media:</h2>
+          {mediaLoading && <div>Media is loading</div>}
+          {mediaData && (
+            <div>
+              <div>id: {mediaData.Media.id}</div>
+              <div>Status: {mediaData.Media.status}</div>
+              <div>Title</div>
+              <div>English: {mediaData.Media.title.english}</div>
+              <div>Native: {mediaData.Media.title.native}</div>
+              <div>Romaji: {mediaData.Media.title.romaji}</div>
+            </div>
+          )}
+          {mediaError && <div>Media is error</div>}
+          <button onClick={() => mediaRefetch()}>Refetch media!</button>
+          <hr />
+          <br />
         </div>
-        {pageInfoError && <div>Error: {pageInfoError}</div>}
-        <button onClick={onLoadMorePage}>fetch more</button>
-      </div>
 
-      <hr />
-      <div>
-        <h2>Mutation:</h2>
-        <form onSubmit={(e) => onUpdateMedia(e)}>
-          <input ref={inputMedia} />
-          <button type="submit">Add Todo</button>
-        </form>
-      </div>
+        <div>
+          <h2>Pagination:</h2>
+          {pageInfoLoading && <div>Page is loading</div>}
+          <div>
+            Page lenght: {pageInfoData ? pageInfoData.Page.media.length : 0}{' '}
+          </div>
+          {pageInfoError && <div>Error: {pageInfoError}</div>}
+          <button onClick={onLoadMorePage}>fetch more</button>
+        </div>
+
+        <hr />
+        <div>
+          <h2>Mutation:</h2>
+          <form onSubmit={(e) => onUpdateMedia(e)}>
+            <input ref={inputMedia} />
+            <button type="submit">Add Todo</button>
+          </form>
+        </div>
+      </Container>
     </DefaultLayout>
   )
 }

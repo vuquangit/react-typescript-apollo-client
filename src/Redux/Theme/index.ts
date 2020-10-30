@@ -1,30 +1,28 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import get from 'lodash/get'
-
-import { darkTheme } from 'theme/theme'
-
-const isDarkModeLocal = window.localStorage.getItem('theme.isDarkMode')
-
 type ThemeState = {
-  theme: any
-  isDarkMode: boolean
+  themeMode: 'light' | 'dark'
 }
 
+const themeModeLocal =
+  window.localStorage.getItem('theme.themeMode') === 'light' ? 'light' : 'dark'
+
 const initialState: ThemeState = {
-  theme: darkTheme,
-  isDarkMode: isDarkModeLocal === 'true',
+  themeMode: themeModeLocal,
 }
 
 const theme = createSlice({
   name: 'theme',
   initialState,
   reducers: {
-    applyTheme(state, action: PayloadAction<any>) {
-      state.theme = { ...get(action, 'payload', {}) }
-      state.isDarkMode = !state.isDarkMode
+    applyTheme(state, action: PayloadAction<'light' | 'dark'>) {
+      state.themeMode = get(action, 'payload', state.themeMode)
 
       // save to local
-      window.localStorage.setItem('theme.isDarkMode', `${state.isDarkMode}`)
+      window.localStorage.setItem(
+        'theme.themeMode',
+        JSON.stringify(state.themeMode)
+      )
     },
   },
 })

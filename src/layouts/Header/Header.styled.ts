@@ -4,14 +4,17 @@ import { prop } from 'styled-tools'
 
 export const activeClassName = 'nav-item-active'
 
-export const HeaderWrap = styled.div`
+export const HeaderWrapper = styled.header`
+  border-bottom: 1px solid #e2e2e2;
+`
+
+export const HeaderContent = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   height: 70px;
   padding: 8px 20px;
-  border-bottom: 1px solid #e2e2e2;
 
   order: 0;
 `

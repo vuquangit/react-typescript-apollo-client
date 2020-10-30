@@ -1,9 +1,15 @@
 import React, { FC } from 'react'
 
-import { HeaderWrap, NavItem, activeClassName } from './Header.styled'
+import {
+  HeaderWrapper,
+  HeaderContent,
+  NavItem,
+  activeClassName,
+} from './Header.styled'
 import { INavList } from './Home.types'
 import { navList } from './mock'
 import SwitchTheme from 'components/SwitchTheme'
+import Container from 'components/Container'
 
 const Header: FC = () => {
   const navListRender = navList.map((item: INavList) => (
@@ -18,12 +24,14 @@ const Header: FC = () => {
   ))
 
   return (
-    <header>
-      <HeaderWrap>
-        <div>{navListRender}</div>
-        <SwitchTheme />
-      </HeaderWrap>
-    </header>
+    <HeaderWrapper>
+      <Container>
+        <HeaderContent>
+          <div>{navListRender}</div>
+          <SwitchTheme />
+        </HeaderContent>
+      </Container>
+    </HeaderWrapper>
   )
 }
 

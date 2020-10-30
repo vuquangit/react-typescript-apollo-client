@@ -10,6 +10,7 @@ import { actionTypes as CounterActionTypes } from 'redux/Counter/actionTypes'
 
 import { CLickCounterWrap } from './Home.styled'
 import Button from 'components/Button'
+import Container from 'components/Container'
 
 export const incrementAsync = () => ({
   type: CounterActionTypes.INCREMENT_ASYNC,
@@ -45,60 +46,62 @@ const HomePage: FC = () => {
 
   return (
     <DefaultLayout>
-      <div className="home-page">Home page</div>
-      <hr />
-      <br />
-
-      <div> i18n: </div>
-      <span>{t('Welcome to React')}</span>
-      <div style={{ display: 'flex' }}>
-        <div>CHange language: </div>
-        <Button onClick={() => changeLanguage('en')}>en</Button>
-        <Button onClick={() => changeLanguage('vi')}>vi</Button>
-      </div>
-      <hr />
-      <br />
-
-      <Button disabled>Disable button</Button>
-
-      <Button
-        ref={buttonRef}
-        onClick={handleClick}
-        size="large"
-        width={[1, 1 / 2, 1 / 4]}
-        theme={{ kind: 'darker' }}
-        mt={12}
-        m={[0, 1, 2]}
-        variant="large"
-      >
-        Theme button
-      </Button>
-
-      <Button theme={{ kind: 'darkest' }}>darker</Button>
-
-      <div>
-        <h2>
-          Clock Count: <span>{count}</span>
-        </h2>
-        <button onClick={() => dispatch(increment())}>+1</button>
-        <button onClick={() => dispatch(decrement())}>-1</button>
-        <button onClick={() => dispatch(reset())}>Reset</button>
-      </div>
-
-      <CLickCounterWrap>
-        <h2>Click counter:</h2>
-        <button onClick={onCounterIncrementAsync} className="button">
-          Increment after 1 second
-        </button>{' '}
-        <button onClick={onCounterIncrement} className="button">
-          + Increment
-        </button>{' '}
-        <button onClick={onCounterDecrement} className="button">
-          - Decrement
-        </button>
+      <Container>
+        <div className="home-page">Home page</div>
         <hr />
-        <div>Clicked: {clicks} times</div>
-      </CLickCounterWrap>
+        <br />
+
+        <div> i18n: </div>
+        <span>{t('Welcome to React')}</span>
+        <div style={{ display: 'flex' }}>
+          <div>CHange language: </div>
+          <Button onClick={() => changeLanguage('en')}>en</Button>
+          <Button onClick={() => changeLanguage('vi')}>vi</Button>
+        </div>
+        <hr />
+        <br />
+
+        <Button disabled>Disable button</Button>
+
+        <Button
+          ref={buttonRef}
+          onClick={handleClick}
+          size="large"
+          width={[1, 1 / 2, 1 / 4]}
+          theme={{ kind: 'darker' }}
+          mt={12}
+          m={[0, 1, 2]}
+          variant="large"
+        >
+          Theme button
+        </Button>
+
+        <Button theme={{ kind: 'darkest' }}>darker</Button>
+
+        <div>
+          <h2>
+            Clock Count: <span>{count}</span>
+          </h2>
+          <button onClick={() => dispatch(increment())}>+1</button>
+          <button onClick={() => dispatch(decrement())}>-1</button>
+          <button onClick={() => dispatch(reset())}>Reset</button>
+        </div>
+
+        <CLickCounterWrap>
+          <h2>Click counter:</h2>
+          <button onClick={onCounterIncrementAsync} className="button">
+            Increment after 1 second
+          </button>{' '}
+          <button onClick={onCounterIncrement} className="button">
+            + Increment
+          </button>{' '}
+          <button onClick={onCounterDecrement} className="button">
+            - Decrement
+          </button>
+          <hr />
+          <div>Clicked: {clicks} times</div>
+        </CLickCounterWrap>
+      </Container>
     </DefaultLayout>
   )
 }

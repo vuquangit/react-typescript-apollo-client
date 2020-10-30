@@ -8,12 +8,15 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    background: ${(props: any) => props.theme.backgroundColor};
+    background-color: ${(props: any) => props.theme.backgroundColor};
     color: ${(props: any) => props.theme.textColor};
     font-weight: 400;
     line-height: 1.5;
     font-family: Open-Sans, Helvetica, Sans-Serif;
-    transition: all 0.3s linear;
+
+    transition-property: background-color, color;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
   }
 
   a {

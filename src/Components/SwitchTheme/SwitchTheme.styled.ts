@@ -34,7 +34,7 @@ export const SwitchTrackLight = styled('div')<BaseSwitchLight>`
   margin-bottom: auto;
   line-height: 0;
   left: 8px;
-  opacity: ${ifProp({ isLightMode: true }, 1, 0)};
+  opacity: ${ifProp({ themeMode: 'light' }, 1, 0)};
   transition: opacity 0.25s ease;
 `
 
@@ -48,11 +48,11 @@ export const SwitchTrackDark = styled('div')<BaseSwitchDark>`
   margin-bottom: auto;
   line-height: 0;
   right: 10px;
-  opacity: ${ifProp({ isDarkMode: true }, 1, 0)};
+  opacity: ${ifProp({ themeMode: 'dark' }, 1, 0)};
   transition: opacity 0.25s ease;
 `
 
-export const SwitchToggleContent = styled('span')`
+export const SwitchToggleContent = styled('div')`
   align-items: center;
   display: flex;
   height: 10px;
@@ -65,7 +65,7 @@ export const SwitchToggleThumb = styled('div')<BaseSwitchToggleThumb>`
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
   position: absolute;
   top: 1px;
-  left: ${ifProp({ checked: true }, '1px', '27px')};
+  left: ${ifProp({ themeMode: 'dark' }, '1px', '27px')};
   width: 22px;
   height: 22px;
   border: 1px solid #4d4d4d;

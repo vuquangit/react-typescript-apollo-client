@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { prop, ifProp, switchProp } from 'styled-tools'
 
 import { space, layout, flexbox, buttonStyle } from 'styled-system'
-import { primaryPalette /*, COLOR  */ } from 'theme/colors'
+import { primaryPalette /*, COLOR  */ } from 'themes/colors'
 import { BaseButtonProps } from './Button.types'
 
 export const AppButton = styled.button<BaseButtonProps>`

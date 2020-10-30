@@ -1,14 +1,22 @@
-import React, { FC } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { useSelector } from 'react-redux'
 import isEqual from 'lodash/isEqual'
 
-import GlobalStyle from 'theme/globalStyles'
-import Main from './routes/main'
+import GlobalStyle from 'themes/globalStyles'
+import Main from 'routes/main'
 import { RootState } from 'redux/rootReducer'
+import { darkTheme, lightTheme } from 'themes/theme'
 
 const App: FC = () => {
-  const theme = useSelector((state: RootState) => state.theme.theme, isEqual)
+  const themeMode = useSelector(
+    (state: RootState) => state.theme.themeMode,
+    isEqual
+  )
+  const [theme, setTheme] = useState<any>(lightTheme)
+  useEffect(() => {
+    themeMode === 'light' ? setTheme(lightTheme) : setTheme(darkTheme)
+  }, [themeMode])
 
   return (
     <ThemeProvider theme={theme}>

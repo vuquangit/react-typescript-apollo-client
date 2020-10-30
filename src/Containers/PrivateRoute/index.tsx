@@ -27,6 +27,7 @@ interface TPrivateRoute extends RouteProps {
 }
 
 const PrivateRoute: FC<TPrivateRoute> = ({ component: Component, ...rest }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const profile = useSelector(
     (state = {}) => get(state, 'profile', {}),
     isEqual
@@ -34,7 +35,8 @@ const PrivateRoute: FC<TPrivateRoute> = ({ component: Component, ...rest }) => {
   // const isAuthenticated = !isEmpty(profile.data);
   const isAuthenticated = true
 
-  const isLoading = get(profile, 'isFetching', false)
+  // const isLoading = get(profile, 'isFetching', false)
+  const isLoading = false
 
   return !isLoading ? (
     <Route
@@ -48,7 +50,7 @@ const PrivateRoute: FC<TPrivateRoute> = ({ component: Component, ...rest }) => {
       }
     />
   ) : (
-    <Loading />
+    <Loading size={36} />
   )
 }
 
