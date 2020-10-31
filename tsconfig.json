@@ -29,7 +29,7 @@
   },
   "include": [
     "src",
-    "./extend-expect.d.ts"
+    "./extend-expect.d.ts", "public/service-worker.js"
   ],
   "exclude": [
     "node_modules",

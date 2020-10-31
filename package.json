@@ -29,7 +29,8 @@
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "sw": "cat public/service-worker.js >> build/service-worker.js",
+    "build": "rm -rf build/ && react-scripts build && npm run-script sw",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "type-check": "tsc --pretty --noEmit",

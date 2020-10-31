@@ -26,7 +26,9 @@ type Config = {
 }
 
 export function register(config?: Config) {
-  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+  if (
+    /* process.env.NODE_ENV === 'production' && */ 'serviceWorker' in navigator
+  ) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href)
     if (publicUrl.origin !== window.location.origin) {
@@ -143,4 +145,41 @@ export function unregister() {
         console.error(error.message)
       })
   }
+}
+
+// notifications
+const pushServerPublicKey =
+  'BIN2Jc5Vmkmy-S3AUrcMlpKxJpLeVRAfu9WBqUbJ70SJOCWGCGXKY-Xzyh7HDr6KbRDGYHjqZ06OcS3BjD7uAm8'
+
+export async function askUserPermission(): Promise<NotificationPermission> {
+  return await Notification.requestPermission()
+}
+
+export async function createNotificationSubscription(): Promise<
+  PushSubscription
+> {
+  //wait for service worker installation to be ready
+
+  const serviceWorker = await navigator.serviceWorker.ready
+
+  // subscribe and return the subscription
+  return await serviceWorker.pushManager.subscribe({
+    userVisibleOnly: true,
+    applicationServerKey: pushServerPublicKey,
+  })
+}
+
+export function getUserSubscription(): Promise<PushSubscription | null> {
+  //wait for service worker installation to be ready, and then
+  return navigator.serviceWorker.ready
+    .then(function (serviceWorker) {
+      return serviceWorker.pushManager.getSubscription()
+    })
+    .then(function (pushSubscription) {
+      return pushSubscription
+    })
+}
+
+export const isPushNotificationSupported = (): boolean => {
+  return 'serviceWorker' in navigator && 'PushManager' in window
 }

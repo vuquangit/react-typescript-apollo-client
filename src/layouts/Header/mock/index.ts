@@ -23,4 +23,10 @@ export const navList = [
     link: '/signup',
     exact: true,
   },
+  {
+    id: 5,
+    label: 'Notification',
+    link: '/notification',
+    exact: true,
+  },
 ]
