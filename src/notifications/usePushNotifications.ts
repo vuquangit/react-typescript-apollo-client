@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import * as serviceWorker from '../serviceWorker'
 
-const API_ENDPOINT = 'http://localhost:4000'
+const API_ENDPOINT = 'https://push-notification-nodejs.herokuapp.com'
 
 const pushNotificationSupported = serviceWorker.isPushNotificationSupported()
 // check push notifications are supported by the browser
