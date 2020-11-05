@@ -10,7 +10,7 @@ import { ThemeProvider } from 'styled-components'
 import { Provider } from 'react-redux'
 
 import SwitchTheme from '..'
-import { initializeStore } from 'redux/store'
+import { initializeStore } from 'stores/store'
 import GlobalStyle from 'themes/globalStyles'
 import { lightTheme } from 'themes/theme'
 

@@ -1,4 +1,4 @@
-import { combineReducers } from '@reduxjs/toolkit'
+import { combineReducers } from 'redux'
 
 import profileReducer from './Profile/Profile.reducer'
 import clockReducer from './Clock/Clock.reducer'

@@ -5,8 +5,8 @@ import { get } from 'lodash'
 import axios, { AxiosRequestConfig } from 'axios'
 
 import Container from 'components/Container'
-import { GET_MEDIA, GET_PAGE_INFO } from 'graphql/queries'
-import { UPDATE_MEDIA } from 'graphql/mutations'
+import { GET_MEDIA, GET_PAGE_INFO } from 'graphqlQuery/queries'
+import { UPDATE_MEDIA } from 'graphqlQuery/mutations'
 
 const GraphqlPage: FC = () => {
   const {
@@ -107,12 +107,6 @@ const GraphqlPage: FC = () => {
         <br />
 
         <button>
-          {/* <a
-          target="blank"
-          href={`https://anilist.co/api/v2/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`}
-        >
-          Login with AniList
-        </a> */}
           <a
             href={`https://anilist.co/api/v2/oauth/authorize?client_id=${clientId}&response_type=token`}
           >
@@ -125,7 +119,6 @@ const GraphqlPage: FC = () => {
         <button onClick={getAccesToken}>GET ACCESS TOKEN</button>
         <hr />
         <br />
-
         <div>
           <h2>Media:</h2>
           {mediaLoading && <div>Media is loading</div>}
@@ -145,6 +138,7 @@ const GraphqlPage: FC = () => {
           <br />
         </div>
 
+        {/*
         <div>
           <h2>Pagination:</h2>
           {pageInfoLoading && <div>Page is loading</div>}
@@ -162,7 +156,7 @@ const GraphqlPage: FC = () => {
             <input ref={inputMedia} />
             <button type="submit">Add Todo</button>
           </form>
-        </div>
+        </div> */}
       </Container>
     </DefaultLayout>
   )

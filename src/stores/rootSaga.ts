@@ -1,4 +1,4 @@
-import { all, fork } from 'redux-saga/effects'
+import { all, fork } from '@redux-saga/core/effects'
 import ClockSaga from './Clock/Clock.saga'
 import CounterSaga from './Counter/Counter.saga'
 
