@@ -27,5 +27,5 @@ module.exports = merge(common, {
     new webpack.HotModuleReplacementPlugin(),
   ],
 
-  watch: true
+  watch: true,
 })
