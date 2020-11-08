@@ -1,19 +1,39 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const paths = require('./paths')
-// const path = require('path')
+'use strict'
 
+const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const paths = require('./paths')
+
 module.exports = {
+  // context: resolve(__dirname, 'src'),
+
   // Where webpack looks to start building the bundle
-  entry: [paths.src + '/index.tsx'],
+  entry: [
+    // activate HMR for React
+    'react-hot-loader/patch',
+
+    // bundle the client for webpack dev server
+    // and connect to the provided endpoint
+    'webpack-dev-server/client',
+
+    // bundle the client for hot reloading
+    // only- means to only hot reload for successful updates
+    'webpack/hot/only-dev-server',
+
+    // the entry point of our app
+    path.join(paths.src, '/index.tsx'),
+  ],
 
   // Where webpack outputs the assets and bundles
   output: {
     path: paths.build,
     filename: '[name].bundle.js',
+
+    // necessary for HMR to know where to load the hot update chunks
     publicPath: '/',
   },
 

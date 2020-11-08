@@ -3,19 +3,33 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { ApolloProvider } from '@apollo/client'
 
+// AppContainer is a necessary wrapper component for HMR
+import { AppContainer } from 'react-hot-loader'
+
 import App from './App'
 import clientConfig from './graphql.config'
 import { initializeStore } from 'stores/store'
 import 'i18n'
 
-const initState: any = {}
-const store = initializeStore(initState)
+const render = () => {
+  const initState: any = {}
+  const store = initializeStore(initState)
 
-ReactDOM.render(
-  <ApolloProvider client={clientConfig}>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </ApolloProvider>,
-  document.getElementById('root')
-)
+  ReactDOM.render(
+    <AppContainer>
+      <ApolloProvider client={clientConfig}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </ApolloProvider>
+    </AppContainer>,
+    document.getElementById('root')
+  )
+}
+
+render()
+
+// Hot Module Replacement API
+if (module.hot) {
+  module.hot.accept('./App', render)
+}
