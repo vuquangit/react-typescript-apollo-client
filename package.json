@@ -31,8 +31,8 @@
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "service-worker": "cat public/service-worker.js >> build/service-worker.js",
-    "dev": "webpack serve --progress --env dev --config webpack.dev.js",
-    "build": "webpack --progress --env prod --config webpack.prod.js && npm run service-worker",
+    "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "type-check": "tsc --pretty --noEmit",
@@ -118,6 +118,7 @@
     "jest-styled-components": "^7.0.3",
     "lint-staged": "^10.4.2",
     "mini-css-extract-plugin": "^1.2.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
     "prettier": "^2.1.2",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-is": "^17.0.0",

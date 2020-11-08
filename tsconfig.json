@@ -31,7 +31,7 @@
     "src",
     "./extend-expect.d.ts",
     // "src/graphql.d.ts",
-    "public/service-worker.js"
+    // "public/service-worker.js"
   ],
   "exclude": [
     "node_modules",
