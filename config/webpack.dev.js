@@ -12,9 +12,6 @@ module.exports = merge(common('development'), {
   // Set the mode to development or production
   mode: 'development',
 
-  // Control how source maps are generated
-  devtool: 'inline-source-map',
-
   output: {
     // The build folder.
     path: undefined,
@@ -48,6 +45,4 @@ module.exports = merge(common('development'), {
     // run TSC on a separate thread
     new ForkTsCheckerWebpackPlugin(),
   ],
-
-  // watch: true,
 })

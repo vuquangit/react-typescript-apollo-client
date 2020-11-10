@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-'use strict';
+'use strict'
 
 const path = require('path')
 const paths = require('./paths')
@@ -16,7 +16,6 @@ const isEnvProductionProfile = process.argv.includes('--profile')
 
 module.exports = merge(common('production'), {
   mode: 'production',
-  devtool: false,
 
   output: {
     // The build folder.
@@ -44,7 +43,7 @@ module.exports = merge(common('production'), {
 
     // // this defaults to 'window', but by setting it to 'this' then
     // // module chunks which are built will work in web workers as well.
-    globalObject: 'this',
+    // globalObject: 'this',
   },
 
   plugins: [
@@ -55,7 +54,7 @@ module.exports = merge(common('production'), {
       chunkFilename: '[id].css',
     }),
 
-        // Generate an asset manifest file with the following content:
+    // Generate an asset manifest file with the following content:
     // - "files" key: Mapping of all asset filenames to their corresponding
     //   output file so that tools can pick it up without having to parse
     //   `index.html`
@@ -64,7 +63,6 @@ module.exports = merge(common('production'), {
     new ManifestPlugin({
       fileName: 'asset-manifest.json',
       publicPath: paths.publicUrlOrPath,
-      // seed: { assets: {}, brands: {} },
       generate: (seed, files, entrypoints) => {
         const manifestFiles = files.reduce((manifest, file) => {
           manifest[file.name] = file.path
@@ -81,6 +79,7 @@ module.exports = merge(common('production'), {
       },
     }),
   ],
+
   module: {
     rules: [
       {
@@ -105,7 +104,7 @@ module.exports = merge(common('production'), {
     minimize: true,
     minimizer: [
       new OptimizeCssAssetsPlugin(),
-      // new JsonMinimizerPlugin(),
+      new JsonMinimizerPlugin(),
       // This is only used in production mode
       new TerserPlugin({
         terserOptions: {
@@ -150,16 +149,12 @@ module.exports = merge(common('production'), {
     ],
 
     // Automatically split vendor and commons
-    // https://twitter.com/wSokra/status/969633336732905474
-    // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
     splitChunks: {
       chunks: 'all',
       name: false,
     },
 
     // Keep the runtime chunk separated to enable long term caching
-    // https://twitter.com/wSokra/status/969679223278505985
-    // https://github.com/facebook/create-react-app/issues/5358
     runtimeChunk: {
       name: (entrypoint) => `runtime-${entrypoint.name}`,
     },
