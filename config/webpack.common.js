@@ -7,6 +7,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin')
+const getClientEnvironment = require('./env')
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false'
@@ -14,6 +15,12 @@ const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false'
 module.exports = function (webpackEnv) {
   const isEnvDevelopment = webpackEnv === 'development'
   const isEnvProduction = webpackEnv === 'production'
+
+  // We will provide `paths.publicUrlOrPath` to our app
+  // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
+  // Omit trailing slash as %PUBLIC_URL%/xyz looks better than %PUBLIC_URL%xyz.
+  // Get environment variables to inject into our app.
+  const env = getClientEnvironment(paths.publicUrlOrPath.slice(0, -1))
 
   console.log(
     'isEnvDevelopment:',
@@ -108,6 +115,17 @@ module.exports = function (webpackEnv) {
       // solution that requires the user to opt into importing specific locales.
       // You can remove this if you don't use Moment.js:
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+
+      // Makes some environment variables available to the JS code, for example:
+      // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
+      // It is absolutely essential that NODE_ENV is set to production
+      // during a production build.
+      // Otherwise React will be compiled in the very slow development mode.
+      // new webpack.DefinePlugin({
+      //   'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
+      //   'process.env.APP_VERSION': JSON.stringify(process.env.APP_VERSION || 'dev'),
+      // }),
+      new webpack.DefinePlugin(env.stringified),
     ],
 
     // Determine how modules within the project are treated

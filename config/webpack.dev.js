@@ -8,6 +8,8 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const common = require('./webpack.common.js')
 const paths = require('./paths')
 
+// process.env.NODE_ENV = 'development';
+
 module.exports = merge(common('development'), {
   // Set the mode to development or production
   mode: 'development',

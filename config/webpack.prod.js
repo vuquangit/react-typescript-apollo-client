@@ -2,17 +2,18 @@
 'use strict'
 
 const path = require('path')
-const paths = require('./paths')
 const { merge } = require('webpack-merge')
-const common = require('./webpack.common.js')
-
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 
+const paths = require('./paths')
+const common = require('./webpack.common.js')
 const isEnvProductionProfile = process.argv.includes('--profile')
+
+// process.env.APP_VERSION = Math.round(new Date().getTime() / 1000).toString();
 
 module.exports = merge(common('production'), {
   mode: 'production',
