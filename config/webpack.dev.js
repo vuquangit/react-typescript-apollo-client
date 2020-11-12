@@ -16,7 +16,7 @@ module.exports = merge(common('development'), {
 
   output: {
     // The build folder.
-    path: undefined,
+    path: paths.appBuild,
     // Add /* filename */ comments to generated require()s in the output.
     pathinfo: true,
     // There will be one main bundle, and one file per asynchronous chunk.

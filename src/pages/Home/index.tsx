@@ -11,6 +11,8 @@ import { actionTypes as CounterActionTypes } from 'stores/Counter/actionTypes'
 import { CLickCounterWrap } from './Home.styled'
 import Button from 'components/Button'
 import Container from 'components/Container'
+import mockData from './mockData.json'
+import imageHome from 'assets/images/img_1.jpg'
 
 export const incrementAsync = () => ({
   type: CounterActionTypes.INCREMENT_ASYNC,
@@ -44,12 +46,17 @@ const HomePage: FC = () => {
     i18n.changeLanguage(lng)
   }
 
+  console.log(mockData)
+
   return (
     <DefaultLayout>
       <Container>
-        <div className="home-page">Home page</div>
+        <div className="home-page">Home page: {mockData.text}</div>
         <hr />
         <br />
+
+        <img src="assets/images/img_1.jpg" alt="image alt" />
+        <img src={imageHome} alt="image alt" />
 
         <div> i18n: </div>
         <span>{t('Welcome to React')}</span>

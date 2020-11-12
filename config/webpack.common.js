@@ -168,7 +168,20 @@ module.exports = function (webpackEnv) {
         },
 
         // Images: Copy image files to build folder
-        { test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource' },
+        {
+          test: /\.(?:ico|gif|png|jpg|jpeg|bmp)$/i,
+          loader: require.resolve('file-loader'),
+          options: {
+            name(resourcePath, resourceQuery) {
+              // if (process.env.NODE_ENV === 'development') {
+              //   return 'assets/images/[name].[ext]';
+              // }
+              // return 'assets/images/[name].[hash:8].[ext]';
+
+              return 'assets/images/[name].[ext]';
+            },
+          },
+        },
 
         // Fonts and SVGs: Inline files
         { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline' },
