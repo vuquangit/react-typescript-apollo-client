@@ -10,7 +10,8 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin')
 const getClientEnvironment = require('./env')
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
-const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false'
+// const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false'
+const shouldUseSourceMap = false
 
 module.exports = function (webpackEnv) {
   const isEnvDevelopment = webpackEnv === 'development'
@@ -178,7 +179,7 @@ module.exports = function (webpackEnv) {
               // }
               // return 'assets/images/[name].[hash:8].[ext]';
 
-              return 'assets/images/[name].[ext]';
+              return 'assets/images/[name].[ext]'
             },
           },
         },
