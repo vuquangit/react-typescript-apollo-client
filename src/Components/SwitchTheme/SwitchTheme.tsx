@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { RootState } from 'redux/rootReducer'
-import { applyTheme } from 'redux/Theme'
+import { RootState } from 'stores/rootReducer'
+import { applyTheme } from 'stores/Theme'
 import Emoji from 'components/Emoji'
 import {
   SwitchWrapper,

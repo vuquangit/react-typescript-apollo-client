@@ -5,7 +5,7 @@ import isEqual from 'lodash/isEqual'
 
 import GlobalStyle from 'themes/globalStyles'
 import Main from 'routes/main'
-import { RootState } from 'redux/rootReducer'
+import { RootState } from 'stores/rootReducer'
 import { darkTheme, lightTheme } from 'themes/theme'
 
 const App: FC = () => {
