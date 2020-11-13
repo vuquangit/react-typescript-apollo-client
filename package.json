@@ -32,8 +32,9 @@
     "service-worker": "cat public/service-worker.js >> build/service-worker.js",
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
     "build": "rm -rf build/ && cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage --colors",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write **/*.{js,ts,tsx}",
     "lint": "eslint . --ext ts --ext tsx --ext js",
@@ -149,32 +150,6 @@
     "*.@(ts|tsx)": [
       "yarn lint",
       "yarn format"
-    ]
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.stories.tsx",
-      "!src/**/index.ts",
-      "!src/**/*.types.ts",
-      "!src/**/*.mock.ts",
-      "!src/*.ts",
-      "!src/index.tsx",
-      "!src/utils/type.ts",
-      "!src/utils/loadable.tsx",
-      "!generators",
-      "!src/**/Loadable.tsx"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 90,
-        "functions": 90,
-        "lines": 90,
-        "statements": 90
-      }
-    },
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
     ]
   }
 }
