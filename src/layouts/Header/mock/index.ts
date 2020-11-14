@@ -29,4 +29,10 @@ export const navList = [
     link: '/notification',
     exact: true,
   },
+  {
+    id: 6,
+    label: 'Calendar',
+    link: '/calendar',
+    exact: true,
+  },
 ]
