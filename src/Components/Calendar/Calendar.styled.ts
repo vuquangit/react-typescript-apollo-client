@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { prop } from 'styled-tools'
+// import { prop } from 'styled-tools'
 
 // import { ILoaderProps } from './Loader.types'
 
