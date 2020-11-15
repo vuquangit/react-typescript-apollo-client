@@ -15,11 +15,21 @@ const Calendar: FC = () => {
   const [weeks, setWeeks] = useState<TWeeks>()
 
   const getWeeks = async (date: Date) => {
-    const data = await getMatrix(date)
-    console.log(data)
-
-    setWeeks(data)
+    const matrix = await getMatrix(date)
+    setWeeks(matrix)
   }
+
+  const onChangeTime = (type: 'prev' | 'today' | 'next') => {
+    const val = new Date()
+    if (type === 'prev') {
+      val.setFullYear(time.getFullYear(), time.getMonth() - 1, time.getDate())
+    } else if (type === 'next') {
+      val.setFullYear(time.getFullYear(), time.getMonth() + 1, time.getDate())
+    }
+
+    setTime(val)
+  }
+
   useEffect(() => {
     getWeeks(time)
   }, [time])
@@ -39,30 +49,11 @@ const Calendar: FC = () => {
   const renderCalendarTitle = () =>
     dayNames.map((item) => <div key={item}>{item}</div>)
 
-  const onChangeTime = (type: 'prev' | 'today' | 'next') => {
-    if (type === 'prev') {
-      setTime((prev) => {
-        const val = prev
-        val.setFullYear(prev.getFullYear(), prev.getMonth() - 1, prev.getDate())
-        return val
-      })
-    } else if (type === 'today') setTime(new Date())
-    else if (type === 'next') {
-      setTime((prev) => {
-        const val = prev
-        val.setFullYear(prev.getFullYear(), prev.getMonth() + 1, prev.getDate())
-        return val
-      })
-    }
-
-    getWeeks(time)
-  }
-
   return (
     <CalendarWrapper>
       <CalendarHeader>
         <div>
-          {time.getMonth() + 1} - {time.getFullYear()}
+          {time.getMonth() + 1}/{time.getFullYear()}
         </div>
         <div>
           <button onClick={() => onChangeTime('prev')}>{`<`}</button>

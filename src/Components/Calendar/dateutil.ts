@@ -120,7 +120,8 @@ const getNextDates = (currentDate: Date, daysSoFar: number): IDate[] => {
   })
 }
 
-const getDates = (date: Date): Promise<IDate[]> => {
+const getDates = (time: Date): Promise<IDate[]> => {
+  const date = new Date(time)
   return new Promise((resolve) =>
     resolve(
       getDatesWithMetadata(date).then((dates) =>
@@ -130,7 +131,8 @@ const getDates = (date: Date): Promise<IDate[]> => {
   )
 }
 
-const getMatrix = (date: Date): Promise<TWeeks> => {
+const getMatrix = (time: Date): Promise<TWeeks> => {
+  const date = new Date(time)
   const daysInAWeek = 7 // 7 days in a week.
 
   return new Promise((resolve) => {
