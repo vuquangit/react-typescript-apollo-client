@@ -3,6 +3,8 @@ import {
   LayoutProps,
   FlexBasisProps,
   ButtonStyleProps,
+  BorderProps,
+  TypographyProps,
 } from 'styled-system'
 
 interface ThemeButton {
@@ -23,7 +25,9 @@ export declare type BaseButtonProps = React.ButtonHTMLAttributes<
   SpaceProps &
   LayoutProps &
   FlexBasisProps &
-  ButtonStyleProps
+  ButtonStyleProps &
+  BorderProps &
+  TypographyProps
 
 export interface IButtonProps extends BaseButtonProps {
   children?: React.ReactNode

@@ -15,13 +15,13 @@ export const CalendarWrapper = styled('div')`
 export const CalendarContentWrapper = styled('div')`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
   width: 100%;
   height: 100%;
 `
 
-export const CalendarTitle = styled('div')`
+export const CalendarDayNames = styled('div')`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -38,4 +38,33 @@ export const CalendarHeader = styled('div')`
   width: 100%;
   height: 100%;
   padding: 8px;
+`
+
+export const CalendarBody = styled('div')`
+  border-top: 0.05rem solid #e3e3e7;
+  border-left: 0.05rem solid #e3e3e7;
+  width: 100%;
+`
+
+export const CalendarMonthList = styled('div')`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  border-top: 0.05rem solid #e3e3e7;
+  border-left: 0.05rem solid #e3e3e7;
+`
+
+export const CalendarMonthListItem = styled('div')`
+  border-bottom: 0.05rem solid #e3e3e7;
+  border-right: 0.05rem solid #e3e3e7;
+  width: calc(100% * 4 / 12);
+  padding: 1rem;
+  height: 7rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #5f5f5f;
+  }
 `

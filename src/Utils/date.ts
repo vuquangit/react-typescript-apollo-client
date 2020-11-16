@@ -1,4 +1,4 @@
-import { IDate, TWeeks } from './Calendar.types'
+import { IDate, TWeeks } from '../containers/Calendar/Calendar.types'
 
 const monthTypes = {
   PREVIOUS: 'previous',
@@ -156,16 +156,4 @@ const getMatrix = (time: Date): Promise<TWeeks> => {
   })
 }
 
-export {
-  monthTypes,
-  dayNames,
-  iso8601,
-  getLastDate,
-  getFirstDayIndex,
-  getDatesWithMetadata,
-  getCurrentDates,
-  getPreviousDates,
-  getNextDates,
-  getDates,
-  getMatrix,
-}
+export { dayNames, getDates, getMatrix }
