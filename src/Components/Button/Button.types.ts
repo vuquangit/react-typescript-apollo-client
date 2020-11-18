@@ -16,6 +16,7 @@ interface ButtonProps {
   theme?: ThemeButton
   label?: string
   size?: 'small' | 'medium' | 'large'
+  cursor?: number | string
 }
 
 export declare type BaseButtonProps = React.ButtonHTMLAttributes<
