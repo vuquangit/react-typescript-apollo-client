@@ -31,7 +31,7 @@
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "service-worker": "cat public/service-worker.js >> build/service-worker.js",
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
-    "build": "rm -rf build/ && cross-env NODE_ENV=production webpack --config config/webpack.prod.js && yarn service-worker",
+    "build": "rm -rf build/ && webpack --config config/webpack.prod.js && yarn service-worker",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",

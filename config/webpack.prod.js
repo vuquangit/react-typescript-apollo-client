@@ -15,6 +15,8 @@ const paths = require('./paths')
 const common = require('./webpack.common.js')
 const isEnvProductionProfile = process.argv.includes('--profile')
 
+process.env.BABEL_ENV = 'production';
+process.env.NODE_ENV = 'production';
 // process.env.APP_VERSION = Math.round(new Date().getTime() / 1000).toString();
 
 module.exports = merge(common('production'), {
