@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import isEqual from 'lodash/isEqual'
 
 import GlobalStyle from 'themes/globalStyles'
-import Main from 'routes/Main'
+import Main from 'routes/main'
 import { RootState } from 'stores/rootReducer'
 import { darkTheme, lightTheme } from 'themes/theme'
 
