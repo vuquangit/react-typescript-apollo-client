@@ -179,9 +179,7 @@ module.exports = function (webpackEnv) {
       modules: [paths.appSrc, 'node_modules'],
       extensions: ['.js', 'jsx', '.json', '.ts', '.tsx'],
       aliasFields: ['browser'],
-      // alias: {
-      //   '/*': paths.appSrc,
-      // },
+      mainFields: ['browser', 'module', 'main']
     },
   }
 }
