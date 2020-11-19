@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { prop, ifProp } from 'styled-tools'
-import { BaseCalendarDetailProps } from './CalendarDetail.types'
+import { BaseCalendarDetailProps, IDate } from './CalendarDetail.types'
 import { AppButton } from 'components/Button/Button.styled'
 
 export const CalendarDetailWrapper = styled('div')<BaseCalendarDetailProps>`
@@ -48,7 +48,7 @@ export const CalendarDetailWrapper = styled('div')<BaseCalendarDetailProps>`
   }
 `
 
-export const DateItem = styled(AppButton)`
+export const DateItem = styled(AppButton)<IDate>`
   align-self: flex-end;
   height: 1.4rem;
   margin-right: 0.2rem;
@@ -72,6 +72,9 @@ export const DateItem = styled(AppButton)`
   vertical-align: middle;
   white-space: nowrap;
   width: 1.4rem;
+
+  border-color: ${ifProp({ isToday: true }, '#cde4ff', 'none')};
+  color: ${ifProp({ isToday: true }, '#439aff', 'inherit')};
 `
 
 export const CalendarEvents = styled('div')`

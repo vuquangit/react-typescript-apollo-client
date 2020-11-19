@@ -3,4 +3,8 @@ export interface ICalendarDetailProps {
   maxWidth: number
 }
 
+export interface IDate {
+  isToday?: boolean
+}
+
 export declare type BaseCalendarDetailProps = ICalendarDetailProps

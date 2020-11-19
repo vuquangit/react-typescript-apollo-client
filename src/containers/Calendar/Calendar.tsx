@@ -15,7 +15,7 @@ import {
 
 const Calendar: FC = () => {
   // Note: month start from 0 to 11
-  const [time, setTime] = useState<Date>(new Date())
+  const [date, setDate] = useState<Date>(new Date())
   const [weeks, setWeeks] = useState<TWeeks>()
   const [calendarType, setCalendarType] = useState<
     'years' | 'year' | 'month' | 'days'
@@ -28,72 +28,74 @@ const Calendar: FC = () => {
   }
 
   const onChangeTime = useCallback(
-    (type: 'prevYear' | 'prevMonth' | 'today' | 'nextMonth' | 'nextYear') => {
+    (
+      type: 'prevDateMore' | 'prevDate' | 'today' | 'nextDate' | 'nextDateMOre'
+    ) => {
       const val = new Date()
 
       let numberChange = 1
       if (
         (calendarType === 'month' &&
-          (type === 'prevYear' || type === 'nextYear')) ||
+          (type === 'prevDateMore' || type === 'nextDateMOre')) ||
         ((calendarType === 'year' || calendarType === 'years') &&
-          (type === 'prevMonth' || type === 'nextMonth'))
+          (type === 'prevDate' || type === 'nextDate'))
       )
         numberChange = 10
       else if (
         (calendarType === 'year' || calendarType === 'years') &&
-        (type === 'prevYear' || type === 'nextYear')
+        (type === 'prevDateMore' || type === 'nextDateMOre')
       )
         numberChange = 100
 
       if (
-        type === 'prevYear' ||
-        (type === 'prevMonth' && calendarType !== 'days')
+        type === 'prevDateMore' ||
+        (type === 'prevDate' && calendarType !== 'days')
       ) {
         val.setFullYear(
-          time.getFullYear() - numberChange,
-          time.getMonth(),
-          time.getDate()
+          date.getFullYear() - numberChange,
+          date.getMonth(),
+          date.getDate()
         )
-      } else if (type === 'prevMonth' && calendarType === 'days') {
-        val.setFullYear(time.getFullYear(), time.getMonth() - 1, time.getDate())
-      } else if (type === 'nextMonth' && calendarType === 'days') {
-        val.setFullYear(time.getFullYear(), time.getMonth() + 1, time.getDate())
+      } else if (type === 'prevDate' && calendarType === 'days') {
+        val.setFullYear(date.getFullYear(), date.getMonth() - 1, date.getDate())
+      } else if (type === 'nextDate' && calendarType === 'days') {
+        val.setFullYear(date.getFullYear(), date.getMonth() + 1, date.getDate())
       } else if (
-        type === 'nextYear' ||
-        (type === 'nextMonth' && calendarType !== 'days')
+        type === 'nextDateMOre' ||
+        (type === 'nextDate' && calendarType !== 'days')
       ) {
         val.setFullYear(
-          time.getFullYear() + numberChange,
-          time.getMonth(),
-          time.getDate()
+          date.getFullYear() + numberChange,
+          date.getMonth(),
+          date.getDate()
         )
       }
 
-      setTime(val)
+      setDate(val)
 
       if (type === 'today') setCalendarType('days')
     },
-    [calendarType, time]
+    [calendarType, date]
   )
 
   const onSelectMonth = (month: number) => {
-    const val = new Date(time)
-    val.setFullYear(time.getFullYear(), month, time.getDate())
-    setTime(val)
+    const val = new Date(date)
+    val.setFullYear(date.getFullYear(), month, date.getDate())
+    setDate(val)
     setCalendarType('days')
   }
 
   const onSelectYear = (year: number) => {
-    const val = new Date(time)
-    val.setFullYear(year, time.getMonth(), time.getDate())
-    setTime(val)
+    const val = new Date(date)
+    val.setFullYear(year, date.getMonth(), date.getDate())
+    setDate(val)
     setCalendarType('month')
   }
 
   const onSelectYears = (years: number) => {
-    const val = new Date(time)
-    val.setFullYear(years, time.getMonth(), time.getDate())
-    setTime(val)
+    const val = new Date(date)
+    val.setFullYear(years, date.getMonth(), date.getDate())
+    setDate(val)
     setCalendarType('year')
   }
 
@@ -104,7 +106,7 @@ const Calendar: FC = () => {
   }, [calendarType])
 
   const getYearStart = useCallback(() => {
-    const yearHasSelected = time.getFullYear() + ''
+    const yearHasSelected = date.getFullYear() + ''
 
     if (calendarType === 'year') {
       const year2Fill = parseInt(
@@ -125,12 +127,12 @@ const Calendar: FC = () => {
 
       setYearStart(_yearStart)
     }
-  }, [calendarType, time])
+  }, [calendarType, date])
 
   useEffect(() => {
     getYearStart()
-    calendarType === 'days' && getWeeks(time)
-  }, [calendarType, getYearStart, time])
+    calendarType === 'days' && getWeeks(date)
+  }, [calendarType, getYearStart, date])
 
   const renderCalendarContent = useCallback(() => {
     return weeks?.map((week, index) => {
@@ -203,21 +205,21 @@ const Calendar: FC = () => {
             disabled={calendarType === 'years'}
           >
             {calendarType === 'days' &&
-              time.getMonth() + 1 + `/` + time.getFullYear()}
-            {calendarType === 'month' && time.getFullYear()}
+              date.getMonth() + 1 + `/` + date.getFullYear()}
+            {calendarType === 'month' && date.getFullYear()}
             {calendarType === 'year' && `${yearStart} - ${yearStart + 9}`}
             {calendarType === 'years' && `${yearStart} - ${yearStart + 99}`}
           </Button>
         </div>
         <div>
           <Button
-            onClick={() => onChangeTime('prevYear')}
+            onClick={() => onChangeTime('prevDateMore')}
             padding="8px"
             cursor="pointer"
-            disabled={time.getFullYear() <= 200}
+            disabled={date.getFullYear() <= 200}
           >{`<<`}</Button>
           <Button
-            onClick={() => onChangeTime('prevMonth')}
+            onClick={() => onChangeTime('prevDate')}
             padding="8px"
             cursor="pointer"
             hidden={calendarType === 'years'}
@@ -230,13 +232,13 @@ const Calendar: FC = () => {
             Today
           </Button>
           <Button
-            onClick={() => onChangeTime('nextMonth')}
+            onClick={() => onChangeTime('nextDate')}
             padding="8px"
             cursor="pointer"
             hidden={calendarType === 'years'}
           >{`>`}</Button>
           <Button
-            onClick={() => onChangeTime('nextYear')}
+            onClick={() => onChangeTime('nextDateMOre')}
             padding="8px"
             cursor="pointer"
           >{`>>`}</Button>
