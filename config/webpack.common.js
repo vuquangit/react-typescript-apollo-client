@@ -4,7 +4,6 @@
 const paths = require('./paths')
 const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin')
 const getClientEnvironment = require('./env')
@@ -61,18 +60,6 @@ module.exports = function (webpackEnv) {
     plugins: [
       // Removes/cleans build folders and unused assets when rebuilding
       new CleanWebpackPlugin(),
-
-      // Copies files from target to destination folder
-      new CopyWebpackPlugin({
-        patterns: [
-          {
-            from: paths.appPublic,
-            globOptions: {
-              ignore: ['*.DS_Store', '**/index.html'],
-            },
-          },
-        ],
-      }),
 
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
@@ -191,9 +178,8 @@ module.exports = function (webpackEnv) {
     resolve: {
       modules: [paths.appSrc, 'node_modules'],
       extensions: ['.js', 'jsx', '.json', '.ts', '.tsx'],
-      alias: {
-        '/*': paths.appSrc,
-      },
+      // aliasFields: ['browser'],
+      // mainFields: ['browser', 'module', 'main']
     },
   }
 }
