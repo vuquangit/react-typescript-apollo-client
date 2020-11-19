@@ -1,7 +1,14 @@
 import styled, { css } from 'styled-components'
 import { prop, ifProp, switchProp } from 'styled-tools'
 
-import { space, layout, flexbox, buttonStyle } from 'styled-system'
+import {
+  space,
+  layout,
+  flexbox,
+  buttonStyle,
+  border,
+  typography,
+} from 'styled-system'
 import { primaryPalette /*, COLOR  */ } from 'themes/colors'
 import { BaseButtonProps } from './Button.types'
 
@@ -10,7 +17,10 @@ export const AppButton = styled.button<BaseButtonProps>`
   ${layout};
   ${flexbox};
   ${buttonStyle};
+  ${border};
+  ${typography};
 
+  cursor: ${prop('cursor', 'none')};
   color: ${prop('theme.textColor', '#fff')};
   background-color: ${prop('theme.primary', '#000')};
   font-size: ${ifProp(

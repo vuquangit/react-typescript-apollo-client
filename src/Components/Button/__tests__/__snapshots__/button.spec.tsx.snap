@@ -4,6 +4,7 @@ exports[`Button disable btn 1`] = `
 .c0 {
   width: medium;
   height: medium;
+  cursor: none;
   color: #fff;
   background-color: #000;
   font-size: 14px;
@@ -50,7 +51,7 @@ exports[`Button disable btn 1`] = `
         disabled={true}
         size="medium"
       >
-        Button
+        Disable button
       </button>
     </styled.button>
   </Component>
@@ -61,6 +62,7 @@ exports[`Button primary large btn 1`] = `
 .c0 {
   width: large;
   height: large;
+  cursor: none;
   color: #fff;
   background-color: #000;
   font-size: 20px;
@@ -102,7 +104,7 @@ exports[`Button primary large btn 1`] = `
         className="c0"
         size="large"
       >
-        Button
+        Primary
       </button>
     </styled.button>
   </Component>

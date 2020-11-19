@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App Loading Test default Loading with no size 1`] = `
+exports[`App Loader Test default Loader with no size 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .c0 {
@@ -42,24 +42,24 @@ Object {
       >
         <div
           class="c1"
-          data-testid="loading-content"
+          data-testid="loader-content"
           size="24"
         >
-          Loading...
+          Loader...
         </div>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="sc-bdnylx idJCGd"
+      class="sc-bdfBwQ cDUTWZ"
     >
       <div
-        class="sc-gtssRu bkDFHh"
-        data-testid="loading-content"
+        class="sc-gsTCUz gJCNhw"
+        data-testid="loader-content"
         size="24"
       >
-        Loading...
+        Loader...
       </div>
     </div>
   </div>,
@@ -117,7 +117,7 @@ Object {
 }
 `;
 
-exports[`App Loading Test default Loading with size 48px 1`] = `
+exports[`App Loader Test default Loader with size 48px 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -156,10 +156,10 @@ exports[`App Loading Test default Loading with size 48px 1`] = `
   >
     <div
       class="c1"
-      data-testid="loading-content"
+      data-testid="loader-content"
       size="48"
     >
-      Loading...
+      Loader...
     </div>
   </div>
 </div>

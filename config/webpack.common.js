@@ -173,7 +173,7 @@ module.exports = function (webpackEnv) {
           test: /\.(?:ico|gif|png|jpg|jpeg|bmp)$/i,
           loader: require.resolve('file-loader'),
           options: {
-            name:  'assets/images/[name].[ext]',
+            name: 'assets/images/[name].[ext]',
             // name(resourcePath, resourceQuery) {
             //   if (process.env.NODE_ENV === 'development') {
             //     return 'assets/images/[name].[ext]';

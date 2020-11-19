@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { prop } from 'styled-tools'
 
-import { ILoadingProps } from './Loading.types'
+import { ILoaderProps } from './Loader.types'
 
-export const LoadingWrapper = styled('div')`
+export const LoaderWrapper = styled('div')`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,7 +11,7 @@ export const LoadingWrapper = styled('div')`
   height: 100%;
 `
 
-export const LoadingContent = styled('div')<ILoadingProps>`
+export const LoaderContent = styled('div')<ILoaderProps>`
   animation: load5 1.1s infinite ease;
   border-radius: 50%;
   font-size: 25px;

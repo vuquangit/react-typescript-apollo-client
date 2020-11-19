@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import PrivateRoute from 'containers/PrivateRoute'
+import PrivateRoute from './PrivateRoute'
 import pageConfigs from './pageConfigs'
 import Page404 from 'pages/Page404/Loadable'
 
-const Main = () => {
+const Main: FC = () => {
   const _renderPage = () =>
     pageConfigs.map((route, index) =>
       route.privatePage ? (

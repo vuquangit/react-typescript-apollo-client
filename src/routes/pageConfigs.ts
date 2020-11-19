@@ -4,6 +4,7 @@ import LoginPage from 'pages/Login/Loadable'
 import SignupPage from 'pages/Signup/Loadable'
 import GraphqlPage from 'pages/GraphqlPage/Loadable'
 import Notification from 'pages/Notification/Loadable'
+import Calender from 'pages/Calendar/Loadable'
 
 interface IPageConfigs extends RouteProps {
   component:
@@ -40,6 +41,12 @@ const pageConfigs: IPageConfigs[] = [
   {
     path: '/notification',
     component: Notification,
+    exact: true,
+    privatePage: false,
+  },
+  {
+    path: '/calendar',
+    component: Calender,
     exact: true,
     privatePage: false,
   },
