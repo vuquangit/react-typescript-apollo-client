@@ -8,6 +8,8 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const paths = require('./paths')
 const common = require('./webpack.common.js')
@@ -78,6 +80,37 @@ module.exports = merge(common('production'), {
           entrypoints: entrypointFiles,
         }
       },
+    }),
+
+    // Copies files from target to destination folder
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: paths.appPublic,
+          globOptions: {
+            ignore: ['*.DS_Store', '**/index.html', '**/service-worker.js'],
+          },
+        },
+      ],
+    }),
+
+    // Generate a service worker script that will precache, and keep up to date,
+    // the HTML & assets that are part of the webpack build.
+    // workbox-webpack-plugin: "4.3.1"
+    new WorkboxWebpackPlugin.GenerateSW({
+      clientsClaim: true,
+      exclude: [/\.map$/, /asset-manifest\.json$/],
+      importWorkboxFrom: 'cdn',
+      navigateFallback: paths.publicUrlOrPath + 'index.html',
+      navigateFallbackBlacklist: [
+        // Exclude URLs starting with /_, as they're likely an API call
+        new RegExp('^/_'),
+        // Exclude any URLs whose last part seems to be a file extension
+        // as they're likely a resource and not a SPA route.
+        // URLs containing a "?" character won't be blacklisted as they're likely
+        // a route with query params (e.g. auth callbacks).
+        new RegExp('/[^/?]+\\.[^/]+$'),
+      ],
     }),
   ],
 

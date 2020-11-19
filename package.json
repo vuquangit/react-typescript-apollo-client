@@ -31,7 +31,7 @@
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "service-worker": "cat public/service-worker.js >> build/service-worker.js",
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
-    "build": "rm -rf build/ && cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
+    "build": "rm -rf build/ && cross-env NODE_ENV=production webpack --config config/webpack.prod.js && yarn service-worker",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
@@ -138,7 +138,8 @@
     "webpack-dev-server": "^3.11.0",
     "webpack-livereload-plugin": "^2.3.0",
     "webpack-manifest-plugin": "3.0.0-rc.0",
-    "webpack-merge": "^5.3.0"
+    "webpack-merge": "^5.3.0",
+    "workbox-webpack-plugin": "4.3.1"
   },
   "husky": {
     "hooks": {

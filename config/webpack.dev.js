@@ -4,6 +4,7 @@
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const common = require('./webpack.common.js')
 const paths = require('./paths')
@@ -46,5 +47,17 @@ module.exports = merge(common('development'), {
 
     // run TSC on a separate thread
     new ForkTsCheckerWebpackPlugin(),
+
+      // Copies files from target to destination folder
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: paths.appPublic,
+            globOptions: {
+              ignore: ['*.DS_Store', '**/index.html'],
+            },
+          },
+        ],
+      }),
   ],
 })
