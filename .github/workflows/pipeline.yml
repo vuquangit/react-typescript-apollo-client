@@ -59,7 +59,7 @@ jobs:
           vercelOrgId: ${{ secrets.VERCEL_ORG_ID }}
           vercelProjectId: ${{ secrets.VERCEL_PROJECT_ID }}
           githubToken: ${{ secrets.VERCEL_GITHUB_TOKEN }}
-          sourceDirectory: "src"
+          # sourceDirectory: "src"
 
       # Set message env for success or failure
       - if: ${{ success() }}
