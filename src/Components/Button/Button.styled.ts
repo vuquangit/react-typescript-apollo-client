@@ -20,7 +20,7 @@ export const AppButton = styled.button<BaseButtonProps>`
   ${border};
   ${typography};
 
-  cursor: ${prop('cursor', 'none')};
+  cursor: ${prop('cursor', 'default')};
   color: ${prop('theme.textColor', '#fff')};
   background-color: ${prop('theme.primary', '#000')};
   font-size: ${ifProp(
