@@ -7,6 +7,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin')
 const getClientEnvironment = require('./env')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 // const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false'
@@ -180,6 +181,15 @@ module.exports = function (webpackEnv) {
       extensions: ['.js', 'jsx', '.json', '.ts', '.tsx'],
       // aliasFields: ['browser'],
       // mainFields: ['browser', 'module', 'main']
+      plugins: [
+        new TsconfigPathsPlugin({
+          configFile: paths.appTsConfig,
+          extensions: ['.ts', '.tsx', '.js'],
+          logLevel: 'INFO',
+          baseUrl: paths.appPath,
+          mainFields: ['browser', 'main'],
+        }),
+      ],
     },
   }
 }

@@ -4,7 +4,7 @@ exports[`App CalendarDetail Test get default CalendarDetail no params 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .c1 {
-  cursor: none;
+  cursor: default;
   color: #fff;
   background-color: #000;
   font-size: 14px;
@@ -100,6 +100,8 @@ Object {
   vertical-align: middle;
   white-space: nowrap;
   width: 1.4rem;
+  border-color: none;
+  color: inherit;
 }
 
 .c3 {
@@ -159,7 +161,7 @@ Object {
       data-tooltip="In: 08:00 - Out: 17:37"
     >
       <button
-        class="sc-bdfBwQ sc-dlfnbm LlqYh gPHWoh"
+        class="sc-bdfBwQ sc-dlfnbm eagBUM gubvch"
       >
         6
       </button>

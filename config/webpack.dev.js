@@ -9,7 +9,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const common = require('./webpack.common.js')
 const paths = require('./paths')
 
-process.env.NODE_ENV = 'development';
+process.env.NODE_ENV = 'development'
 
 module.exports = merge(common('development'), {
   // Set the mode to development or production
@@ -48,16 +48,16 @@ module.exports = merge(common('development'), {
     // run TSC on a separate thread
     new ForkTsCheckerWebpackPlugin(),
 
-      // Copies files from target to destination folder
-      new CopyWebpackPlugin({
-        patterns: [
-          {
-            from: paths.appPublic,
-            globOptions: {
-              ignore: ['*.DS_Store', '**/index.html'],
-            },
+    // Copies files from target to destination folder
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: paths.appPublic,
+          globOptions: {
+            ignore: ['*.DS_Store', '**/index.html'],
           },
-        ],
-      }),
+        },
+      ],
+    }),
   ],
 })

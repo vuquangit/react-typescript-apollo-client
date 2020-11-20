@@ -23,7 +23,7 @@ exports[`App Calendar Test get default Calendar 1`] = `
 }
 
 .c8 {
-  cursor: none;
+  cursor: default;
   color: #000;
   background-color: #55aacc;
   font-size: 14px;
@@ -181,6 +181,40 @@ exports[`App Calendar Test get default Calendar 1`] = `
   vertical-align: middle;
   white-space: nowrap;
   width: 1.4rem;
+  border-color: none;
+  color: inherit;
+}
+
+.c13 {
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+  height: 1.4rem;
+  margin-right: 0.2rem;
+  margin-top: 0.2rem;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 0.05rem solid transparent;
+  border-radius: 50%;
+  color: #6c777e;
+  cursor: pointer;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  outline: none;
+  padding: 0.15rem;
+  position: relative;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 1.4rem;
+  border-color: #cde4ff;
+  color: #439aff;
 }
 
 .c11 {
@@ -381,10 +415,10 @@ exports[`App Calendar Test get default Calendar 1`] = `
       >
         <div
           class="c7"
+          data-tooltip="true"
         >
           <button
             class="c8 c9"
-            data-tooltip="true"
           >
             1
           </button>
@@ -511,10 +545,10 @@ exports[`App Calendar Test get default Calendar 1`] = `
         </div>
         <div
           class="c7"
+          data-tooltip="true"
         >
           <button
             class="c8 c9"
-            data-tooltip="true"
           >
             7
           </button>
@@ -525,10 +559,10 @@ exports[`App Calendar Test get default Calendar 1`] = `
       >
         <div
           class="c7"
+          data-tooltip="true"
         >
           <button
             class="c8 c9"
-            data-tooltip="true"
           >
             8
           </button>
@@ -655,10 +689,10 @@ exports[`App Calendar Test get default Calendar 1`] = `
         </div>
         <div
           class="c7"
+          data-tooltip="true"
         >
           <button
             class="c8 c9"
-            data-tooltip="true"
           >
             14
           </button>
@@ -669,10 +703,10 @@ exports[`App Calendar Test get default Calendar 1`] = `
       >
         <div
           class="c7"
+          data-tooltip="true"
         >
           <button
             class="c8 c9"
-            data-tooltip="true"
           >
             15
           </button>
@@ -778,7 +812,7 @@ exports[`App Calendar Test get default Calendar 1`] = `
           data-tooltip="In: 08:00 - Out: 17:37"
         >
           <button
-            class="c8 c9"
+            class="c8 c13"
           >
             20
           </button>
@@ -799,10 +833,10 @@ exports[`App Calendar Test get default Calendar 1`] = `
         </div>
         <div
           class="c7"
+          data-tooltip="true"
         >
           <button
             class="c8 c9"
-            data-tooltip="true"
           >
             21
           </button>
@@ -813,10 +847,10 @@ exports[`App Calendar Test get default Calendar 1`] = `
       >
         <div
           class="c7"
+          data-tooltip="true"
         >
           <button
             class="c8 c9"
-            data-tooltip="true"
           >
             22
           </button>
@@ -943,10 +977,10 @@ exports[`App Calendar Test get default Calendar 1`] = `
         </div>
         <div
           class="c7"
+          data-tooltip="true"
         >
           <button
             class="c8 c9"
-            data-tooltip="true"
           >
             28
           </button>
@@ -957,10 +991,10 @@ exports[`App Calendar Test get default Calendar 1`] = `
       >
         <div
           class="c7"
+          data-tooltip="true"
         >
           <button
             class="c8 c9"
-            data-tooltip="true"
           >
             29
           </button>
@@ -1087,10 +1121,10 @@ exports[`App Calendar Test get default Calendar 1`] = `
         </div>
         <div
           class="c7"
+          data-tooltip="true"
         >
           <button
             class="c8 c9"
-            data-tooltip="true"
           >
             5
           </button>
