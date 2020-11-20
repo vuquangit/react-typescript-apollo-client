@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin')
 const getClientEnvironment = require('./env')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
+const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 // const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false'
@@ -115,6 +116,10 @@ module.exports = function (webpackEnv) {
       //   'process.env.APP_VERSION': JSON.stringify(process.env.APP_VERSION || 'dev'),
       // }),
       new webpack.DefinePlugin(env.stringified),
+
+      // This gives some necessary context to module not found errors, such as
+      // the requesting resource.
+      new ModuleNotFoundPlugin(paths.appPath),
     ],
 
     // Determine how modules within the project are treated
@@ -179,17 +184,17 @@ module.exports = function (webpackEnv) {
     resolve: {
       modules: [paths.appSrc, 'node_modules'],
       extensions: ['.js', 'jsx', '.json', '.ts', '.tsx'],
-      aliasFields: ['browser'],
-      mainFields: ['browser', 'module', 'main'],
-      plugins: [
-        new TsconfigPathsPlugin({
-          configFile: paths.appTsConfig,
-          extensions: ['.ts', '.tsx', '.js'],
-          logLevel: 'INFO',
-          baseUrl: paths.appPath,
-          mainFields: ['browser', 'main'],
-        }),
-      ],
+      // aliasFields: ['browser'],
+      // mainFields: ['browser', 'module', 'main'],
+      // plugins: [
+      //   new TsconfigPathsPlugin({
+      //     configFile: paths.appTsConfig,
+      //     extensions: ['.ts', '.tsx', '.js'],
+      //     logLevel: 'INFO',
+      //     baseUrl: paths.appPath,
+      //     mainFields: ['browser', 'main'],
+      //   }),
+      // ],
       alias: {
         components: paths.appSrc + '/components',
       },
