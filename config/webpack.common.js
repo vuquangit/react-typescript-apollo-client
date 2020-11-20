@@ -196,7 +196,7 @@ module.exports = function (webpackEnv) {
       //   }),
       // ],
       alias: {
-        components: paths.appSrc + '/components',
+        '/*': paths.appSrc,
       },
     },
   }
