@@ -5,6 +5,7 @@ const webpack = require('webpack')
 const { merge } = require('webpack-merge')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const common = require('./webpack.common.js')
 const paths = require('./paths')
@@ -56,6 +57,9 @@ module.exports = merge(common('development'), {
   },
 
   plugins: [
+    // Removes/cleans build folders and unused assets when rebuilding
+    new CleanWebpackPlugin(),
+
     // Only update what has changed on hot reload
     // This is necessary to emit hot updates (currently CSS only):
     new webpack.HotModuleReplacementPlugin(),

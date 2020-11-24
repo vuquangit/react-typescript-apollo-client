@@ -3,21 +3,21 @@
 
 const paths = require('./paths')
 const webpack = require('webpack')
-const resolve = require('resolve');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const resolve = require('resolve')
+
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin')
 const getClientEnvironment = require('./env')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin')
-const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
-const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
+const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin')
+const typescriptFormatter = require('react-dev-utils/typescriptFormatter')
+
+// process.traceDeprecation = true
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 // const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false'
 const shouldUseSourceMap = false
-
-process.traceDeprecation = true
 
 module.exports = function (webpackEnv) {
   const isEnvDevelopment = webpackEnv === 'development'
@@ -35,8 +35,6 @@ module.exports = function (webpackEnv) {
     '  isEnvProduction:',
     isEnvProduction
   )
-
-  console.log(paths)
 
   return {
     // Stop compilation early in production
@@ -135,7 +133,7 @@ module.exports = function (webpackEnv) {
         silent: true,
         // The formatter is invoked directly in WebpackDevServerUtils during development
         formatter: isEnvProduction ? typescriptFormatter : undefined,
-      })
+      }),
     ],
 
     // Determine how modules within the project are treated
@@ -200,8 +198,9 @@ module.exports = function (webpackEnv) {
     resolve: {
       modules: [paths.appSrc, paths.appNodeModules],
       extensions: ['.js', 'jsx', '.json', '.ts', '.tsx'],
-      // aliasFields: ['browser'],
-      // mainFields: ['browser', 'module', 'main'],
+      alias: {
+        '@/': paths.appSrc,
+      },
       plugins: [
         new TsconfigPathsPlugin({
           configFile: paths.appTsConfig,
@@ -211,22 +210,6 @@ module.exports = function (webpackEnv) {
           mainFields: ['browser', 'main'],
         }),
       ],
-      alias: {
-      '@/*': paths.appSrc,
-      // themes: paths.appSrc + '/themes/',
-      // routes: paths.appSrc + '/routes/',
-      // stores: paths.appSrc + '/stores/',
-      // utils: paths.appSrc + '/utils/',
-      // test: paths.appSrc + '/test/',
-      // layouts: paths.appSrc + '/layouts/',
-      // graphqlQuery: paths.appSrc + '/graphqlQuery/',
-      // pages: paths.appSrc + '/pages/',
-
-      },
-    },
-
-    stats: {
-      colors: true,
     },
   }
 }

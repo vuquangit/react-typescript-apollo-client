@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 'use strict'
 
-const path = require('path')
 const { merge } = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
@@ -18,7 +17,6 @@ const isEnvProductionProfile = process.argv.includes('--profile')
 
 process.env.BABEL_ENV = 'production'
 process.env.NODE_ENV = 'production'
-// process.env.APP_VERSION = Math.round(new Date().getTime() / 1000).toString();
 
 module.exports = merge(common('production'), {
   mode: 'production',
@@ -59,37 +57,37 @@ module.exports = merge(common('production'), {
     // Removes/cleans build folders and unused assets when rebuilding
     new CleanWebpackPlugin(),
 
-    // // Extracts CSS into separate files
-    // // Note: style-loader is for development, MiniCssExtractPlugin is for production
-    // new MiniCssExtractPlugin({
-    //   filename: 'styles/[name].[contenthash].css',
-    //   chunkFilename: '[id].css',
-    // }),
+    // Extracts CSS into separate files
+    // Note: style-loader is for development, MiniCssExtractPlugin is for production
+    new MiniCssExtractPlugin({
+      filename: 'styles/[name].[contenthash].css',
+      chunkFilename: '[id].css',
+    }),
 
-    // // Generate an asset manifest file with the following content:
-    // // - "files" key: Mapping of all asset filenames to their corresponding
-    // //   output file so that tools can pick it up without having to parse
-    // //   `index.html`
-    // // - "entrypoints" key: Array of files which are included in `index.html`,
-    // //   can be used to reconstruct the HTML if necessary
-    // new ManifestPlugin({
-    //   fileName: 'asset-manifest.json',
-    //   publicPath: paths.publicUrlOrPath,
-    //   generate: (seed, files, entrypoints) => {
-    //     const manifestFiles = files.reduce((manifest, file) => {
-    //       manifest[file.name] = file.path
-    //       return manifest
-    //     }, seed)
-    //     const entrypointFiles = entrypoints.main.filter(
-    //       (fileName) => !fileName.endsWith('.map')
-    //     )
+    // Generate an asset manifest file with the following content:
+    // - "files" key: Mapping of all asset filenames to their corresponding
+    //   output file so that tools can pick it up without having to parse
+    //   `index.html`
+    // - "entrypoints" key: Array of files which are included in `index.html`,
+    //   can be used to reconstruct the HTML if necessary
+    new ManifestPlugin({
+      fileName: 'asset-manifest.json',
+      publicPath: paths.publicUrlOrPath,
+      generate: (seed, files, entrypoints) => {
+        const manifestFiles = files.reduce((manifest, file) => {
+          manifest[file.name] = file.path
+          return manifest
+        }, seed)
+        const entrypointFiles = entrypoints.main.filter(
+          (fileName) => !fileName.endsWith('.map')
+        )
 
-    //     return {
-    //       files: manifestFiles,
-    //       entrypoints: entrypointFiles,
-    //     }
-    //   },
-    // }),
+        return {
+          files: manifestFiles,
+          entrypoints: entrypointFiles,
+        }
+      },
+    }),
 
     // Copies files from target to destination folder
     new CopyWebpackPlugin({
@@ -103,109 +101,109 @@ module.exports = merge(common('production'), {
       ],
     }),
 
-    // // Generate a service worker script that will precache, and keep up to date,
-    // // the HTML & assets that are part of the webpack build.
-    // // workbox-webpack-plugin: "4.3.1"
-    // new WorkboxWebpackPlugin.GenerateSW({
-    //   clientsClaim: true,
-    //   exclude: [/\.map$/, /asset-manifest\.json$/],
-    //   importWorkboxFrom: 'cdn',
-    //   navigateFallback: paths.publicUrlOrPath + 'index.html',
-    //   navigateFallbackBlacklist: [
-    //     // Exclude URLs starting with /_, as they're likely an API call
-    //     new RegExp('^/_'),
-    //     // Exclude any URLs whose last part seems to be a file extension
-    //     // as they're likely a resource and not a SPA route.
-    //     // URLs containing a "?" character won't be blacklisted as they're likely
-    //     // a route with query params (e.g. auth callbacks).
-    //     new RegExp('/[^/?]+\\.[^/]+$'),
-    //   ],
-    // }),
+    // Generate a service worker script that will precache, and keep up to date,
+    // the HTML & assets that are part of the webpack build.
+    // workbox-webpack-plugin: "4.3.1"
+    new WorkboxWebpackPlugin.GenerateSW({
+      clientsClaim: true,
+      exclude: [/\.map$/, /asset-manifest\.json$/],
+      importWorkboxFrom: 'cdn',
+      navigateFallback: paths.publicUrlOrPath + 'index.html',
+      navigateFallbackBlacklist: [
+        // Exclude URLs starting with /_, as they're likely an API call
+        new RegExp('^/_'),
+        // Exclude any URLs whose last part seems to be a file extension
+        // as they're likely a resource and not a SPA route.
+        // URLs containing a "?" character won't be blacklisted as they're likely
+        // a route with query params (e.g. auth callbacks).
+        new RegExp('/[^/?]+\\.[^/]+$'),
+      ],
+    }),
   ],
 
-  // module: {
-  //   rules: [
-  //     {
-  //       test: /\.(scss|css)$/,
-  //       use: [
-  //         MiniCssExtractPlugin.loader,
-  //         {
-  //           loader: 'css-loader',
-  //           options: {
-  //             importLoaders: 2,
-  //             sourceMap: false,
-  //           },
-  //         },
-  //         'postcss-loader',
-  //         'sass-loader',
-  //       ],
-  //     },
-  //   ],
-  // },
+  module: {
+    rules: [
+      {
+        test: /\.(scss|css)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              sourceMap: false,
+            },
+          },
+          'postcss-loader',
+          'sass-loader',
+        ],
+      },
+    ],
+  },
 
-  // optimization: {
-  //   minimize: true,
-  //   minimizer: [
-  //     new OptimizeCssAssetsPlugin(),
-  //     new JsonMinimizerPlugin(),
-  //     // This is only used in production mode
-  //     new TerserPlugin({
-  //       terserOptions: {
-  //         parse: {
-  //           // We want terser to parse ecma 8 code. However, we don't want it
-  //           // to apply any minification steps that turns valid ecma 5 code
-  //           // into invalid ecma 5 code. This is why the 'compress' and 'output'
-  //           // sections only apply transformations that are ecma 5 safe
-  //           // https://github.com/facebook/create-react-app/pull/4234
-  //           ecma: 8,
-  //         },
-  //         compress: {
-  //           ecma: 5,
-  //           warnings: false,
-  //           // Disabled because of an issue with Uglify breaking seemingly valid code:
-  //           // https://github.com/facebook/create-react-app/issues/2376
-  //           // Pending further investigation:
-  //           // https://github.com/mishoo/UglifyJS2/issues/2011
-  //           comparisons: false,
-  //           // Disabled because of an issue with Terser breaking valid code:
-  //           // https://github.com/facebook/create-react-app/issues/5250
-  //           // Pending further investigation:
-  //           // https://github.com/terser-js/terser/issues/120
-  //           inline: 2,
-  //         },
-  //         mangle: {
-  //           safari10: true,
-  //         },
-  //         // Added for profiling in devtools
-  //         keep_classnames: isEnvProductionProfile,
-  //         keep_fnames: isEnvProductionProfile,
-  //         output: {
-  //           ecma: 5,
-  //           comments: false,
-  //           // Turned on because emoji and regex is not minified properly using default
-  //           // https://github.com/facebook/create-react-app/issues/2488
-  //           ascii_only: true,
-  //         },
-  //       },
-  //       // sourceMap: shouldUseSourceMap,
-  //     }),
-  //   ],
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new OptimizeCssAssetsPlugin(),
+      new JsonMinimizerPlugin(),
+      // This is only used in production mode
+      new TerserPlugin({
+        terserOptions: {
+          parse: {
+            // We want terser to parse ecma 8 code. However, we don't want it
+            // to apply any minification steps that turns valid ecma 5 code
+            // into invalid ecma 5 code. This is why the 'compress' and 'output'
+            // sections only apply transformations that are ecma 5 safe
+            // https://github.com/facebook/create-react-app/pull/4234
+            ecma: 8,
+          },
+          compress: {
+            ecma: 5,
+            warnings: false,
+            // Disabled because of an issue with Uglify breaking seemingly valid code:
+            // https://github.com/facebook/create-react-app/issues/2376
+            // Pending further investigation:
+            // https://github.com/mishoo/UglifyJS2/issues/2011
+            comparisons: false,
+            // Disabled because of an issue with Terser breaking valid code:
+            // https://github.com/facebook/create-react-app/issues/5250
+            // Pending further investigation:
+            // https://github.com/terser-js/terser/issues/120
+            inline: 2,
+          },
+          mangle: {
+            safari10: true,
+          },
+          // Added for profiling in devtools
+          keep_classnames: isEnvProductionProfile,
+          keep_fnames: isEnvProductionProfile,
+          output: {
+            ecma: 5,
+            comments: false,
+            // Turned on because emoji and regex is not minified properly using default
+            // https://github.com/facebook/create-react-app/issues/2488
+            ascii_only: true,
+          },
+        },
+        // sourceMap: shouldUseSourceMap,
+      }),
+    ],
 
-  //   // Automatically split vendor and commons
-  //   splitChunks: {
-  //     chunks: 'all',
-  //     name: false,
-  //   },
+    // Automatically split vendor and commons
+    splitChunks: {
+      chunks: 'all',
+      name: false,
+    },
 
-  //   // Keep the runtime chunk separated to enable long term caching
-  //   runtimeChunk: {
-  //     name: (entrypoint) => `runtime-${entrypoint.name}`,
-  //   },
-  // },
+    // Keep the runtime chunk separated to enable long term caching
+    runtimeChunk: {
+      name: (entrypoint) => `runtime-${entrypoint.name}`,
+    },
+  },
 
-  // performance: {
-  //   hints: false,
-  //   maxEntrypointSize: 512000,
-  //   maxAssetSize: 512000,
-  // },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
 })
