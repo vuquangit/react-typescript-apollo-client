@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin')
 const getClientEnvironment = require('./env')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
-const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
+const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin')
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 // const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false'
@@ -41,27 +41,10 @@ module.exports = function (webpackEnv) {
         : false
       : isEnvDevelopment && 'cheap-module-source-map',
 
-    // Where webpack looks to start building the bundle
-    entry: [
-      // activate HMR for React
-      isEnvDevelopment && require.resolve('react-hot-loader/patch'),
-
-      // bundle the client for webpack dev server
-      // and connect to the provided endpoint
-      isEnvDevelopment && require.resolve('webpack-dev-server/client'),
-
-      // bundle the client for hot reloading
-      // only- means to only hot reload for successful updates
-      isEnvDevelopment && require.resolve('webpack/hot/only-dev-server'),
-
-      // the entry point of our app
-      paths.appIndexJs,
-    ].filter(Boolean),
-
     // Customize the webpack build process
     plugins: [
-      // Removes/cleans build folders and unused assets when rebuilding
-      new CleanWebpackPlugin(),
+      // // Removes/cleans build folders and unused assets when rebuilding
+      // new CleanWebpackPlugin(),
 
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
@@ -120,6 +103,9 @@ module.exports = function (webpackEnv) {
       // This gives some necessary context to module not found errors, such as
       // the requesting resource.
       new ModuleNotFoundPlugin(paths.appPath),
+
+      // 
+      // new FriendlyErrorsWebpackPlugin(),
     ],
 
     // Determine how modules within the project are treated
@@ -195,9 +181,13 @@ module.exports = function (webpackEnv) {
       //     mainFields: ['browser', 'main'],
       //   }),
       // ],
-      alias: {
-        '/*': paths.appSrc,
-      },
+      // alias: {
+      //   '/*': paths.appSrc,
+      // },
     },
+
+    stats: {
+      colors: true
+    }
   }
 }

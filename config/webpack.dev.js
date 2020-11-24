@@ -15,6 +15,21 @@ module.exports = merge(common('development'), {
   // Set the mode to development or production
   mode: 'development',
 
+  entry: [
+    paths.appIndexJs,
+
+    // activate HMR for React
+    require.resolve('react-hot-loader/patch'),
+
+    // bundle the client for webpack dev server
+    // and connect to the provided endpoint
+    require.resolve('webpack-dev-server/client'),
+
+    // bundle the client for hot reloading
+    // only- means to only hot reload for successful updates
+    require.resolve('webpack/hot/only-dev-server'),
+  ],
+
   output: {
     // The build folder.
     path: paths.appBuild,
