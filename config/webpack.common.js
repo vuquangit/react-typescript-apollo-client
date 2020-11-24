@@ -3,12 +3,15 @@
 
 const paths = require('./paths')
 const webpack = require('webpack')
+const resolve = require('resolve');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin')
 const getClientEnvironment = require('./env')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin')
+const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
+const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 // const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false'
@@ -108,8 +111,31 @@ module.exports = function (webpackEnv) {
       // the requesting resource.
       new ModuleNotFoundPlugin(paths.appPath),
 
-      //
-      // new FriendlyErrorsWebpackPlugin(),
+      new ForkTsCheckerWebpackPlugin({
+        typescript: resolve.sync('typescript', {
+          basedir: paths.appNodeModules,
+        }),
+        async: isEnvDevelopment,
+        useTypescriptIncrementalApi: true,
+        checkSyntacticErrors: true,
+        resolveModuleNameModule: process.versions.pnp
+          ? `${__dirname}/pnpTs.js`
+          : undefined,
+        resolveTypeReferenceDirectiveModule: process.versions.pnp
+          ? `${__dirname}/pnpTs.js`
+          : undefined,
+        tsconfig: paths.appTsConfig,
+        reportFiles: [
+          '**',
+          '!**/__tests__/**',
+          '!**/?(*.)(spec|test).*',
+          '!**/src/setupProxy.*',
+          '!**/src/setupTests.*',
+        ],
+        silent: true,
+        // The formatter is invoked directly in WebpackDevServerUtils during development
+        formatter: isEnvProduction ? typescriptFormatter : undefined,
+      })
     ],
 
     // Determine how modules within the project are treated
@@ -172,7 +198,7 @@ module.exports = function (webpackEnv) {
     },
 
     resolve: {
-      modules: [paths.appNodeModules],
+      modules: [paths.appSrc, paths.appNodeModules],
       extensions: ['.js', 'jsx', '.json', '.ts', '.tsx'],
       // aliasFields: ['browser'],
       // mainFields: ['browser', 'module', 'main'],
