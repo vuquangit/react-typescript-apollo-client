@@ -8,7 +8,7 @@ import {
 import { useSelector } from 'react-redux'
 import { get, isEqual } from 'lodash'
 
-import Loading from '../components/Loader'
+// import Loading from '../components/Loader'
 
 const RedirectRoute = (props: any) => (
   <Redirect
@@ -38,7 +38,22 @@ const PrivateRoute: FC<TPrivateRoute> = ({ component: Component, ...rest }) => {
   // const isLoading = get(profile, 'isFetching', false)
   const isLoading = false
 
-  return !isLoading ? (
+  // return !isLoading ? (
+  //   <Route
+  //     {...rest}
+  //     render={(props) =>
+  //       isAuthenticated ? (
+  //         <Component {...props} />
+  //       ) : (
+  //         <RedirectRoute {...props} />
+  //       )
+  //     }
+  //   />
+  // ) : (
+  //   <Loading size={36} />
+  // )
+
+  return (
     <Route
       {...rest}
       render={(props) =>
@@ -49,8 +64,6 @@ const PrivateRoute: FC<TPrivateRoute> = ({ component: Component, ...rest }) => {
         )
       }
     />
-  ) : (
-    <Loading size={36} />
   )
 }
 
