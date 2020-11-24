@@ -18,14 +18,17 @@
     "isolatedModules": true,
     "noEmit": false,
     "jsx": "react",
-    "baseUrl": "src",
+    "baseUrl": ".",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
-    "rootDirs": [
-      "src"
-    ]
+    // "rootDirs": [
+    //   "src"
+    // ]
+    "paths": {
+      "*":["src/*"]
+    }
   },
   "include": [
     "src",
