@@ -8,7 +8,7 @@ import React, { FC } from 'react'
 import { WrapperProps } from './Wrapper.types'
 import { WrapperComponent } from './Wrapper.styled'
 import { ThemeProvider } from 'styled-components'
-import * as theme from 'themes/theme'
+import * as theme from '@/themes/theme'
 
 const Wrapper: FC<WrapperProps> = (props: WrapperProps) => {
   return (

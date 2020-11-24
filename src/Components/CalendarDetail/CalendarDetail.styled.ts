@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { prop, ifProp } from 'styled-tools'
 import { BaseCalendarDetailProps, IDate } from './CalendarDetail.types'
-import { AppButton } from 'components/Button/Button.styled'
+import { AppButton } from '@/components/Button/Button.styled'
 
 export const CalendarDetailWrapper = styled('div')<BaseCalendarDetailProps>`
   position: relative;

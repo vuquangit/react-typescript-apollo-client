@@ -91,17 +91,17 @@ module.exports = merge(common('production'), {
     //   },
     // }),
 
-    // // Copies files from target to destination folder
-    // new CopyWebpackPlugin({
-    //   patterns: [
-    //     {
-    //       from: paths.appPublic,
-    //       globOptions: {
-    //         ignore: ['*.DS_Store', '**/index.html', '**/service-worker.js'],
-    //       },
-    //     },
-    //   ],
-    // }),
+    // Copies files from target to destination folder
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: paths.appPublic,
+          globOptions: {
+            ignore: ['*.DS_Store', '**/index.html', '**/service-worker.js'],
+          },
+        },
+      ],
+    }),
 
     // // Generate a service worker script that will precache, and keep up to date,
     // // the HTML & assets that are part of the webpack build.

@@ -1,10 +1,10 @@
 import { RouteProps, RouteComponentProps } from 'react-router-dom'
-import HomePage from 'pages/Home/Loadable'
-import LoginPage from 'pages/Login/Loadable'
-import SignupPage from 'pages/Signup/Loadable'
-import GraphqlPage from 'pages/GraphqlPage/Loadable'
-import Notification from 'pages/Notification/Loadable'
-import Calender from 'pages/Calendar/Loadable'
+import HomePage from '@/pages/Home/Loadable'
+import LoginPage from '@/pages/Login/Loadable'
+import SignupPage from '@/pages/Signup/Loadable'
+import GraphqlPage from '@/pages/GraphqlPage/Loadable'
+import Notification from '@/pages/Notification/Loadable'
+import Calender from '@/pages/Calendar/Loadable'
 
 interface IPageConfigs extends RouteProps {
   component:

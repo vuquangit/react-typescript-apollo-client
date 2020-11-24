@@ -8,8 +8,8 @@ import {
 } from './Header.styled'
 import { INavList } from './Home.types'
 import { navList } from './mock'
-import SwitchTheme from 'components/SwitchTheme'
-import Container from 'components/Container'
+import SwitchTheme from '@/components/SwitchTheme'
+import Container from '@/components/Container'
 
 const Header: FC = () => {
   const navListRender = navList.map((item: INavList) => (

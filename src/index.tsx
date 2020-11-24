@@ -8,8 +8,8 @@ import { AppContainer } from 'react-hot-loader'
 
 import App from './App'
 import clientConfig from './graphql.config'
-import { initializeStore } from 'stores/store'
-import 'i18n'
+import { initializeStore } from '@/stores/store'
+import '@/i18n'
 
 const render = () => {
   const initState: any = {}

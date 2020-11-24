@@ -9,7 +9,7 @@ import {
   border,
   typography,
 } from 'styled-system'
-import { primaryPalette /*, COLOR  */ } from 'themes/colors'
+import { primaryPalette /*, COLOR  */ } from '@/themes/colors'
 import { BaseButtonProps } from './Button.types'
 
 export const AppButton = styled.button<BaseButtonProps>`

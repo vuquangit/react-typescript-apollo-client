@@ -1,18 +1,18 @@
 import React, { FC, createRef } from 'react'
-import { DefaultLayout } from 'layouts'
+import { DefaultLayout } from '@/layouts'
 import { useSelector, useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 
-import { RootState } from 'stores/rootReducer'
-import { increment, decrement, reset } from 'stores/Clock/Clock.action'
-import { addCount, minusCount } from 'stores/Counter'
-import { actionTypes as CounterActionTypes } from 'stores/Counter/actionTypes'
+import { RootState } from '@/stores/rootReducer'
+import { increment, decrement, reset } from '@/stores/Clock/Clock.action'
+import { addCount, minusCount } from '@/stores/Counter'
+import { actionTypes as CounterActionTypes } from '@/stores/Counter/actionTypes'
 
 import { CLickCounterWrap } from './Home.styled'
-import Button from 'components/Button'
-import Container from 'components/Container'
+import Button from '@/components/Button'
+import Container from '@/components/Container'
 import mockData from './mockData.json'
-import imageHome from 'assets/images/img_1.jpg'
+import imageHome from '@/assets/images/img_1.jpg'
 
 export const incrementAsync = () => ({
   type: CounterActionTypes.INCREMENT_ASYNC,

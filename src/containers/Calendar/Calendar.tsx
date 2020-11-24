@@ -1,8 +1,8 @@
 import React, { FC, useState, useEffect, useCallback } from 'react'
-import { getMatrix, dayNames } from 'utils/date'
+import { getMatrix, dayNames } from '@/utils/date'
 import { TWeeks } from './Calendar.types'
-import CalendarDetail from 'components/CalendarDetail/CalendarDetail'
-import Button from 'components/Button'
+import CalendarDetail from '@/components/CalendarDetail/CalendarDetail'
+import Button from '@/components/Button'
 import {
   CalendarWrapper,
   CalendarContentWrapper,

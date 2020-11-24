@@ -1,9 +1,9 @@
 import React, { FC, ReactNode } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { Provider } from 'react-redux'
-import { initializeStore } from 'stores/store'
-import GlobalStyle from 'themes/globalStyles'
-import { lightTheme } from 'themes/theme'
+import { initializeStore } from '@/stores/store'
+import GlobalStyle from '@/themes/globalStyles'
+import { lightTheme } from '@/themes/theme'
 
 type Props = {
   children: ReactNode

@@ -1,5 +1,5 @@
 import { css, FlattenSimpleInterpolation } from 'styled-components'
-import { breakpoints } from 'themes/variables/layout'
+import { breakpoints } from '@/themes/variables/layout'
 
 type TReponse = {
   [key: string]: (args: any) => FlattenSimpleInterpolation

@@ -1,8 +1,8 @@
 import React, { FC, useEffect } from 'react'
-import usePushNotifications from 'notifications/usePushNotifications'
+import usePushNotifications from '@/notifications/usePushNotifications'
 
-import { DefaultLayout } from 'layouts'
-import Container from 'components/Container'
+import { DefaultLayout } from '@/layouts'
+import Container from '@/components/Container'
 
 type LoadingProps = {
   loading: any

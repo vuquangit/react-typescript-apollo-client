@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { withRouter } from 'react-router'
 
-import { DefaultLayout } from 'layouts'
-import Container from 'components/Container'
+import { DefaultLayout } from '@/layouts'
+import Container from '@/components/Container'
 
 type Props = {
   history: any

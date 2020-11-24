@@ -9,7 +9,7 @@ import ReactDOM from 'react-dom'
 import { act } from 'react-dom/test-utils'
 import Calendar from '..'
 
-import Wrapper from 'test/supports/Wrapper'
+import Wrapper from '@/test/supports/Wrapper'
 
 let container: any = null
 beforeEach(() => {

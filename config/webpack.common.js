@@ -14,6 +14,8 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin')
 // const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false'
 const shouldUseSourceMap = false
 
+process.traceDeprecation = true
+
 module.exports = function (webpackEnv) {
   const isEnvDevelopment = webpackEnv === 'development'
   const isEnvProduction = webpackEnv === 'production'
@@ -30,6 +32,8 @@ module.exports = function (webpackEnv) {
     '  isEnvProduction:',
     isEnvProduction
   )
+
+  console.log(paths)
 
   return {
     // Stop compilation early in production
@@ -168,21 +172,21 @@ module.exports = function (webpackEnv) {
     },
 
     resolve: {
-      modules: [paths.appSrc, 'node_modules'],
+      modules: [paths.appNodeModules],
       extensions: ['.js', 'jsx', '.json', '.ts', '.tsx'],
       // aliasFields: ['browser'],
       // mainFields: ['browser', 'module', 'main'],
-      // plugins: [
-      //   new TsconfigPathsPlugin({
-      //     configFile: paths.appTsConfig,
-      //     extensions: ['.ts', '.tsx', '.js'],
-      //     logLevel: 'INFO',
-      //     baseUrl: paths.appPath,
-      //     mainFields: ['browser', 'main'],
-      //   }),
-      // ],
-      alias: {
-        '*': paths.appSrc,
+      plugins: [
+        new TsconfigPathsPlugin({
+          configFile: paths.appTsConfig,
+          extensions: ['.ts', '.tsx', '.js'],
+          logLevel: 'INFO',
+          baseUrl: paths.appPath,
+          mainFields: ['browser', 'main'],
+        }),
+      ],
+      // alias: {
+        // '@/*': paths.appSrc,
         // themes: paths.appSrc + '/themes/',
         // routes: paths.appSrc + '/routes/',
         // stores: paths.appSrc + '/stores/',
@@ -192,7 +196,7 @@ module.exports = function (webpackEnv) {
         // graphqlQuery: paths.appSrc + '/graphqlQuery/',
         // pages: paths.appSrc + '/pages/',
    
-      },
+      // },
     },
 
     stats: {
