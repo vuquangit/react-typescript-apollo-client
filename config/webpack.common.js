@@ -211,8 +211,8 @@ module.exports = function (webpackEnv) {
           mainFields: ['browser', 'main'],
         }),
       ],
-      // alias: {
-      // '@/*': paths.appSrc,
+      alias: {
+      '@/*': paths.appSrc,
       // themes: paths.appSrc + '/themes/',
       // routes: paths.appSrc + '/routes/',
       // stores: paths.appSrc + '/stores/',
@@ -222,7 +222,7 @@ module.exports = function (webpackEnv) {
       // graphqlQuery: paths.appSrc + '/graphqlQuery/',
       // pages: paths.appSrc + '/pages/',
 
-      // },
+      },
     },
 
     stats: {
