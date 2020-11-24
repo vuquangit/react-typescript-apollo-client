@@ -108,7 +108,7 @@ module.exports = function (webpackEnv) {
       // the requesting resource.
       new ModuleNotFoundPlugin(paths.appPath),
 
-      // 
+      //
       // new FriendlyErrorsWebpackPlugin(),
     ],
 
@@ -186,21 +186,21 @@ module.exports = function (webpackEnv) {
         }),
       ],
       // alias: {
-        // '@/*': paths.appSrc,
-        // themes: paths.appSrc + '/themes/',
-        // routes: paths.appSrc + '/routes/',
-        // stores: paths.appSrc + '/stores/',
-        // utils: paths.appSrc + '/utils/',
-        // test: paths.appSrc + '/test/',
-        // layouts: paths.appSrc + '/layouts/',
-        // graphqlQuery: paths.appSrc + '/graphqlQuery/',
-        // pages: paths.appSrc + '/pages/',
-   
+      // '@/*': paths.appSrc,
+      // themes: paths.appSrc + '/themes/',
+      // routes: paths.appSrc + '/routes/',
+      // stores: paths.appSrc + '/stores/',
+      // utils: paths.appSrc + '/utils/',
+      // test: paths.appSrc + '/test/',
+      // layouts: paths.appSrc + '/layouts/',
+      // graphqlQuery: paths.appSrc + '/graphqlQuery/',
+      // pages: paths.appSrc + '/pages/',
+
       // },
     },
 
     stats: {
-      colors: true
-    }
+      colors: true,
+    },
   }
 }

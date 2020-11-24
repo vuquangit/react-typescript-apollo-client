@@ -8,7 +8,7 @@ import {
 import { useSelector } from 'react-redux'
 import { get, isEqual } from 'lodash'
 
-import Loading from '@/components/Loader'
+import Loading from '../components/Loader'
 
 const RedirectRoute = (props: any) => (
   <Redirect
