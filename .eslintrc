@@ -79,6 +79,11 @@
   "settings": {
     "react": {
       "version": "latest"
+    },
+    "import/resolver": {
+      "alias": {
+        "map": "[['@', path.resolve(__dirname, 'src')]]",
+      }
     }
   }
 }

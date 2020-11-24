@@ -197,17 +197,17 @@ module.exports = function (webpackEnv) {
 
     resolve: {
       modules: [paths.appSrc, paths.appNodeModules],
-      extensions: ['.js', 'jsx', '.json', '.ts', '.tsx'],
+      extensions: ['.js', 'jsx', '.ts', '.tsx'],
       alias: {
-        '@/': paths.appSrc,
+        '@': paths.appSrc,
       },
       plugins: [
         new TsconfigPathsPlugin({
           configFile: paths.appTsConfig,
-          extensions: ['.ts', '.tsx', '.js'],
-          logLevel: 'INFO',
-          baseUrl: paths.appPath,
-          mainFields: ['browser', 'main'],
+          // extensions: ['.ts', '.tsx', '.js'],
+          // logLevel: 'INFO',
+          // baseUrl: paths.appPath,
+          // mainFields: ['browser', 'main'],
         }),
       ],
     },
