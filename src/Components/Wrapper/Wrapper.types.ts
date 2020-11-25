@@ -7,7 +7,6 @@ import {
   FlexboxProps,
   LayoutProps,
   WidthProps,
-  ResponsiveValue,
 } from 'styled-system'
 
 export interface IWrapperProps {

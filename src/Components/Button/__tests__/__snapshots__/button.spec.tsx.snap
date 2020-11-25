@@ -1,112 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button disable btn 1`] = `
+exports[`App Button Test Button disabled 1`] = `
 .c0 {
-  width: medium;
-  height: medium;
   cursor: default;
-  color: #fff;
   background-color: #000;
-  font-size: 14px;
+  color: #fff;
   background-color: #999;
   border-color: #999;
   pointer-events: none;
+  font-size: 16px;
 }
 
-<Button
-  disabled={true}
->
-  <Component
-    theme={
-      Object {
-        "palette": Object {
-          "primary": Object {
-            "contrastText": "#FFF",
-            "dark": "#cf2557",
-            "light": "#fc688e",
-            "main": "#F62F5E",
-          },
-          "secondary": Array [
-            "#c2185b",
-            "#e91e63",
-            "#f06292",
-            "#f8bbd0",
-          ],
-        },
-      }
-    }
+<div>
+  <button
+    class="c0"
+    data-testid="app-button"
+    disabled=""
   >
-    <styled.button
-      disabled={true}
-      size="medium"
-      theme={
-        Object {
-          "kind": "dark",
-        }
-      }
-      variant="normal"
-    >
-      <button
-        className="c0"
-        disabled={true}
-        size="medium"
-      >
-        Disable button
-      </button>
-    </styled.button>
-  </Component>
-</Button>
+    Primary
+  </button>
+</div>
 `;
 
-exports[`Button primary large btn 1`] = `
+exports[`App Button Test Button with dark mode 1`] = `
 .c0 {
   width: large;
   height: large;
   cursor: default;
-  color: #fff;
-  background-color: #000;
-  font-size: 20px;
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
 }
 
-<Button
-  size="large"
->
-  <Component
-    theme={
-      Object {
-        "palette": Object {
-          "primary": Object {
-            "contrastText": "#FFF",
-            "dark": "#cf2557",
-            "light": "#fc688e",
-            "main": "#F62F5E",
-          },
-          "secondary": Array [
-            "#c2185b",
-            "#e91e63",
-            "#f06292",
-            "#f8bbd0",
-          ],
-        },
-      }
-    }
+<div>
+  <button
+    class="c0"
+    data-testid="app-button"
   >
-    <styled.button
-      size="large"
-      theme={
-        Object {
-          "kind": "dark",
-        }
-      }
-      variant="normal"
-    >
-      <button
-        className="c0"
-        size="large"
-      >
-        Primary
-      </button>
-    </styled.button>
-  </Component>
-</Button>
+    Primary
+  </button>
+</div>
+`;
+
+exports[`App Button Test Button with light mode 1`] = `
+.c0 {
+  width: large;
+  height: large;
+  cursor: default;
+  background-color: #000;
+  color: #fff;
+  font-size: 16px;
+}
+
+<div>
+  <button
+    class="c0"
+    data-testid="app-button"
+  >
+    Primary
+  </button>
+</div>
 `;

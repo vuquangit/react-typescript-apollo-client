@@ -1,5 +1,3 @@
-import { ReactHTMLElement } from 'react'
-
 interface IThemeMode {
   themeMode: 'light' | 'dark'
 }

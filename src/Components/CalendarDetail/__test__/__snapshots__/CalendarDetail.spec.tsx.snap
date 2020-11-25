@@ -5,9 +5,6 @@ Object {
   "asFragment": [Function],
   "baseElement": .c1 {
   cursor: default;
-  color: #fff;
-  background-color: #000;
-  font-size: 14px;
 }
 
 .c0 {
@@ -161,7 +158,7 @@ Object {
       data-tooltip="In: 08:00 - Out: 17:37"
     >
       <button
-        class="sc-bdfBwQ sc-dlfnbm eagBUM gubvch"
+        class="sc-bdfBwQ sc-dlfnbm juijLC gubvch"
       >
         6
       </button>

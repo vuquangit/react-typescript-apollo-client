@@ -1,4 +1,4 @@
-import React, { FC, createRef } from 'react'
+import React, { FC, createRef, useState } from 'react'
 import { DefaultLayout } from '@/layouts'
 import { useSelector, useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
@@ -13,6 +13,7 @@ import Button from '@/components/Button'
 import Container from '@/components/Container'
 import mockData from './mockData.json'
 import imageHome from '@/assets/images/img_1.jpg'
+import Modal from '@/components/Modal'
 
 export const incrementAsync = () => ({
   type: CounterActionTypes.INCREMENT_ASYNC,
@@ -46,7 +47,12 @@ const HomePage: FC = () => {
     i18n.changeLanguage(lng)
   }
 
-  console.log(mockData)
+  // console.log(mockData)
+
+  // open modal
+  const [openModal, setOpenModal] = useState<boolean>(false)
+  const handleOpenModal = () => setOpenModal(true)
+  const handleCloseModal = () => setOpenModal(false)
 
   return (
     <DefaultLayout>
@@ -55,7 +61,15 @@ const HomePage: FC = () => {
         <hr />
         <br />
 
-        <img src="assets/images/img_1.jpg" alt="image alt" />
+        <Button onClick={handleOpenModal}>Open modal</Button>
+        <Modal show={openModal} onClose={handleCloseModal}>
+          <h2>Modal title</h2>
+          <div>
+            <p>Content....</p>
+            <img src="assets/images/img_1.jpg" alt="image alt" />
+          </div>
+        </Modal>
+
         <img src={imageHome} alt="image alt" />
 
         <div> i18n: </div>
@@ -75,15 +89,14 @@ const HomePage: FC = () => {
           onClick={handleClick}
           size="large"
           width={[1, 1 / 2, 1 / 4]}
-          theme={{ kind: 'darker' }}
           mt={12}
           m={[0, 1, 2]}
           variant="large"
         >
-          Theme button
+          Large button
         </Button>
 
-        <Button theme={{ kind: 'darkest' }}>darker</Button>
+        <Button themeMode={'light'}>Dark mode</Button>
 
         <div>
           <h2>

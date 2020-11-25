@@ -8,11 +8,13 @@ import {
   buttonStyle,
   border,
   typography,
+  variant,
+  color,
 } from 'styled-system'
-import { primaryPalette /*, COLOR  */ } from '@/themes/colors'
 import { BaseButtonProps } from './Button.types'
 
 export const AppButton = styled.button<BaseButtonProps>`
+  ${color};
   ${space};
   ${layout};
   ${flexbox};
@@ -21,26 +23,15 @@ export const AppButton = styled.button<BaseButtonProps>`
   ${typography};
 
   cursor: ${prop('cursor', 'default')};
-  color: ${prop('theme.textColor', '#fff')};
-  background-color: ${prop('theme.primary', '#000')};
-  font-size: ${ifProp(
-    { size: 'large' },
-    prop('theme.sizes.lg', '20px'),
-    prop('theme.sizes.md', '14px')
-  )};
 
-  ${switchProp('kind', {
+  ${switchProp('themeMode', {
+    light: css`
+      background-color: #000;
+      color: #fff;
+    `,
     dark: css`
-      background-color: ${prop('theme.colors.blue', 'blue')};
-      border: 1px solid ${prop('theme.colors.blue', 'blue')};
-    `,
-    darker: css`
-      background-color: ${prop('theme.colors.mediumblue', 'mediumblue')};
-      border: 1px solid ${prop('theme.colors.mediumblue', 'mediumblue')};
-    `,
-    darkest: css`
-      background-color: ${prop('theme.colors.darkblue', 'darkblue')};
-      border: 1px solid ${prop('theme.colors.darkblue', 'darkblue')};
+      background-color: #fff;
+      color: #000;
     `,
   })}
 
@@ -52,11 +43,17 @@ export const AppButton = styled.button<BaseButtonProps>`
       pointer-events: none;
     `
   )}
-`
 
-export const theme = {
-  palette: {
-    primary: primaryPalette,
-    secondary: ['#c2185b', '#e91e63', '#f06292', '#f8bbd0'],
-  },
-}
+  ${variant({
+    variants: {
+      normal: {
+        // p: '8px',
+        fontSize: '16px',
+      },
+      large: {
+        // p: '12px',
+        fontSize: '24px',
+      },
+    },
+  })}
+`
