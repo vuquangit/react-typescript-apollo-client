@@ -9,8 +9,9 @@ function receivePushNotification(event) {
     icon: image,
     vibrate: [200, 100, 200],
     tag: tag,
-    image: image,
+    image: '/logo192.png',
     badge: 'https://spyna.it/icons/favicon.ico',
+    requireInteraction: true,
     actions: [
       {
         action: 'Detail',
