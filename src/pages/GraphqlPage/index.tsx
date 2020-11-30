@@ -5,7 +5,11 @@ import { get } from 'lodash'
 import axios, { AxiosRequestConfig } from 'axios'
 
 import Container from '@/components/Container'
-import { GET_MEDIA, GET_PAGE_INFO } from '@/graphqlQuery/queries'
+import {
+  GET_MEDIA,
+  GET_PAGE_INFO,
+  GET_RESTAPI_CAT_IMAGES,
+} from '@/graphqlQuery/queries'
 import { UPDATE_MEDIA } from '@/graphqlQuery/mutations'
 
 const GraphqlPage: FC = () => {
@@ -100,45 +104,57 @@ const GraphqlPage: FC = () => {
     }
   }
 
+  // rest api
+  const {
+    loading: newsEverythingLoading,
+    error: newsEverythingError,
+    data: newsEverythingData,
+  } = useQuery(GET_RESTAPI_CAT_IMAGES, {
+    variables: {
+      limit: 10,
+    },
+  })
+
   return (
     <DefaultLayout>
       <Container>
-        <h1 className="profile">GRAPHQL</h1>
-        <br />
-
-        <button>
-          <a
-            href={`https://anilist.co/api/v2/oauth/authorize?client_id=${clientId}&response_type=token`}
-          >
-            Login with AniList
-          </a>
-        </button>
-        <br />
-        <br />
-
-        <button onClick={getAccesToken}>GET ACCESS TOKEN</button>
-        <hr />
-        <br />
         <div>
-          <h2>Media:</h2>
-          {mediaLoading && <div>Media is loading</div>}
-          {mediaData && (
-            <div>
-              <div>id: {mediaData.Media.id}</div>
-              <div>Status: {mediaData.Media.status}</div>
-              <div>Title</div>
-              <div>English: {mediaData.Media.title.english}</div>
-              <div>Native: {mediaData.Media.title.native}</div>
-              <div>Romaji: {mediaData.Media.title.romaji}</div>
-            </div>
-          )}
-          {mediaError && <div>Media is error</div>}
-          <button onClick={() => mediaRefetch()}>Refetch media!</button>
+          <h2>GRAPHQL QUERY</h2>
+          <br />
+
+          <button>
+            <a
+              href={`https://anilist.co/api/v2/oauth/authorize?client_id=${clientId}&response_type=token`}
+            >
+              Login with AniList
+            </a>
+          </button>
+          <br />
+          <br />
+
+          <button onClick={getAccesToken}>GET ACCESS TOKEN</button>
           <hr />
           <br />
-        </div>
+          <div>
+            <h2>Media:</h2>
+            {mediaLoading && <div>Media is loading</div>}
+            {mediaData && (
+              <div>
+                <div>id: {mediaData.Media.id}</div>
+                <div>Status: {mediaData.Media.status}</div>
+                <div>Title</div>
+                <div>English: {mediaData.Media.title.english}</div>
+                <div>Native: {mediaData.Media.title.native}</div>
+                <div>Romaji: {mediaData.Media.title.romaji}</div>
+              </div>
+            )}
+            {mediaError && <div>Media is error</div>}
+            <button onClick={() => mediaRefetch()}>Refetch media!</button>
+            <hr />
+            <br />
+          </div>
 
-        {/*
+          {/*
         <div>
           <h2>Pagination:</h2>
           {pageInfoLoading && <div>Page is loading</div>}
@@ -157,6 +173,38 @@ const GraphqlPage: FC = () => {
             <button type="submit">Add Todo</button>
           </form>
         </div> */}
+        </div>
+
+        <br />
+        <br />
+
+        <div>
+          <h2 className="profile">GRAPHQL REST API</h2>
+          <p>Search image: cat</p>
+          {newsEverythingLoading && <p>REST API request is loading...</p>}
+          {newsEverythingError && (
+            <p>
+              Error: <span>{newsEverythingError.message}</span>
+            </p>
+          )}
+          {newsEverythingData && (
+            <ol
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+              }}
+            >
+              {newsEverythingData.getEverythingResult.map(
+                (item: any, index: number) => (
+                  <li key={item + index} style={{ width: '33.3333%' }}>
+                    <img src={item.url} alt="" />
+                  </li>
+                )
+              )}
+            </ol>
+          )}
+        </div>
       </Container>
     </DefaultLayout>
   )
