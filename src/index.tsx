@@ -7,7 +7,7 @@ import { ApolloProvider } from '@apollo/client'
 import { AppContainer } from 'react-hot-loader'
 
 import App from './App'
-import clientConfig from './graphql.config'
+import { apolloClient } from '@/graphql/config/apollo-client'
 import { initializeStore } from '@/stores/store'
 import '@/i18n'
 
@@ -17,7 +17,7 @@ const render = () => {
 
   ReactDOM.render(
     <AppContainer>
-      <ApolloProvider client={clientConfig}>
+      <ApolloProvider client={apolloClient}>
         <Provider store={store}>
           <App />
         </Provider>

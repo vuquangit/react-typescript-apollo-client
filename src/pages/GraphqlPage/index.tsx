@@ -9,8 +9,8 @@ import {
   GET_MEDIA,
   GET_PAGE_INFO,
   GET_RESTAPI_CAT_IMAGES,
-} from '@/graphqlQuery/queries'
-import { UPDATE_MEDIA } from '@/graphqlQuery/mutations'
+} from '@/graphql/queries'
+import { UPDATE_MEDIA } from '@/graphql/mutations'
 
 const GraphqlPage: FC = () => {
   const {
