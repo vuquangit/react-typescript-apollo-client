@@ -10,8 +10,12 @@ const authLink = setContext((_, { headers }) => {
     headers: {
       ...headers,
       // 'Authorization': token ? `Bearer ${token}` : null,
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
+      // 'Content-Type': 'application/json',
+      // Accept: 'application/json',
+
+      authorization: localStorage.getItem('token') || '',
+      'client-name': 'ac3-todos-backend',
+      'client-version': '1.0.0',
     },
   }
 })

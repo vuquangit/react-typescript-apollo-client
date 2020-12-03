@@ -1,33 +1,26 @@
 import { InMemoryCache, makeVar } from '@apollo/client'
-
-// import { InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-cache-inmemory';
-// import introspectionQueryResultData from '../generated/fragment-matcher.json';
+import { VisibilityFilters, VisibilityFilter } from '../models/VisibilityFilter'
 
 export const localCache = new InMemoryCache({
   typePolicies: {
     Query: {
       fields: {
-        cartItems: {
+        visibilityFilter: {
           read() {
-            return cartItemsVar();
-          }
-        }
-      }
-    }
-  }
+            return visibilityFilterVar()
+          },
+        },
+      },
+    },
+  },
 })
 
-export function initLocalCache() {
-  // localCache.writeData({
-  //   data: {
-  //     shoppingCart: {
-  //       __typename: 'ShoppingCart',
-  //       id: btoa('ShoppingCart:1'),
-  //       totalPrice: 0,
-  //       numActionFigures: 0,
-  //     },
-  //   },
-  // });
-}
+export function initLocalCache() {}
 
-export const cartItemsVar = makeVar([]);
+/**
+ * Set initial values when we create cache variables.
+ */
+
+export const visibilityFilterVar = makeVar<VisibilityFilter>(
+  VisibilityFilters.SHOW_ALL
+)

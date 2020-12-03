@@ -2,21 +2,16 @@ import React, { FC } from 'react'
 import { DefaultLayout } from '@/layouts'
 
 import Container from '@/components/Container'
+import TodoList from '@/containers/TodoList'
 import CatImageSearch from '@/containers/CatImageSearch'
 
 const GraphqlPage: FC = () => {
-  
   return (
     <DefaultLayout>
       <Container>
-        <div>
-          <h2>GRAPHQL QUERY</h2>
-          <br />
-        </div>
-
+        <TodoList />
         <br />
         <br />
-
         <CatImageSearch />
       </Container>
     </DefaultLayout>
