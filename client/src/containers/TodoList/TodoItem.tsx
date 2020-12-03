@@ -15,7 +15,11 @@ interface LabelInputProps {
 const TotoItemWrapper = styled('li')<TotoItemWrapperProps>`
   position: relative;
   font-size: 24px;
-  border-bottom: 1px solid #ededed;
+  border-bottom: 1px dashed #ededed;
+
+  &:last-child {
+    border-bottom: 0;
+  }
 
   ${ifProp(
     'editing',
@@ -81,9 +85,9 @@ const ButtonRemove = styled('button')`
   color: #cc9a9a;
   margin-bottom: 11px;
   transition: color 0.2s ease-out;
-
   background: transparent;
   border: 0;
+  cursor: pointer;
 
   &:after {
     content: '×';

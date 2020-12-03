@@ -15,6 +15,10 @@ const LinkWrapper = styled('a')<LinkWrapperProps>`
   border-radius: 3px;
   cursor: pointer;
 
+  &:hover {
+    border-color: rgba(175, 47, 47, 0.1);
+  }
+
   ${ifProp(
     'selected',
     css`

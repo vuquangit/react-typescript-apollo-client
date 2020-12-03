@@ -17,19 +17,7 @@ const TodoFooterWrapper = styled('div')`
   text-align: center;
   font-size: 15px;
   border-top: 1px solid #e6e6e6;
-
-  &:before {
-    content: '';
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 50px;
-    overflow: hidden;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6,
-      0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6,
-      0 17px 2px -6px rgba(0, 0, 0, 0.2);
-  }
+  border-bottom: 1px solid #e6e6e6;
 `
 const TodoCount = styled('span')`
   float: left;
@@ -47,7 +35,24 @@ const TodoFilters = styled('ul')`
 const TodoFilterItem = styled('li')`
   display: inline;
 `
+const ButtonClear = styled('button')`
+  float: right;
+  position: relative;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
 
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  appearance: none;
+`
 interface FooterProps {
   activeVisibilityFilter: VisibilityFilter
   activeCount: number
@@ -66,11 +71,11 @@ const TodoFooter: FC<FooterProps> = ({
   const itemWord = activeCount === 1 ? 'item' : 'items'
 
   return (
-    <TodoFooterWrapper className="footer">
-      <TodoCount className="todo-count">
+    <TodoFooterWrapper>
+      <TodoCount>
         <strong>{activeCount || 'No'}</strong> {itemWord} left
       </TodoCount>
-      <TodoFilters className="filters">
+      <TodoFilters>
         {Object.keys(VisibilityFilters)
           .map((key) => VisibilityFilters[key])
           .map((filter) => (
@@ -85,9 +90,7 @@ const TodoFooter: FC<FooterProps> = ({
           ))}
       </TodoFilters>
       {!!completedCount && (
-        <button className="clear-completed" onClick={onClearCompleted}>
-          Clear completed
-        </button>
+        <ButtonClear onClick={onClearCompleted}>Clear completed</ButtonClear>
       )}
     </TodoFooterWrapper>
   )

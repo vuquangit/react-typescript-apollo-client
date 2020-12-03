@@ -11,14 +11,13 @@ import { useCompleteAllTodos } from '@/graphql/mutations/completeAllTodos'
 import { setVisibilityFilter } from '@/graphql/mutations/setVisibilityFilter'
 
 import Footer from './TodoFooter'
-import VisibleTodoList from './VisibleTodoList'
+import TodoBody from './TodoBody'
 
 const MainWrapper = styled('section')`
   position: relative;
   z-index: 2;
   border-top: 1px solid #e6e6e6;
 `
-
 const InputToggleAll = styled('input')`
   width: 1px;
   height: 1px;
@@ -29,7 +28,6 @@ const InputToggleAll = styled('input')`
   bottom: 100%;
   background: none;
 `
-
 const Label = styled('label')`
   width: 60px;
   height: 34px;
@@ -83,7 +81,7 @@ export default function Main() {
           <Label onClick={() => completeAllTodos} />
         </span>
       )}
-      <VisibleTodoList />
+      <TodoBody />
       {!!todosCount && (
         <Footer
           activeVisibilityFilter={visibilityFilter}
