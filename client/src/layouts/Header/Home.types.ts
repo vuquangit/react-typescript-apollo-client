@@ -4,3 +4,9 @@ export interface INavList {
   link: string
   exact?: boolean
 }
+
+export interface IHeaderContentProps {
+  isLoggedIn: boolean
+}
+
+export declare type BaseHeaderProps = {}

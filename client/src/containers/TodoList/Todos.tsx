@@ -1,12 +1,12 @@
 import React from 'react'
 import TodoHeader from './TodoHeader'
-import MainSection from './TodoMain'
+import TodoMain from './TodoMain'
 
 const TodoList = () => {
   return (
     <>
       <TodoHeader />
-      <MainSection />
+      <TodoMain />
     </>
   )
 }

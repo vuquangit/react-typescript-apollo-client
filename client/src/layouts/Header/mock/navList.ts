@@ -11,18 +11,18 @@ export const navList = [
     link: '/graphql',
     exact: true,
   },
-  {
-    id: 3,
-    label: 'Login',
-    link: '/login',
-    exact: true,
-  },
-  {
-    id: 4,
-    label: 'Signup',
-    link: '/signup',
-    exact: true,
-  },
+  // {
+  //   id: 3,
+  //   label: 'Login',
+  //   link: '/login',
+  //   exact: true,
+  // },
+  // {
+  //   id: 4,
+  //   label: 'Signup',
+  //   link: '/signup',
+  //   exact: true,
+  // },
   {
     id: 5,
     label: 'Notification',

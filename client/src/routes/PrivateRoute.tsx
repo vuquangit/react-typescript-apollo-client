@@ -5,10 +5,10 @@ import {
   RouteProps,
   RouteComponentProps,
 } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { get, isEqual } from 'lodash'
+import { useQuery } from '@apollo/client'
 
-// import Loading from '../components/Loader'
+import Loading from '@/components/Loader'
+import { IS_LOGGED_IN } from '@/graphql/queries/isUserLoggedIn'
 
 const RedirectRoute = (props: any) => (
   <Redirect
@@ -27,33 +27,11 @@ interface TPrivateRoute extends RouteProps {
 }
 
 const PrivateRoute: FC<TPrivateRoute> = ({ component: Component, ...rest }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const profile = useSelector(
-    (state = {}) => get(state, 'profile', {}),
-    isEqual
-  )
-  // const isAuthenticated = !isEmpty(profile.data);
-  const isAuthenticated = true
+  const { loading: isLoading, data } = useQuery(IS_LOGGED_IN)
+  const isAuthenticated = data.isLoggedIn
+  console.log('isAuthenticated: ', isAuthenticated)
 
-  // const isLoading = get(profile, 'isFetching', false)
-  const isLoading = false
-
-  // return !isLoading ? (
-  //   <Route
-  //     {...rest}
-  //     render={(props) =>
-  //       isAuthenticated ? (
-  //         <Component {...props} />
-  //       ) : (
-  //         <RedirectRoute {...props} />
-  //       )
-  //     }
-  //   />
-  // ) : (
-  //   <Loading size={36} />
-  // )
-
-  return (
+  return !isLoading ? (
     <Route
       {...rest}
       render={(props) =>
@@ -64,6 +42,8 @@ const PrivateRoute: FC<TPrivateRoute> = ({ component: Component, ...rest }) => {
         )
       }
     />
+  ) : (
+    <Loading size={36} />
   )
 }
 

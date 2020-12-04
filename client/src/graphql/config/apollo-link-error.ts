@@ -1,4 +1,5 @@
 import { onError } from '@apollo/client/link/error'
+// import { logout } from './logout';
 
 export const errorLink = onError(
   ({ graphQLErrors, networkError, response, operation }) => {
@@ -11,6 +12,9 @@ export const errorLink = onError(
         )
       }
     }
+
+    // if (networkError?.statusCode === 401) logout()
+
     if (networkError) {
       console.error(`[Network error]: ${networkError}`, operation, response)
     }
