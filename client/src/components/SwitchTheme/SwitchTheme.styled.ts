@@ -1,13 +1,17 @@
 import styled from 'styled-components'
 import { ifProp } from 'styled-tools'
+import { space } from 'styled-system'
 import {
   BaseSwitchLight,
   BaseSwitchDark,
   BaseSwitchToggleThumb,
   BaseSwitchScreenReader,
+  BaseSwitchThemeProps,
 } from './SwitchTheme.types'
 
-export const SwitchWrapper = styled('div')`
+export const SwitchWrapper = styled('div')<BaseSwitchThemeProps>`
+  ${space};
+
   touch-action: pan-x;
   display: inline-block;
   position: relative;

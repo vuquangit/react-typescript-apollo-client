@@ -13,7 +13,7 @@ import {
 } from 'styled-system'
 import { BaseButtonProps } from './Button.types'
 
-export const AppButton = styled.button<BaseButtonProps>`
+export const AppButton = styled('button')<BaseButtonProps>`
   ${color};
   ${space};
   ${layout};

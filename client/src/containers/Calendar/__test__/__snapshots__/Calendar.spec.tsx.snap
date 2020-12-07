@@ -5,6 +5,7 @@ exports[`App Calendar Test get default Calendar 1`] = `
   border: 0;
   font-size: 18px;
   cursor: pointer;
+  border: 0;
   background-color: #000;
   color: #fff;
   font-size: 16px;
@@ -13,6 +14,7 @@ exports[`App Calendar Test get default Calendar 1`] = `
 .c3 {
   padding: 8px;
   cursor: pointer;
+  border: 0;
   background-color: #000;
   color: #fff;
   font-size: 16px;
@@ -20,6 +22,7 @@ exports[`App Calendar Test get default Calendar 1`] = `
 
 .c8 {
   cursor: default;
+  border: 0;
 }
 
 .c7 {
@@ -475,7 +478,7 @@ exports[`App Calendar Test get default Calendar 1`] = `
           data-tooltip="In: 08:00 - Out: 17:37"
         >
           <button
-            class="c8 c13"
+            class="c8 c9"
           >
             2
           </button>
@@ -571,7 +574,7 @@ exports[`App Calendar Test get default Calendar 1`] = `
           data-tooltip="In: 08:00 - Out: 17:37"
         >
           <button
-            class="c8 c9"
+            class="c8 c13"
           >
             7
           </button>

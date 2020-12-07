@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { useQuery } from '@apollo/client'
 
 import { IS_LOGGED_IN } from '@/graphql/queries/isUserLoggedIn'
-import { BaseHeaderProps, INavList } from './Home.types'
+import { BaseHeaderProps, INavList } from './Header.types'
 import { navList } from './mock/navList'
 import SwitchTheme from '@/components/SwitchTheme'
 import Container from '@/components/Container'
@@ -15,6 +15,7 @@ import {
   activeClassName,
   HeaderList,
 } from './Header.styled'
+import Brand from '@/components/Brand'
 
 const Header: FC<BaseHeaderProps> = () => {
   const { data } = useQuery(IS_LOGGED_IN)
@@ -40,10 +41,13 @@ const Header: FC<BaseHeaderProps> = () => {
   return (
     <HeaderWrapper>
       <Container>
-        <HeaderContent isLoggedIn={isLoggedIn}>
-          {isLoggedIn && <HeaderList>{navListRender}</HeaderList>}
+        <HeaderContent>
           <HeaderList>
-            <SwitchTheme />
+            <Brand mr="8px" />
+            {isLoggedIn && <HeaderList>{navListRender}</HeaderList>}
+          </HeaderList>
+          <HeaderList>
+            <SwitchTheme mr="8px" />
             {isLoggedIn ? (
               <Button
                 ml="8px"

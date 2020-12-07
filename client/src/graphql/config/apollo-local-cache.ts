@@ -1,6 +1,6 @@
 import { InMemoryCache, makeVar } from '@apollo/client'
 import { VisibilityFilters, VisibilityFilter } from '../models/VisibilityFilter'
-import { IS_LOGGED_IN } from '../queries/isUserLoggedIn'
+// import { IS_LOGGED_IN } from '../queries/isUserLoggedIn'
 
 export const localCache = new InMemoryCache({
   // stored to the cache

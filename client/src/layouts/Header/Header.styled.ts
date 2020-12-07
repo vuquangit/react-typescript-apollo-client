@@ -1,22 +1,18 @@
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import { prop, ifProp } from 'styled-tools'
-import { IHeaderContentProps } from './Home.types'
+
 export const activeClassName = 'nav-item-active'
 
 export const HeaderWrapper = styled.header`
   border-bottom: 1px solid #e2e2e2;
 `
 
-export const HeaderContent = styled('div')<IHeaderContentProps>`
+export const HeaderContent = styled('div')`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: ${ifProp(
-    { isLoggedIn: true },
-    ' space-between;',
-    'flex-end'
-  )};
+  justify-content: space-between;
 
   height: 70px;
   padding: 8px 20px;

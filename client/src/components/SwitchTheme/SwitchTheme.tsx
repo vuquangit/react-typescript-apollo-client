@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '@/stores/rootReducer'
 import { applyTheme } from '@/stores/Theme'
 import Emoji from '@/components/Emoji'
+import { BaseSwitchThemeProps } from './SwitchTheme.types'
 import {
   SwitchWrapper,
   SwitchTrack,
@@ -14,7 +15,7 @@ import {
   SwitchScreenReader,
 } from './SwitchTheme.styled'
 
-const SwitchTheme: FC = () => {
+const SwitchTheme: FC<BaseSwitchThemeProps> = () => {
   const dispatch = useDispatch()
   const themeMode = useSelector((state: RootState) => state.theme.themeMode)
 

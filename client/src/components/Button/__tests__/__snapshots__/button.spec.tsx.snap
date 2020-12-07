@@ -3,6 +3,7 @@
 exports[`App Button Test Button disabled 1`] = `
 .c0 {
   cursor: default;
+  border: 0;
   background-color: #000;
   color: #fff;
   background-color: #999;
@@ -27,8 +28,10 @@ exports[`App Button Test Button with dark mode 1`] = `
   width: large;
   height: large;
   cursor: default;
+  border: 0;
   background-color: #fff;
   color: #000;
+  border: 1px solid #fff;
   font-size: 16px;
 }
 
@@ -47,6 +50,7 @@ exports[`App Button Test Button with light mode 1`] = `
   width: large;
   height: large;
   cursor: default;
+  border: 0;
   background-color: #000;
   color: #fff;
   font-size: 16px;
