@@ -1,6 +1,7 @@
 import { InMemoryCache, makeVar } from '@apollo/client'
 import { VisibilityFilters, VisibilityFilter } from '../models/VisibilityFilter'
 // import { IS_LOGGED_IN } from '../queries/isUserLoggedIn'
+import { ThemeState } from '../models/Theme'
 
 export const localCache = new InMemoryCache({
   // stored to the cache
@@ -15,6 +16,11 @@ export const localCache = new InMemoryCache({
         isLoggedIn: {
           read() {
             return isLoggedInVar()
+          },
+        },
+        themeMode: {
+          read() {
+            return applyTheme()
           },
         },
       },
@@ -47,3 +53,8 @@ export const visibilityFilterVar = makeVar<VisibilityFilter>(
 // Initializes to true if localStorage includes a 'token' key,
 // false otherwise
 export const isLoggedInVar = makeVar<boolean>(!!localStorage.getItem('token'))
+
+// change theme app - default:light
+export const applyTheme = makeVar<ThemeState>(
+  localStorage.getItem('theme.themeMode') === 'dark' ? 'dark' : 'light'
+)

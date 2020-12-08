@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { useQuery } from '@apollo/client'
+import { useQuery, useApolloClient } from '@apollo/client'
 
 import { IS_LOGGED_IN } from '@/graphql/queries/isUserLoggedIn'
 import { BaseHeaderProps, INavList } from './Header.types'
@@ -21,9 +21,18 @@ const Header: FC<BaseHeaderProps> = () => {
   const { data } = useQuery(IS_LOGGED_IN)
   const isLoggedIn = data.isLoggedIn
 
+  const client = useApolloClient()
+
   const handleLogout = () => {
-    localStorage.setItem('token', '')
-    localStorage.setItem('userId', '')
+    // Evict and garbage-collect the cached user object
+    // client.cache.evict({ fieldName: 'me' })
+    client.cache.gc()
+
+    // Remove user details from localStorage
+    localStorage.removeItem('token')
+    localStorage.removeItem('userId')
+
+    // Set the logged-in status to false
     isLoggedInVar(false)
   }
 

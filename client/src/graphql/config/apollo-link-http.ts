@@ -1,5 +1,6 @@
 import { createHttpLink } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
+import fetch from 'cross-fetch';
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
@@ -21,7 +22,9 @@ const authLink = setContext((_, { headers }) => {
 })
 
 const createdHttpLink = createHttpLink({
-  uri: process.env.REACT_APP_API_ENDPOINT || '',
+  // uri: process.env.REACT_APP_API_ENDPOINT || '',
+  uri: "http://localhost:4000",
+  fetch: fetch,
 })
 
 const httpLink = authLink.concat(createdHttpLink)

@@ -1,15 +1,18 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import Wrapper from '@/test/supports/Wrapper'
+import AppWrapper from '@/test/supports/Wrapper'
 
 import Button from '..'
+import { applyTheme } from '@/graphql/config/apollo-local-cache'
 
 describe('App Button', () => {
   it('Test Button with light mode', async () => {
+    applyTheme('light')
+
     const { container, getByTestId } = render(
-      <Wrapper themeMode="light">
+      <AppWrapper themeMode="light">
         <Button size="large">Primary</Button>
-      </Wrapper>
+      </AppWrapper>
     )
 
     expect(container).toMatchSnapshot()
@@ -30,10 +33,12 @@ describe('App Button', () => {
   })
 
   it('Test Button with dark mode', async () => {
+    applyTheme('dark')
+
     const { container, getByTestId } = render(
-      <Wrapper themeMode="dark">
+      <AppWrapper themeMode="dark">
         <Button size="large">Primary</Button>
-      </Wrapper>
+      </AppWrapper>
     )
 
     expect(container).toMatchSnapshot()
@@ -54,10 +59,12 @@ describe('App Button', () => {
   })
 
   it('Test Button disabled', async () => {
+    applyTheme('light')
+
     const { container, getByTestId } = render(
-      <Wrapper themeMode="light">
+      <AppWrapper themeMode="light">
         <Button disabled>Primary</Button>
-      </Wrapper>
+      </AppWrapper>
     )
 
     expect(container).toMatchSnapshot()

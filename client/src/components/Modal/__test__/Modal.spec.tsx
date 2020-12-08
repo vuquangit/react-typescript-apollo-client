@@ -9,6 +9,7 @@ import { render, fireEvent } from '@testing-library/react'
 
 import Wrapper from '@/test/supports/Wrapper'
 import Modal from '..'
+import { applyTheme } from '@/graphql/config/apollo-local-cache'
 
 type FakeProps = {
   children: React.ReactNode
@@ -26,6 +27,8 @@ const WrapperOfModal: React.FC<FakeProps> = ({ children }) => {
 
 describe('App SwitchTheme', () => {
   it('Test SwitchTheme with light mode', () => {
+    applyTheme('light')
+
     const { container, getByTestId } = render(
       <Wrapper themeMode="light">
         <WrapperOfModal>Children of modal</WrapperOfModal>
@@ -44,6 +47,8 @@ describe('App SwitchTheme', () => {
   })
 
   it('Test SwitchTheme with dark mode', () => {
+    applyTheme('dark')
+
     const { container, getByTestId } = render(
       <Wrapper themeMode="dark">
         <WrapperOfModal>Children of modal</WrapperOfModal>

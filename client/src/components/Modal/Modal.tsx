@@ -1,13 +1,15 @@
 import React, { FC, useCallback, useEffect, useRef } from 'react'
-import { useSelector } from 'react-redux'
-import { RootState } from '@/stores/rootReducer'
+import { useQuery } from '@apollo/client'
 
 import { BaseModalProps } from './Modal.types'
 import Button from '@/components/Button'
 import { ModalWrapper, ModalContent, ModalClose } from './Modal.styled'
+import { GET_THEME_CURRENT } from '@/graphql/queries/getThemeCurrent'
 
 const Modal: FC<BaseModalProps> = ({ show, onClose, children }) => {
-  const themeMode = useSelector((state: RootState) => state.theme.themeMode)
+  const {
+    data: { themeMode = 'light' },
+  } = useQuery(GET_THEME_CURRENT)
 
   const ref = useRef(null)
 

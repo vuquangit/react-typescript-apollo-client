@@ -8,9 +8,9 @@ import { Todos } from '@/graphql/models/Todos'
 import { useQuery } from '@apollo/client'
 // import { GetAllTodos } from '@/graphql/__generated__/GetAllTodos';
 import { GET_ALL_TODOS } from '@/graphql/queries/getAllTodos'
-import { useCompleteTodo } from '@/graphql/mutations/completeTodo'
-import { useDeleteTodo } from '@/graphql/mutations/deleteTodo'
-import { useEditTodo } from '@/graphql/mutations/editTodo'
+import { useCompleteTodo } from '@/graphql/mutations/todos/completeTodo'
+import { useDeleteTodo } from '@/graphql/mutations/todos/deleteTodo'
+import { useEditTodo } from '@/graphql/mutations/todos/editTodo'
 import TodoItem from './TodoItem'
 import { Todo } from '@/graphql/models/Todos'
 

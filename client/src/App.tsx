@@ -1,18 +1,17 @@
 import React, { FC, useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { useSelector } from 'react-redux'
-import isEqual from 'lodash/isEqual'
+import { useQuery } from '@apollo/client'
 
 import GlobalStyle from '@/themes/globalStyles'
 import Main from '@/routes/main'
-import { RootState } from '@/stores/rootReducer'
 import { darkTheme, lightTheme } from '@/themes/theme'
+import { GET_THEME_CURRENT } from '@/graphql/queries/getThemeCurrent'
 
 const App: FC = () => {
-  const themeMode = useSelector(
-    (state: RootState) => state.theme.themeMode,
-    isEqual
-  )
+  const {
+    data: { themeMode },
+  } = useQuery(GET_THEME_CURRENT)
+
   const [theme, setTheme] = useState<any>(lightTheme)
   useEffect(() => {
     themeMode === 'light' ? setTheme(lightTheme) : setTheme(darkTheme)

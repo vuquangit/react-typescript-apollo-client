@@ -1,11 +1,15 @@
+import { GET_THEME_CURRENT } from '@/graphql/queries/getThemeCurrent'
+import { useQuery } from '@apollo/client'
 import React, { FC, forwardRef } from 'react'
-import { useSelector } from 'react-redux'
-import { RootState } from '@/stores/rootReducer'
 
 import { AppButton } from './Button.styled'
 import { IButtonProps } from './Button.types'
 const Button: FC<IButtonProps> = forwardRef((props, ref) => {
-  const themeMode = useSelector((state: RootState) => state.theme.themeMode)
+  const {
+    data: { themeMode } = {}
+  } = useQuery(GET_THEME_CURRENT)
+
+  // console.log('BUTTON-themeMode', themeMode);
 
   return (
     <AppButton

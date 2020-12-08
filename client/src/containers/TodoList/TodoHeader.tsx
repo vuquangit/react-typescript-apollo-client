@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { useAddTodo } from '@/graphql/mutations/addTodo'
+import { useAddTodo } from '@/graphql/mutations/todos/addTodo'
 import TodoTextInput from './TodoTextInput'
 import styled from 'styled-components'
 

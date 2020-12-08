@@ -1,9 +1,10 @@
 import React, { FC } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useQuery } from '@apollo/client'
 
-import { RootState } from '@/stores/rootReducer'
-import { applyTheme } from '@/stores/Theme'
+import { GET_THEME_CURRENT } from '@/graphql/queries/getThemeCurrent'
 import Emoji from '@/components/Emoji'
+import { applyTheme } from '@/graphql/config/apollo-local-cache'
+
 import { BaseSwitchThemeProps } from './SwitchTheme.types'
 import {
   SwitchWrapper,
@@ -16,13 +17,21 @@ import {
 } from './SwitchTheme.styled'
 
 const SwitchTheme: FC<BaseSwitchThemeProps> = () => {
-  const dispatch = useDispatch()
-  const themeMode = useSelector((state: RootState) => state.theme.themeMode)
+  const {
+    data: { themeMode },
+  } = useQuery(GET_THEME_CURRENT)
+
+  const LIGHT = 'light'
+  const DARK = 'dark'
 
   const onSwitchTheme = () => {
-    themeMode === 'dark'
-      ? dispatch(applyTheme('light'))
-      : dispatch(applyTheme('dark'))
+    if (themeMode === DARK) {
+      applyTheme(LIGHT)
+      localStorage.setItem('theme.themeMode', LIGHT)
+    } else {
+      applyTheme(DARK)
+      localStorage.setItem('theme.themeMode', DARK)
+    }
   }
 
   return (
@@ -46,9 +55,9 @@ const SwitchTheme: FC<BaseSwitchThemeProps> = () => {
       <SwitchScreenReader
         aria-label="Dark mode toggle"
         type="checkbox"
+        data-testid="switch-theme-input"
         checked={themeMode === 'light'}
-        // eslint-disable-next-line @typescript-eslint/no-empty-function
-        onChange={() => {}}
+        readOnly
       />
     </SwitchWrapper>
   )
