@@ -22,8 +22,7 @@ const authLink = setContext((_, { headers }) => {
 })
 
 const createdHttpLink = createHttpLink({
-  // uri: process.env.REACT_APP_API_ENDPOINT || '',
-  uri: 'http://localhost:4000',
+  uri: process.env.REACT_APP_API_ENDPOINT || '',
   fetch: fetch,
 })
 

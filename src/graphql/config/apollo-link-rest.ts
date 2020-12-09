@@ -9,8 +9,7 @@ import { RestLink } from 'apollo-link-rest'
 // as httpLink will swallow any calls that should be routed through rest!
 export const restLink = new RestLink({
   endpoints: {
-    // newsapi: process.env.REACT_APP_RESTAPI_ENDPOINT || ''
-    newsapi: 'https://api.thecatapi.com/v1',
+    newsapi: process.env.REACT_APP_RESTAPI_ENDPOINT || '',
   },
   // customFetch: fetch,
   // headers: {
