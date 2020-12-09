@@ -193,13 +193,12 @@ module.exports = function (webpackEnv) {
         // Fonts and SVGs: Inline files
         { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline' },
 
-
         // graphql loader
         {
           test: /\.(graphql|gql)$/,
           exclude: /node_modules/,
-          loader: 'graphql-tag/loader'
-        }
+          loader: 'graphql-tag/loader',
+        },
       ],
     },
 
