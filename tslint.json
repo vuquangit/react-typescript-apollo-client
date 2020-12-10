@@ -31,6 +31,7 @@
       "node_modules/**/*.ts",
       "coverage/lcov-report/*.js",
       "build",
+      "storybook-static",
       "**/*.d.ts"
     ]
   }

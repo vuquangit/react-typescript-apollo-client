@@ -1,15 +1,17 @@
 import React, { FC, ReactNode, useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
+import { BrowserRouter } from 'react-router-dom'
+import { MockedProvider } from '@apollo/client/testing'
+
 import GlobalStyle from '@/themes/globalStyles'
 import { lightTheme, darkTheme } from '@/themes/theme'
-// import { ApolloProvider } from '@apollo/client'
 import { GET_THEME_CURRENT } from '@/graphql/queries/getThemeCurrent'
-import { MockedProvider } from '@apollo/client/testing'
 import { applyTheme } from '@/graphql/config/apollo-local-cache'
 import { localCache } from '@/graphql/config/apollo-local-cache'
+// import { ApolloProvider } from '@apollo/client'
 // import { createMockClient } from 'mock-apollo-client'
 
-export const mockThemeMode = (themeMode: string) => {
+export const mockThemeMode = (themeMode: string): any => {
   return {
     request: {
       query: GET_THEME_CURRENT,
@@ -28,10 +30,10 @@ export const mockThemeMode = (themeMode: string) => {
 
 type Props = {
   children: ReactNode
-  themeMode: 'light' | 'dark'
+  themeMode?: 'light' | 'dark'
 }
 
-const AppWrapper: FC<Props> = ({ children, themeMode }) => {
+const AppWrapper: FC<Props> = ({ children, themeMode = 'light' }) => {
   const mock = mockThemeMode(themeMode)
 
   const [theme, setTheme] = useState<any>({})
@@ -41,12 +43,14 @@ const AppWrapper: FC<Props> = ({ children, themeMode }) => {
   }, [themeMode])
 
   return (
-    <MockedProvider mocks={[mock]} cache={localCache} addTypename={false}>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        {children}
-      </ThemeProvider>
-    </MockedProvider>
+    <BrowserRouter>
+      <MockedProvider mocks={[mock]} cache={localCache} addTypename={false}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          {children}
+        </ThemeProvider>
+      </MockedProvider>
+    </BrowserRouter>
   )
 }
 

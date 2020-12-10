@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import AppWrapper from '@/test/supports/Wrapper'
+import AppWrapper from '@/test/supports/AppWrapper'
 
 import Button from '..'
 import { applyTheme } from '@/graphql/config/apollo-local-cache'

@@ -1,2 +1,3 @@
 *.stories.tsx
 build
+storybook-static

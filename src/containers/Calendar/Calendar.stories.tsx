@@ -1,11 +1,11 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react/types-6-0'
-import AppWrapper from '@/test/supports/Wrapper'
+import AppWrapper from '@/test/supports/AppWrapper'
 import Calendar from '.'
 // import {} from './Calendar.types'
 
 export default {
-  title: 'Story/Component/Calendar',
+  title: 'Story/Container/Calendar',
   component: Calendar,
   argTypes: {},
 } as Meta

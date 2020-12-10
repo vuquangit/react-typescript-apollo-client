@@ -1,14 +1,15 @@
 import React, { FC } from 'react'
+import { EmojiWrapper } from './Emoji.styled'
 import { BaseEmojiProps } from './Emoji.types'
 
 const Emoji: FC<BaseEmojiProps> = (props) => (
-  <span
+  <EmojiWrapper
     className="emoji"
     role="img"
     aria-label={props.label ? props.label : ''}
     aria-hidden={props.label ? 'false' : 'true'}
   >
     {props.symbol}
-  </span>
+  </EmojiWrapper>
 )
 export default Emoji

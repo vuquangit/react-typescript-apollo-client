@@ -1,0 +1,31 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { action } from '@storybook/addon-actions'
+
+import AppWrapper from '@/test/supports/AppWrapper'
+import Brand from '.'
+import Space from 'stories/components/styled-system/Space.mdx'
+import Styles from 'stories/styles.mdx'
+
+<Meta title="Story/Components/Brand" component={Brand} />
+
+<Styles />
+
+# Brand
+
+Logo site
+
+export const Template = (args) => (
+  <AppWrapper>
+    <Brand {...args} />
+  </AppWrapper>
+)
+
+<Canvas>
+  <Story
+    name="Normal"
+    args={{ variant: 'normal' }}
+    onClick={action('Medium Brand clicked')}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

@@ -1,0 +1,30 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { action } from '@storybook/addon-actions'
+import Checkbox from '.'
+import Space from 'stories/components/styled-system/Space.mdx'
+import Styles from 'stories/styles.mdx'
+
+<Meta title="Story/Components/Checkbox" component={Checkbox} />
+
+<Styles />
+
+# Checkbox
+
+With `MDX` we can define a story for `Checkbox` right in the middle of our
+Markdown documentation.
+
+export const Template = (args) => <Checkbox {...args} />
+
+<Canvas>
+  <Story
+    name="Normal"
+    args={{ variant: 'normal' }}
+    onClick={action('Medium Checkbox clicked')}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<div class="subheading">Props</div>
+
+<Space />

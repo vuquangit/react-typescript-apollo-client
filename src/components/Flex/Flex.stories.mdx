@@ -1,0 +1,28 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { action } from '@storybook/addon-actions'
+import Flex from '.'
+import Space from 'stories/components/styled-system/Space.mdx'
+import Styles from 'stories/styles.mdx'
+
+<Meta title="Story/Components/Component" component={Flex} />
+
+<Styles />
+
+# Flex
+
+With `MDX` we can define a story for `Flex` right in the middle of our
+Markdown documentation.
+
+export const Template = (args) => <Flex {...args} />
+
+<Canvas>
+  <Story
+    name="Normal"
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<div class="subheading">Props</div>
+
+<Space />

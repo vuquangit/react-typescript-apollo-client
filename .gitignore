@@ -28,3 +28,6 @@ yarn-error.log*
 
 .vercel
 .idea
+
+# storybook
+storybook-static

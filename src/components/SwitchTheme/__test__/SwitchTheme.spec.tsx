@@ -8,7 +8,7 @@ import React from 'react'
 import { render, fireEvent, act } from '@testing-library/react'
 
 import SwitchTheme from '..'
-import AppWrapper from '@/test/supports/Wrapper'
+import AppWrapper from '@/test/supports/AppWrapper'
 
 const waitForResponse = () => new Promise((res) => setTimeout(res, 0))
 

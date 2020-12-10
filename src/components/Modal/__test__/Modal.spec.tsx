@@ -7,7 +7,7 @@
 import React, { useState } from 'react'
 import { render, fireEvent } from '@testing-library/react'
 
-import Wrapper from '@/test/supports/Wrapper'
+import Wrapper from '@/test/supports/AppWrapper'
 import Modal from '..'
 import { applyTheme } from '@/graphql/config/apollo-local-cache'
 

@@ -12,7 +12,7 @@ const App: FC = () => {
     data: { themeMode },
   } = useQuery(GET_THEME_CURRENT)
 
-  const [theme, setTheme] = useState<any>(lightTheme)
+  const [theme, setTheme] = useState(lightTheme)
   useEffect(() => {
     themeMode === 'light' ? setTheme(lightTheme) : setTheme(darkTheme)
   }, [themeMode])

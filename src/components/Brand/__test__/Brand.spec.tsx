@@ -5,16 +5,17 @@
  */
 
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
+
+import AppWrapper from '@/test/supports/AppWrapper'
 import Brand from '..'
 import { shallow } from 'enzyme'
 
 describe('App Brand', () => {
   it('Test default Brand', () => {
     const wrapper = shallow(
-      <BrowserRouter>
+      <AppWrapper>
         <Brand />
-      </BrowserRouter>
+      </AppWrapper>
     )
     expect(wrapper).toMatchSnapshot()
   })
