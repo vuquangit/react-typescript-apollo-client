@@ -1,20 +1,49 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import { withRouter } from 'react-router'
+import { useQuery } from '@apollo/client'
 
+import { BaseLoginProps } from './Login.types'
 import { DefaultLayout } from '@/layouts'
 import Container from '@/components/Container'
+import Button from '@/components/Button'
+import { isLoggedInVar } from '@/graphql/config/apollo-local-cache'
+import { IS_LOGGED_IN } from '@/graphql/queries/isUserLoggedIn'
+import { LoginWrapper } from './Login.styled'
 
-type Props = {
-  history: any
-}
+const Login: FC<BaseLoginProps> = ({ history }) => {
+  const handleLogin = () => {
+    const user = {
+      id: '0001',
+      token: '123',
+    }
 
-const Login: FC<Props> = ({ history = {} }) => {
-  console.log('history', history)
+    localStorage.setItem('token', user.token as string)
+    localStorage.setItem('userId', user.id as string)
+    isLoggedInVar(true)
+  }
+
+  // go homepage
+  const { data } = useQuery(IS_LOGGED_IN)
+  const isAuthenticated = data.isLoggedIn
+  useEffect(() => {
+    if (isAuthenticated) {
+      history.push('/')
+    }
+  }, [isAuthenticated])
 
   return (
     <DefaultLayout>
       <Container>
-        <div className="login">Login</div>
+        <LoginWrapper>
+          <Button
+            mt="32px"
+            cursor="pointer"
+            variant="large"
+            onClick={handleLogin}
+          >
+            Click to login
+          </Button>
+        </LoginWrapper>
       </Container>
     </DefaultLayout>
   )

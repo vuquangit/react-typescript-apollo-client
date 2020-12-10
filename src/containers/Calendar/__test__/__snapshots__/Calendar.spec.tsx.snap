@@ -5,6 +5,7 @@ exports[`App Calendar Test get default Calendar 1`] = `
   border: 0;
   font-size: 18px;
   cursor: pointer;
+  border: 0;
   background-color: #000;
   color: #fff;
   font-size: 16px;
@@ -13,6 +14,7 @@ exports[`App Calendar Test get default Calendar 1`] = `
 .c3 {
   padding: 8px;
   cursor: pointer;
+  border: 0;
   background-color: #000;
   color: #fff;
   font-size: 16px;
@@ -20,6 +22,7 @@ exports[`App Calendar Test get default Calendar 1`] = `
 
 .c8 {
   cursor: default;
+  border: 0;
 }
 
 .c7 {
@@ -340,7 +343,7 @@ exports[`App Calendar Test get default Calendar 1`] = `
           data-testid="app-button"
           font-size="18,24"
         >
-          11/2020
+          12/2020
         </button>
       </div>
       <div>
@@ -409,582 +412,6 @@ exports[`App Calendar Test get default Calendar 1`] = `
     <div
       class="c5"
     >
-      <div
-        class="c6"
-      >
-        <div
-          class="c7"
-          data-tooltip="true"
-        >
-          <button
-            class="c8 c9"
-          >
-            1
-          </button>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            2
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            3
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            4
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            5
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            6
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c7"
-          data-tooltip="true"
-        >
-          <button
-            class="c8 c9"
-          >
-            7
-          </button>
-        </div>
-      </div>
-      <div
-        class="c6"
-      >
-        <div
-          class="c7"
-          data-tooltip="true"
-        >
-          <button
-            class="c8 c9"
-          >
-            8
-          </button>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            9
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            10
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            11
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            12
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            13
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c7"
-          data-tooltip="true"
-        >
-          <button
-            class="c8 c9"
-          >
-            14
-          </button>
-        </div>
-      </div>
-      <div
-        class="c6"
-      >
-        <div
-          class="c7"
-          data-tooltip="true"
-        >
-          <button
-            class="c8 c9"
-          >
-            15
-          </button>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            16
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            17
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            18
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            19
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            20
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c7"
-          data-tooltip="true"
-        >
-          <button
-            class="c8 c9"
-          >
-            21
-          </button>
-        </div>
-      </div>
-      <div
-        class="c6"
-      >
-        <div
-          class="c7"
-          data-tooltip="true"
-        >
-          <button
-            class="c8 c9"
-          >
-            22
-          </button>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            23
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            24
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c13"
-          >
-            25
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            26
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c10"
-          data-tooltip="In: 08:00 - Out: 17:37"
-        >
-          <button
-            class="c8 c9"
-          >
-            27
-          </button>
-          <div
-            class="c11"
-          >
-            <span
-              class="c12"
-            >
-              Attend OK
-            </span>
-            <span
-              class="c12"
-            >
-              Leave OK
-            </span>
-          </div>
-        </div>
-        <div
-          class="c7"
-          data-tooltip="true"
-        >
-          <button
-            class="c8 c9"
-          >
-            28
-          </button>
-        </div>
-      </div>
       <div
         class="c6"
       >
@@ -1126,6 +553,582 @@ exports[`App Calendar Test get default Calendar 1`] = `
             class="c8 c9"
           >
             5
+          </button>
+        </div>
+      </div>
+      <div
+        class="c6"
+      >
+        <div
+          class="c7"
+          data-tooltip="true"
+        >
+          <button
+            class="c8 c9"
+          >
+            6
+          </button>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            7
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            8
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c13"
+          >
+            9
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            10
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            11
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c7"
+          data-tooltip="true"
+        >
+          <button
+            class="c8 c9"
+          >
+            12
+          </button>
+        </div>
+      </div>
+      <div
+        class="c6"
+      >
+        <div
+          class="c7"
+          data-tooltip="true"
+        >
+          <button
+            class="c8 c9"
+          >
+            13
+          </button>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            14
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            15
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            16
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            17
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            18
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c7"
+          data-tooltip="true"
+        >
+          <button
+            class="c8 c9"
+          >
+            19
+          </button>
+        </div>
+      </div>
+      <div
+        class="c6"
+      >
+        <div
+          class="c7"
+          data-tooltip="true"
+        >
+          <button
+            class="c8 c9"
+          >
+            20
+          </button>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            21
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            22
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            23
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            24
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            25
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c7"
+          data-tooltip="true"
+        >
+          <button
+            class="c8 c9"
+          >
+            26
+          </button>
+        </div>
+      </div>
+      <div
+        class="c6"
+      >
+        <div
+          class="c7"
+          data-tooltip="true"
+        >
+          <button
+            class="c8 c9"
+          >
+            27
+          </button>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            28
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            29
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            30
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            31
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c10"
+          data-tooltip="In: 08:00 - Out: 17:37"
+        >
+          <button
+            class="c8 c9"
+          >
+            1
+          </button>
+          <div
+            class="c11"
+          >
+            <span
+              class="c12"
+            >
+              Attend OK
+            </span>
+            <span
+              class="c12"
+            >
+              Leave OK
+            </span>
+          </div>
+        </div>
+        <div
+          class="c7"
+          data-tooltip="true"
+        >
+          <button
+            class="c8 c9"
+          >
+            2
           </button>
         </div>
       </div>

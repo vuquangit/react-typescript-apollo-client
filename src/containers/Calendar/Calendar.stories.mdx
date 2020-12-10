@@ -1,0 +1,42 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { action } from '@storybook/addon-actions'
+import Calendar from '.'
+// import Space from 'stories/components/styled-system/Space.mdx'
+import Styles from 'stories/styles.mdx'
+import AppWrapper from '@/test/supports/Wrapper'
+
+<Meta title="Story/Component/Calendar" component={Calendar} />
+
+<Styles />
+
+# Calendar
+
+With `MDX` we can define a story for `Calendar` right in the middle of our
+Markdown documentation.
+
+
+const TemplateLight: Story = (args) => (
+  <AppWrapper themeMode="light">
+    <Calendar {...args} />
+  </AppWrapper>
+)
+
+const TemplateDark: Story = (args) => (
+  <AppWrapper themeMode="dark">
+    <Calendar {...args} />
+  </AppWrapper>
+)
+
+<Canvas>
+  <Story
+    name="Light"
+  >
+    {TemplateLight.bind({})}
+  </Story>
+  <Story
+    name="Dark"
+  >
+    {TemplateDark.bind({})}
+  </Story>
+</Canvas>
+

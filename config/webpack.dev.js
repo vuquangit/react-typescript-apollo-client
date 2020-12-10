@@ -48,7 +48,7 @@ module.exports = merge(common('development'), {
     historyApiFallback: true,
     inline: true,
     open: true,
-    port: 4000,
+    port: 3000,
     compress: true,
     contentBase: paths.appBuild,
     // watchContentBase: true,

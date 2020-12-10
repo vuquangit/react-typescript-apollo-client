@@ -18,7 +18,7 @@ const pageConfigs: IPageConfigs[] = [
     path: '/',
     component: HomePage,
     exact: true,
-    privatePage: false,
+    privatePage: true,
   },
   {
     path: '/login',
@@ -42,13 +42,13 @@ const pageConfigs: IPageConfigs[] = [
     path: '/notification',
     component: Notification,
     exact: true,
-    privatePage: false,
+    privatePage: true,
   },
   {
     path: '/calendar',
     component: Calender,
     exact: true,
-    privatePage: false,
+    privatePage: true,
   },
 ]
 

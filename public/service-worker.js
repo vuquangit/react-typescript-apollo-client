@@ -1,7 +1,14 @@
 function receivePushNotification(event) {
   console.log('[Service Worker] Push Received.')
 
-  const { image, tag, url, title, text } = event.data.json()
+  const {
+    image,
+    tag,
+    url,
+    title,
+    text,
+    shouldRequireInteraction = false,
+  } = event.data.json()
 
   const options = {
     data: url,
@@ -11,7 +18,7 @@ function receivePushNotification(event) {
     tag: tag,
     image: '/logo192.png',
     badge: 'https://spyna.it/icons/favicon.ico',
-    requireInteraction: true,
+    requireInteraction: shouldRequireInteraction,
     actions: [
       {
         action: 'Detail',
