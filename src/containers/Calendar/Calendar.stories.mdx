@@ -15,13 +15,13 @@ With `MDX` we can define a story for `Calendar` right in the middle of our
 Markdown documentation.
 
 
-const TemplateLight: Story = (args) => (
+export const TemplateLight = (args) => (
   <AppWrapper themeMode="light">
     <Calendar {...args} />
   </AppWrapper>
 )
 
-const TemplateDark: Story = (args) => (
+export const TemplateDark = (args) => (
   <AppWrapper themeMode="dark">
     <Calendar {...args} />
   </AppWrapper>

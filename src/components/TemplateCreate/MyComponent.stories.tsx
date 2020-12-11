@@ -6,7 +6,7 @@ import MyComponent from '.'
 import { IMyComponentProps } from './MyComponent.types'
 
 export default {
-  title: 'Story/Components/Component',
+  title: 'Story/Components/MyComponent',
   component: MyComponent,
   argTypes: {},
 } as Meta

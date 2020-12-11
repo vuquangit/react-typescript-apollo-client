@@ -1,0 +1,30 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { action } from '@storybook/addon-actions'
+
+import AppWrapper from '@/test/supports/AppWrapper'
+import DateTimePicker from '.'
+import Space from 'stories/components/styled-system/Space.mdx'
+import Styles from 'stories/styles.mdx'
+
+<Meta title="Story/Components/DateTimePicker" component={DateTimePicker} />
+
+<Styles />
+
+# DateTimePicker
+
+With `MDX` we can define a story for `DateTimePicker` right in the middle of our
+Markdown documentation.
+
+export const Template = (args) => <AppWrapper><DateTimePicker {...args} /></AppWrapper>
+
+<Canvas>
+  <Story
+    name="Normal"
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<div class="subheading">Props</div>
+
+<Space />
