@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App SwitchTheme Test SwitchTheme with default 1`] = `
+.c4 {
+  cursor: default;
+  border: 0;
+  background-color: #000;
+  color: #fff;
+  font-size: 16px;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1:after {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0,0,0.2,1) 0ms;
+  -webkit-transition: transform 200ms cubic-bezier(0,0,0.2,1) 0ms;
+  transition: transform 200ms cubic-bezier(0,0,0.2,1) 0ms;
+  border-bottom: 2px solid #90caf9;
+  pointer-events: none;
+}
+
+.c2 {
+  -webkit-user-modify: read-only !important;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  cursor: default;
+}
+
+.c2::-webkit-inner-spin-button,
+.c2::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.c2::-webkit-inner-spin-button,
+.c2::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.c2:focus {
+  background-color: rgb(153,200,255);
+  color: rgb(0,0,0);
+  outline: none;
+}
+
+.c3 {
+  cursor: default;
+}
+
+<div>
+  <div
+    class=""
+  >
+    <label
+      class=""
+      for="date"
+    >
+      Datetime picker:
+    </label>
+    <div
+      class="c0"
+    >
+      <div
+        class="c1"
+      >
+        <input
+          class="c2"
+          type="text"
+          value="14"
+        />
+        <div
+          class="c3"
+        >
+          /
+        </div>
+        <input
+          class="c2"
+          type="text"
+          value="12"
+        />
+        <div
+          class="c3"
+        >
+          /
+        </div>
+        <input
+          class="c2"
+          type="text"
+          value="2020"
+        />
+      </div>
+      <button
+        class="c4"
+        data-testid="app-button"
+      >
+        Calendar icon
+      </button>
+    </div>
+  </div>
+</div>
+`;

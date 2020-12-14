@@ -646,7 +646,7 @@ exports[`App Calendar Test get default Calendar 1`] = `
           data-tooltip="In: 08:00 - Out: 17:37"
         >
           <button
-            class="c8 c13"
+            class="c8 c9"
           >
             10
           </button>
@@ -718,7 +718,7 @@ exports[`App Calendar Test get default Calendar 1`] = `
           data-tooltip="In: 08:00 - Out: 17:37"
         >
           <button
-            class="c8 c9"
+            class="c8 c13"
           >
             14
           </button>

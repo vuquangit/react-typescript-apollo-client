@@ -1,4 +1,4 @@
-import React, { FC, MutableRefObject, useRef, useState } from 'react'
+import React, { FC, MutableRefObject, useEffect, useRef, useState } from 'react'
 import Button from '../Button'
 
 import {
@@ -16,7 +16,7 @@ const FIELD_MONTH = 'month'
 const FIELD_YEAR = 'year'
 type IDatetimeField = typeof FIELD_DAY | typeof FIELD_MONTH | typeof FIELD_YEAR
 
-const DateTimePicker: FC<BaseDateTimePickerProps> = ({ type = 'date' }) => {
+const DateTimePicker: FC<BaseDateTimePickerProps> = ({ type }) => {
   const dayInput = useRef(document.createElement('input'))
   const monthInput = useRef(document.createElement('input'))
   const yearInput = useRef(document.createElement('input'))
@@ -52,6 +52,7 @@ const DateTimePicker: FC<BaseDateTimePickerProps> = ({ type = 'date' }) => {
     fieldRef: MutableRefObject<HTMLInputElement>
   ) => {
     if (fieldRef && fieldRef.current) fieldRef.current.select()
+    resetInputCount()
   }
 
   const changeValueCircle = (val: number, maxVal: number) => {
@@ -82,7 +83,10 @@ const DateTimePicker: FC<BaseDateTimePickerProps> = ({ type = 'date' }) => {
     return addLeadingZeros(str2Num, field)
   }
 
-  const onDatetimeFieldKeydown = (e: any, field: IDatetimeField) => {
+  const onDatetimeFieldKeydown = (
+    e: React.KeyboardEvent<HTMLInputElement>,
+    field: IDatetimeField
+  ) => {
     // https://reactjs.org/docs/legacy-event-pooling.html
     // Prevents React from resetting its properties:
     e.persist()
@@ -106,28 +110,82 @@ const DateTimePicker: FC<BaseDateTimePickerProps> = ({ type = 'date' }) => {
   }
 
   // input change
-  const isNumber = (val: any): boolean => val.match('/[0-9]/')
+  const isNumber = (val: any): boolean => val.match(/[0-9]/)
 
-  const onDatetimeFieldChange = (e: any, field: IDatetimeField) => {
-    console.log(field, e.target.value)
+  const [dayInputCount, setDayInputCount] = useState(0)
+  const [monthInputCount, setMonthInputCount] = useState(0)
+  const [yearInputCount, setYearInputCount] = useState(0)
 
-    const val = e.target.value
-    if (val !== null && !isNumber(val)) return
+  const onDatetimeFieldChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    field: IDatetimeField
+  ) => {
+    const val: string = e.target.value.slice(-1)
+
+    if (val === null || !isNumber(val)) return
 
     const valInt = parseInt(val)
 
-    if (field === 'day') {
-      if (0 <= valInt && valInt < 9) {
-        setDatetime((prev) => ({ ...prev, day: addLeadingZeros(val, field) }))
+    if (field === FIELD_DAY) {
+      if (dayInputCount === 0 && valInt <= 3) {
+        setDatetime((prev) => ({
+          ...prev,
+          day: addLeadingZeros(valInt, field),
+        }))
+        setDayInputCount(1)
       } else {
         setDatetime((prev) => ({
           ...prev,
-          day: prev.day + addLeadingZeros(val, field),
+          day:
+            dayInputCount === 1
+              ? prev.day.slice(-1) + valInt
+              : addLeadingZeros(valInt, field),
         }))
-      }
-    }
 
-    // onDatetimeFieldClick(dayInput)
+        setDayInputCount(0)
+        monthInput.current.focus()
+      }
+    } else if (field === FIELD_MONTH) {
+      if (monthInputCount === 0) {
+        setDatetime((prev) => ({
+          ...prev,
+          month: addLeadingZeros(valInt, field),
+        }))
+
+        if (valInt > 2) {
+          setMonthInputCount(0)
+          yearInput.current.focus()
+        } else {
+          setMonthInputCount(1)
+        }
+      } else if (monthInputCount > 0 && valInt <= 2) {
+        setDatetime((prev) => ({
+          ...prev,
+          month: prev.month.slice(-1) + valInt,
+        }))
+
+        setMonthInputCount(0)
+        yearInput.current.focus()
+      }
+    } else if (field === FIELD_YEAR) {
+      const nextYear =
+        (yearInputCount < 6
+          ? datetime.year.slice(-(yearInputCount + 1))
+          : datetime.year.slice(-5)) + valInt
+
+      setDatetime((prev) => ({
+        ...prev,
+        year: addLeadingZeros(parseInt(nextYear), field),
+      }))
+
+      setYearInputCount(yearInputCount + 1)
+    }
+  }
+
+  const resetInputCount = () => {
+    setDayInputCount(0)
+    setMonthInputCount(0)
+    setYearInputCount(0)
   }
 
   return (
