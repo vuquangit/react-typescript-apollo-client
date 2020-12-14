@@ -15,14 +15,26 @@ import Styles from 'stories/styles.mdx'
 With `MDX` we can define a story for `DateTimePicker` right in the middle of our
 Markdown documentation.
 
-export const Template = (args) => <AppWrapper><DateTimePicker {...args} /></AppWrapper>
+export const TemplateDate = (args) => <AppWrapper><DateTimePicker {...args} /></AppWrapper>
 
 <Canvas>
   <Story
-    name="Normal"
+    name="Date Type"
     args={{ typePicker: 'date' }}
   >
-    {Template.bind({})}
+    {TemplateDate.bind({})}
+  </Story>
+   <Story
+    name="Date-time Local Type"
+    args={{ typePicker: 'datetime-local' }}
+  >
+    {TemplateDate.bind({})}
+  </Story>
+    <Story
+    name="Time Type"
+    args={{ typePicker: 'time' }}
+  >
+    {TemplateDate.bind({})}
   </Story>
 </Canvas>
 

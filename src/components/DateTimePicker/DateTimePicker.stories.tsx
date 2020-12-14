@@ -11,13 +11,23 @@ export default {
   argTypes: {},
 } as Meta
 
-const Template: Story<BaseDateTimePickerProps> = (args) => (
+const TemplateDateTimePicker: Story<BaseDateTimePickerProps> = (args) => (
   <AppWrapper>
     <DateTimePicker {...args}>Component story</DateTimePicker>
   </AppWrapper>
 )
 
-export const Normal = Template.bind({})
-Normal.args = {
+export const DateType = TemplateDateTimePicker.bind({})
+DateType.args = {
   typePicker: 'date',
+}
+
+export const DateTimeLocalType = TemplateDateTimePicker.bind({})
+DateTimeLocalType.args = {
+  typePicker: 'datetime-local',
+}
+
+export const TimeType = TemplateDateTimePicker.bind({})
+TimeType.args = {
+  typePicker: 'time',
 }
