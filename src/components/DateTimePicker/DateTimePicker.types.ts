@@ -1,7 +1,7 @@
 import { SpaceProps } from 'styled-system'
 
 export interface IMDateTimePickerProps {
-  type: 'date' | 'datetime-local'
+  typePicker: 'date' | 'datetime-local'
 }
 export declare type BaseDateTimePickerProps = React.ButtonHTMLAttributes<
   HTMLInputElement

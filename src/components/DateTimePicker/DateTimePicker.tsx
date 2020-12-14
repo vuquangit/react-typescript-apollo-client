@@ -16,7 +16,7 @@ const FIELD_MONTH = 'month'
 const FIELD_YEAR = 'year'
 type IDatetimeField = typeof FIELD_DAY | typeof FIELD_MONTH | typeof FIELD_YEAR
 
-const DateTimePicker: FC<BaseDateTimePickerProps> = ({ type }) => {
+const DateTimePicker: FC<BaseDateTimePickerProps> = ({ typePicker }) => {
   const dayInput = useRef(document.createElement('input'))
   const monthInput = useRef(document.createElement('input'))
   const yearInput = useRef(document.createElement('input'))
