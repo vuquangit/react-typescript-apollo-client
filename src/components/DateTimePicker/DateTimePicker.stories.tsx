@@ -18,3 +18,6 @@ const Template: Story<BaseDateTimePickerProps> = (args) => (
 )
 
 export const Normal = Template.bind({})
+Normal.args = {
+  typePicker: 'date',
+}

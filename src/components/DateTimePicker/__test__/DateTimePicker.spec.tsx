@@ -14,7 +14,7 @@ describe('App SwitchTheme', () => {
   it('Test SwitchTheme with default', async () => {
     const { container, getByTestId } = render(
       <AppWrapper>
-        <DateTimePicker />
+        <DateTimePicker typePicker="date" />
       </AppWrapper>
     )
 
