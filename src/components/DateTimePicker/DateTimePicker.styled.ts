@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { space } from 'styled-system'
-import { TDTPDatetimeField } from './DateTimePicker.types'
 
 export const DateTimePickerWrapper = styled('div')`
   ${space};
