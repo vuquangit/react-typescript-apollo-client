@@ -13,12 +13,9 @@ exports[`App SwitchTheme Test SwitchTheme with dark mode 1`] = `
 }
 
 .c0 {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: transparent;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -37,7 +34,6 @@ exports[`App SwitchTheme Test SwitchTheme with dark mode 1`] = `
 }
 
 .c1 {
-  position: relative;
   width: 80%;
   height: auto;
   padding: 8px;
@@ -89,12 +85,9 @@ exports[`App SwitchTheme Test SwitchTheme with light mode 1`] = `
 }
 
 .c0 {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: transparent;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -113,7 +106,6 @@ exports[`App SwitchTheme Test SwitchTheme with light mode 1`] = `
 }
 
 .c1 {
-  position: relative;
   width: 80%;
   height: auto;
   padding: 8px;

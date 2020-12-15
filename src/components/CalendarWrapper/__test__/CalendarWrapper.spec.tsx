@@ -7,7 +7,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { act } from 'react-dom/test-utils'
-import Calendar from '..'
+import CalendarWrapper from '..'
+import CalendarDetail from '@/components/AttendanceDetail/AttendanceDetail'
 
 import Wrapper from '@/test/supports/AppWrapper'
 
@@ -30,7 +31,9 @@ describe('App Calendar', () => {
     await act(async () => {
       ReactDOM.render(
         <Wrapper themeMode="light">
-          <Calendar />
+          <CalendarWrapper>
+            <CalendarDetail />
+          </CalendarWrapper>
         </Wrapper>,
         container
       )

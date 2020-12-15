@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App CalendarDetail Test get default CalendarDetail no params 1`] = `
+exports[`App AttendanceDetail Test get default AttendanceDetail no params 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .c1 {

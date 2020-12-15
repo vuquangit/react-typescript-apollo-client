@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { space } from 'styled-system'
+import { TDTPDatetimeField } from './DateTimePicker.types'
 
 export const DateTimePickerWrapper = styled('div')`
   ${space};
@@ -32,27 +33,29 @@ export const DTPInput = styled('div')`
   display: flex;
   // border: 1px #000 solid;
 
-  &:after {
-    left: 0;
-    right: 0;
-    bottom: 0;
-    content: '';
-    position: absolute;
-    // transform: scaleX(0);
-    transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-    border-bottom: 2px solid #90caf9;
-    pointer-events: none;
-  }
+  // &:after {
+  //   left: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   content: '';
+  //   position: absolute;
+  //   // transform: scaleX(0);
+  //   transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  //   border-bottom: 2px solid #90caf9;
+  //   pointer-events: none;
+  // }
 `
 
 export const DTPDatetimeField = styled('input')`
   // display: inline;
-  -webkit-user-modify: read-only !important;
+  // -webkit-user-modify: read-only !important;
   padding: 0;
   margin: 0;
   border: 0;
-  // user-select: all;
+
   cursor: default;
+  background-color: #fff;
+  color: #000;
 
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
@@ -69,23 +72,31 @@ export const DTPDatetimeField = styled('input')`
 
 export const DTPDatetimeSlash = styled('div')`
   cursor: default;
+  background-color: #fff;
+  color: #000;
+  margin-left: -2px;
+  padding-right: 1px;
 `
 
 export const DTPCalendarIndicatorIcon = styled('div')`
   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxnIGlkPSJjYWxlbmRhcl8xXyI+PHBhdGggZD0iTTI5LjMzNCwzSDI1VjFjMC0wLjU1My0wLjQ0Ny0xLTEtMXMtMSwwLjQ0Ny0xLDF2MmgtNlYxYzAtMC41NTMtMC40NDgtMS0xLTFzLTEsMC40NDctMSwxdjJIOVYxICAgYzAtMC41NTMtMC40NDgtMS0xLTFTNywwLjQ0Nyw3LDF2MkgyLjY2N0MxLjE5NCwzLDAsNC4xOTMsMCw1LjY2NnYyMy42NjdDMCwzMC44MDYsMS4xOTQsMzIsMi42NjcsMzJoMjYuNjY3ICAgQzMwLjgwNywzMiwzMiwzMC44MDYsMzIsMjkuMzMzVjUuNjY2QzMyLDQuMTkzLDMwLjgwNywzLDI5LjMzNCwzeiBNMzAsMjkuMzMzQzMwLDI5LjcwMSwyOS43MDEsMzAsMjkuMzM0LDMwSDIuNjY3ICAgQzIuMjk5LDMwLDIsMjkuNzAxLDIsMjkuMzMzVjUuNjY2QzIsNS4yOTksMi4yOTksNSwyLjY2Nyw1SDd2MmMwLDAuNTUzLDAuNDQ4LDEsMSwxczEtMC40NDcsMS0xVjVoNnYyYzAsMC41NTMsMC40NDgsMSwxLDEgICBzMS0wLjQ0NywxLTFWNWg2djJjMCwwLjU1MywwLjQ0NywxLDEsMXMxLTAuNDQ3LDEtMVY1aDQuMzM0QzI5LjcwMSw1LDMwLDUuMjk5LDMwLDUuNjY2VjI5LjMzM3oiIGZpbGw9IiMzMzMzMzIiLz48cmVjdCBmaWxsPSIjMzMzMzMyIiBoZWlnaHQ9IjMiIHdpZHRoPSI0IiB4PSI3IiB5PSIxMiIvPjxyZWN0IGZpbGw9IiMzMzMzMzIiIGhlaWdodD0iMyIgd2lkdGg9IjQiIHg9IjciIHk9IjE3Ii8+PHJlY3QgZmlsbD0iIzMzMzMzMiIgaGVpZ2h0PSIzIiB3aWR0aD0iNCIgeD0iNyIgeT0iMjIiLz48cmVjdCBmaWxsPSIjMzMzMzMyIiBoZWlnaHQ9IjMiIHdpZHRoPSI0IiB4PSIxNCIgeT0iMjIiLz48cmVjdCBmaWxsPSIjMzMzMzMyIiBoZWlnaHQ9IjMiIHdpZHRoPSI0IiB4PSIxNCIgeT0iMTciLz48cmVjdCBmaWxsPSIjMzMzMzMyIiBoZWlnaHQ9IjMiIHdpZHRoPSI0IiB4PSIxNCIgeT0iMTIiLz48cmVjdCBmaWxsPSIjMzMzMzMyIiBoZWlnaHQ9IjMiIHdpZHRoPSI0IiB4PSIyMSIgeT0iMjIiLz48cmVjdCBmaWxsPSIjMzMzMzMyIiBoZWlnaHQ9IjMiIHdpZHRoPSI0IiB4PSIyMSIgeT0iMTciLz48cmVjdCBmaWxsPSIjMzMzMzMyIiBoZWlnaHQ9IjMiIHdpZHRoPSI0IiB4PSIyMSIgeT0iMTIiLz48L2c+PC9zdmc+);
   background-origin: content-box;
   background-size: contain;
-  height: 1.2em;
+  height: 24px;
   margin-inline-start: 24px;
   opacity: 1;
   padding-bottom: 2px;
   padding-inline-start: 3px;
   padding-inline-end: 3px;
-  padding-top: 2px;
+  padding-top: 5px;
   width: 1.2em;
   background-repeat: no-repeat;
   outline: none;
   cursor: pointer;
+
+  background-color: #fff;
+  color: #000;
+  margin-left: 0;
 `
 
 export const DTPClockIndicatorIcon = styled('div')`
@@ -103,4 +114,7 @@ export const DTPClockIndicatorIcon = styled('div')`
   background-repeat: no-repeat;
   outline: none;
   cursor: pointer;
+
+  background-color: #fff;
+  color: #000;
 `

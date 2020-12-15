@@ -1,18 +1,20 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react/types-6-0'
 import AppWrapper from '@/test/supports/AppWrapper'
-import Calendar from '.'
-// import {} from './Calendar.types'
+import CalendarWrapper from '.'
+import CalendarDetail from '@/components/AttendanceDetail'
 
 export default {
-  title: 'Story/Container/Calendar',
-  component: Calendar,
+  title: 'Story/Components/CalendarWrapper',
+  component: CalendarWrapper,
   argTypes: {},
 } as Meta
 
 const TemplateLight: Story = (args) => (
   <AppWrapper themeMode="light">
-    <Calendar {...args} />
+    <CalendarWrapper {...args}>
+      <CalendarDetail />
+    </CalendarWrapper>
   </AppWrapper>
 )
 
@@ -20,7 +22,9 @@ export const Light = TemplateLight.bind({})
 
 const TemplateDark: Story = (args) => (
   <AppWrapper themeMode="dark">
-    <Calendar {...args} />
+    <CalendarWrapper {...args}>
+      <CalendarDetail />
+    </CalendarWrapper>
   </AppWrapper>
 )
 

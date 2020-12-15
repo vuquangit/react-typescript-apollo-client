@@ -1,5 +1,7 @@
 import React, { FC, MutableRefObject, useRef, useState } from 'react'
-import Button from '../Button'
+import CalenderWrapper from '@/components/CalendarWrapper'
+import DateTimePickerDetail from '@/components/DateTimePickerDetail'
+import Modal from '@/components/Modal'
 
 import {
   DateTimePickerWrapper,
@@ -292,9 +294,11 @@ const DateTimePicker: FC<BaseDateTimePickerProps> = ({ typePicker }) => {
   }
 
   // calendar
-  const onCalendarIconClick = () => {
-    console.log('open calendar')
-  }
+
+  // open modal
+  const [openCalendar, setOpenCalendar] = useState<boolean>(false)
+  const onCalendarIconClick = () => setOpenCalendar(true)
+  const onCloseCalendar = () => setOpenCalendar(false)
 
   return (
     <DateTimePickerWrapper>
@@ -305,7 +309,7 @@ const DateTimePicker: FC<BaseDateTimePickerProps> = ({ typePicker }) => {
             <>
               <DTPDatetimeField
                 type="text"
-                // readOnly
+                size={2}
                 value={datetime.day}
                 ref={dayInput}
                 onClick={() => onDatetimeFieldClick(dayInput)}
@@ -315,6 +319,7 @@ const DateTimePicker: FC<BaseDateTimePickerProps> = ({ typePicker }) => {
               <DTPDatetimeSlash>/</DTPDatetimeSlash>
               <DTPDatetimeField
                 type="text"
+                size={2}
                 value={datetime.month}
                 ref={monthInput}
                 onClick={() => onDatetimeFieldClick(monthInput)}
@@ -324,6 +329,7 @@ const DateTimePicker: FC<BaseDateTimePickerProps> = ({ typePicker }) => {
               <DTPDatetimeSlash>/</DTPDatetimeSlash>
               <DTPDatetimeField
                 type="text"
+                size={4}
                 ref={yearInput}
                 value={datetime.year}
                 onClick={() => onDatetimeFieldClick(yearInput)}
@@ -341,6 +347,7 @@ const DateTimePicker: FC<BaseDateTimePickerProps> = ({ typePicker }) => {
 
               <DTPDatetimeField
                 type="text"
+                size={2}
                 ref={hourInput}
                 value={datetime.hour}
                 onClick={() => onDatetimeFieldClick(hourInput)}
@@ -350,6 +357,7 @@ const DateTimePicker: FC<BaseDateTimePickerProps> = ({ typePicker }) => {
               <DTPDatetimeSlash>:</DTPDatetimeSlash>
               <DTPDatetimeField
                 type="text"
+                size={2}
                 ref={minuteInput}
                 value={datetime.minute}
                 onClick={() => onDatetimeFieldClick(minuteInput)}
@@ -365,8 +373,20 @@ const DateTimePicker: FC<BaseDateTimePickerProps> = ({ typePicker }) => {
         ) : (
           <DTPClockIndicatorIcon onClick={onCalendarIconClick} />
         )}
-        {/* <Button>Calendar icon</Button> */}
       </DTPFormControl>
+
+      <Modal
+        show={openCalendar}
+        onClose={onCloseCalendar}
+        backgroundBlack={false}
+        widthContent={'250px'}
+        position="absolute"
+        isShowCloseIcon={false}
+      >
+        <CalenderWrapper isShortCalendar>
+          <DateTimePickerDetail />
+        </CalenderWrapper>
+      </Modal>
     </DateTimePickerWrapper>
   )
 }

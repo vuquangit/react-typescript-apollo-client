@@ -1,15 +1,27 @@
 import styled, { css } from 'styled-components'
-import { ifProp, switchProp } from 'styled-tools'
+import { ifProp, prop, switchProp } from 'styled-tools'
 
 import { IModalWrapper, IModalContent } from './Modal.types'
 
 export const ModalWrapper = styled('div')<IModalWrapper>`
-  position: fixed;
-  top: 0;
-  left: 0;
+  ${switchProp('position', {
+    fixed: css`
+      position: fixed;
+      top: 0;
+      left: 0;
+    `,
+    absolute: css`
+      position: relative;
+    `,
+  })}
+
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: ${ifProp(
+    { backgroundBlack: true },
+    'rgba(0, 0, 0, 0.6)',
+    'transparent'
+  )};
 
   display: ${ifProp({ show: true }, 'flex', 'none')};
   align-items: center;
@@ -18,8 +30,18 @@ export const ModalWrapper = styled('div')<IModalWrapper>`
 `
 
 export const ModalContent = styled('div')<IModalContent>`
-  position: relative;
-  width: 80%;
+  ${switchProp('position', {
+    fixed: css`
+      position: relative;
+    `,
+    absolute: css`
+      position: absolute;
+      top: 0;
+      left: 0;
+    `,
+  })}
+
+  width: ${prop('widthContent', ' 80%')};
   height: auto;
   padding: 8px;
 

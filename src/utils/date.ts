@@ -1,4 +1,15 @@
-import { IDate, TWeeks } from '../containers/Calendar/Calendar.types'
+// import { IDate, TWeeks } from '../containers/Attendances/Attendances.types'
+
+export declare type IDate = {
+  date: number
+  dayName: string
+  iso: string
+  type?: string
+}
+
+export type TWeek = IDate[]
+
+export declare type TWeeks = TWeek[]
 
 const monthTypes = {
   PREVIOUS: 'previous',

@@ -4,16 +4,15 @@ import {
   DateItem,
   CalendarEvents,
   CalendarEvent,
-} from './CalendarDetail.styled'
+} from './AttendanceDetail.styled'
+import { BaseAttendanceDetailProps } from './AttendanceDetail.types'
 
-type Props = {
-  date: number
-  dayName: string
-  maxWidth: number
-  iso: string
-}
-
-const CalendarDetail: FC<Props> = ({ date, dayName, iso, maxWidth }) => {
+const AttendanceDetail: FC<BaseAttendanceDetailProps> = ({
+  date,
+  dayName,
+  iso = '',
+  maxWidth,
+}) => {
   const itemDisable: boolean = dayName === 'Sun' || dayName === 'Sat'
   const today = new Date()
   const dateOfItem = new Date(iso)
@@ -44,4 +43,4 @@ const CalendarDetail: FC<Props> = ({ date, dayName, iso, maxWidth }) => {
   )
 }
 
-export default CalendarDetail
+export default AttendanceDetail

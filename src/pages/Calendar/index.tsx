@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 
 import { DefaultLayout } from '@/layouts'
 import Container from '@/components/Container'
-import Calendar from '@/containers/Calendar'
+import Calendar from '@/containers/Attendances'
 
 const CalendarPage: FC = () => {
   return (

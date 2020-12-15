@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { prop, ifProp } from 'styled-tools'
-import { BaseCalendarDetailProps, IDate } from './CalendarDetail.types'
+import { BaseAttendanceDetailProps, IDate } from './AttendanceDetail.types'
 import { AppButton } from '@/components/Button/Button.styled'
 
-export const CalendarDetailWrapper = styled('div')<BaseCalendarDetailProps>`
+export const CalendarDetailWrapper = styled('div')<BaseAttendanceDetailProps>`
   position: relative;
   display: flex;
   flex-direction: column;

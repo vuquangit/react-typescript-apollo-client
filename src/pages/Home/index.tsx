@@ -9,6 +9,7 @@ import Container from '@/components/Container'
 import mockData from './mockData.json'
 import imageHome from '@/assets/images/img_1.jpg'
 import Modal from '@/components/Modal'
+import DateTimePicker from '@/components/DateTimePicker'
 
 const HomePage: FC = () => {
   const buttonRef = createRef()
@@ -32,6 +33,10 @@ const HomePage: FC = () => {
       <Container>
         <div className="home-page">Home page: {mockData.text}</div>
         <hr />
+        <br />
+
+        <DateTimePicker typePicker="datetime-local" />
+        <br />
         <br />
 
         <Button onClick={handleOpenModal}>Open modal</Button>

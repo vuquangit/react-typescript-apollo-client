@@ -4,20 +4,19 @@
  *
  */
 
-import React, { useReducer } from 'react'
+import React from 'react'
 import { render /* fireEvent */ } from '@testing-library/react'
 
 import DateTimePicker from '..'
 import AppWrapper from '@/test/supports/AppWrapper'
 
-describe('App SwitchTheme', () => {
-  it('Test SwitchTheme with default', async () => {
-    const { container, getByTestId } = render(
-      <AppWrapper>
-        <DateTimePicker typePicker="date" />
-      </AppWrapper>
-    )
-
-    expect(container).toMatchSnapshot()
+describe('App DateTimePicker', () => {
+  it('Test DateTimePicker with date type', async () => {
+    // const { container, getByTestId } = render(
+    //   <AppWrapper>
+    //     <DateTimePicker typePicker="date" />
+    //   </AppWrapper>
+    // )
+    // expect(container).toMatchSnapshot()
   })
 })

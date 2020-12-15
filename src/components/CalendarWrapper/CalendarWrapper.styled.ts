@@ -1,7 +1,6 @@
-import styled from 'styled-components'
-// import { prop } from 'styled-tools'
-
-// import { ILoaderProps } from './Loader.types'
+import styled, { css } from 'styled-components'
+import { TCalendarHeader } from './CalendarWrapper.types'
+import { prop, ifProp } from 'styled-tools'
 
 export const CalendarWrapper = styled('div')`
   display: flex;
@@ -10,6 +9,7 @@ export const CalendarWrapper = styled('div')`
   justify-content: center;
   width: 100%;
   height: 100%;
+  border: 1px solid #dadada;
 `
 
 export const CalendarContentWrapper = styled('div')`
@@ -30,7 +30,7 @@ export const CalendarDayNames = styled('div')`
   height: 100%;
 `
 
-export const CalendarHeader = styled('div')`
+export const CalendarHeader = styled('div')<TCalendarHeader>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -38,6 +38,36 @@ export const CalendarHeader = styled('div')`
   width: 100%;
   height: 100%;
   padding: 8px;
+
+  ${ifProp(
+    'isShortCalendar',
+    css`
+      flex-direction: column;
+      border-bottom: 1px solid #dadada;
+    `
+  )}
+`
+
+export const CalendarHeaderDate = styled('div')<TCalendarHeader>`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`
+
+export const CalendarHeaderButtons = styled('div')<TCalendarHeader>`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  ${ifProp(
+    'isShortCalendar',
+    css`
+      margin-top: 8px;
+    `
+  )}
 `
 
 export const CalendarBody = styled('div')`

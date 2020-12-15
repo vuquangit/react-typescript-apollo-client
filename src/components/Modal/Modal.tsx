@@ -6,7 +6,14 @@ import Button from '@/components/Button'
 import { ModalWrapper, ModalContent, ModalClose } from './Modal.styled'
 import { GET_THEME_CURRENT } from '@/graphql/queries/getThemeCurrent'
 
-const Modal: FC<BaseModalProps> = ({ show, onClose, children }) => {
+const Modal: FC<BaseModalProps> = ({
+  show,
+  onClose,
+  children,
+  widthContent,
+  position,
+  isShowCloseIcon = true,
+}) => {
   const {
     data: { themeMode = 'light' },
   } = useQuery(GET_THEME_CURRENT)
@@ -48,20 +55,28 @@ const Modal: FC<BaseModalProps> = ({ show, onClose, children }) => {
   }, [clickListener, escapeListener])
 
   return (
-    <ModalWrapper show={show} data-testid="modal-wrapper">
-      <ModalContent ref={ref} themeMode={themeMode} data-testid="modal-content">
+    <ModalWrapper show={show} position={position} data-testid="modal-wrapper">
+      <ModalContent
+        ref={ref}
+        themeMode={themeMode}
+        widthContent={widthContent}
+        position={position}
+        data-testid="modal-content"
+      >
         {children}
-        <ModalClose>
-          <Button
-            cursor="pointer"
-            bg="transparent"
-            border={0}
-            onClick={onClose}
-            data-testid="close-modal"
-          >
-            X
-          </Button>
-        </ModalClose>
+        {isShowCloseIcon && (
+          <ModalClose>
+            <Button
+              cursor="pointer"
+              bg="transparent"
+              border={0}
+              onClick={onClose}
+              data-testid="close-modal"
+            >
+              X
+            </Button>
+          </ModalClose>
+        )}
       </ModalContent>
     </ModalWrapper>
   )

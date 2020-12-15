@@ -1,8 +1,9 @@
 import React, { FC, useState, useEffect, useCallback } from 'react'
-import { getMatrix, dayNames } from '@/utils/date'
-import CalendarDetail from '@/components/CalendarDetail/CalendarDetail'
+import { getMatrix, dayNames, TWeeks } from '@/utils/date'
+// import CalendarDetail from '@/components/CalendarDetail/CalendarDetail'
 import Button from '@/components/Button'
 import {
+  BaseCalendarWrapperProps,
   CALENDAR_TYPE_DAYS,
   CALENDAR_TYPE_MONTH,
   CALENDAR_TYPE_YEAR,
@@ -14,8 +15,7 @@ import {
   ON_TYPE_TODAY,
   TCalendarType,
   TChangeTimeType,
-  TWeeks,
-} from './Calendar.types'
+} from './CalendarWrapper.types'
 import {
   CalendarWrapper,
   CalendarContentWrapper,
@@ -24,10 +24,14 @@ import {
   CalendarBody,
   CalendarMonthList,
   CalendarMonthListItem,
-} from './Calendar.styled'
+  CalendarHeaderDate,
+  CalendarHeaderButtons,
+} from './CalendarWrapper.styled'
 
-const Calendar: FC = () => {
-  // Note: month start from 0 to 11
+const CalendarWrappers: FC<BaseCalendarWrapperProps> = ({
+  children,
+  isShortCalendar = false,
+}) => {
   const [date, setDate] = useState<Date>(new Date())
   const [weeks, setWeeks] = useState<TWeeks>()
   const [calendarType, setCalendarType] = useState<TCalendarType>(
@@ -158,20 +162,20 @@ const Calendar: FC = () => {
   }, [calendarType, getYearStart, date])
 
   const renderCalendarContent = useCallback(() => {
-    return weeks?.map((week, index) => {
-      return (
-        <CalendarContentWrapper key={index}>
-          {week.map((item) => (
-            <CalendarDetail
-              key={item.iso}
-              {...item}
-              maxWidth={100 / week.length}
-            />
-          ))}
-        </CalendarContentWrapper>
-      )
-    })
-  }, [weeks])
+    return weeks?.map((week, index) => (
+      <CalendarContentWrapper key={index}>
+        {week.map((item) =>
+          React.Children.map(children, (child, index) => {
+            return React.cloneElement(child, {
+              index,
+              ...item,
+              maxWidth: 100 / week.length,
+            })
+          })
+        )}
+      </CalendarContentWrapper>
+    ))
+  }, [children, weeks])
 
   const renderDayNames = useCallback(
     () => dayNames.map((item) => <div key={item}>{item}</div>),
@@ -218,8 +222,8 @@ const Calendar: FC = () => {
 
   return (
     <CalendarWrapper>
-      <CalendarHeader>
-        <div>
+      <CalendarHeader isShortCalendar={isShortCalendar}>
+        <CalendarHeaderDate isShortCalendar={isShortCalendar}>
           <Button
             fontSize={[18, 24]}
             border={0}
@@ -235,8 +239,8 @@ const Calendar: FC = () => {
             {calendarType === CALENDAR_TYPE_YEARS &&
               `${yearStart} - ${yearStart + 99}`}
           </Button>
-        </div>
-        <div>
+        </CalendarHeaderDate>
+        <CalendarHeaderButtons isShortCalendar={isShortCalendar}>
           <Button
             onClick={() => onChangeTime(ON_TYPE_PREV_DATE_MORE)}
             padding="8px"
@@ -267,7 +271,7 @@ const Calendar: FC = () => {
             padding="8px"
             cursor="pointer"
           >{`>>`}</Button>
-        </div>
+        </CalendarHeaderButtons>
       </CalendarHeader>
 
       {calendarType === CALENDAR_TYPE_DAYS && (
@@ -292,4 +296,4 @@ const Calendar: FC = () => {
   )
 }
 
-export default Calendar
+export default CalendarWrappers

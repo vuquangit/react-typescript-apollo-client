@@ -1,14 +1,3 @@
-export declare type IDate = {
-  date: number
-  dayName: string
-  iso: string
-  type?: string
-}
-
-export type TWeek = IDate[]
-
-export declare type TWeeks = TWeek[]
-
 export const CALENDAR_TYPE_YEARS = 'years'
 export const CALENDAR_TYPE_YEAR = 'year'
 export const CALENDAR_TYPE_MONTH = 'month'
@@ -32,3 +21,12 @@ export type TChangeTimeType =
   | typeof ON_TYPE_TODAY
   | typeof ON_TYPE_NEXT_DATE
   | typeof ON_TYPE_NEXT_DATE_MORE
+
+export declare type BaseCalendarWrapperProps = {
+  children: any
+  isShortCalendar?: boolean
+}
+
+export type TCalendarHeader = {
+  isShortCalendar: boolean
+}
