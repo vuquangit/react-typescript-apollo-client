@@ -11,7 +11,7 @@ export function debounce<F extends Procedure>(
     isImmediate: false,
   }
 ): (this: ThisParameterType<F>, ...args: Parameters<F>) => void {
-  let timeOutId: NodeJS.Timeout | undefined
+  let timeOutId: /* NodeJS.Timeout */ number | undefined
 
   return function (this: ThisParameterType<F>, ...args: Parameters<F>) {
     // eslint-disable-next-line @typescript-eslint/no-this-alias

@@ -78,10 +78,10 @@ exports[`App Calendar Test get default Calendar 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
   width: 100%;
   height: 100%;
 }
@@ -784,7 +784,7 @@ exports[`App Calendar Test get default Calendar 1`] = `
           data-tooltip="In: 08:00 - Out: 17:37"
         >
           <button
-            class="c10 c15"
+            class="c10 c11"
           >
             15
           </button>
@@ -928,7 +928,7 @@ exports[`App Calendar Test get default Calendar 1`] = `
           data-tooltip="In: 08:00 - Out: 17:37"
         >
           <button
-            class="c10 c11"
+            class="c10 c15"
           >
             22
           </button>

@@ -19,6 +19,5 @@ describe('App SwitchTheme', () => {
     )
 
     expect(container).toMatchSnapshot()
-    expect(getByTestId('component-wrapper')).toBeInTheDocument()
   })
 })
