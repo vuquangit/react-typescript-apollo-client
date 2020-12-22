@@ -13,6 +13,7 @@ const Modal: FC<BaseModalProps> = ({
   widthContent,
   position,
   isShowCloseIcon = true,
+  ...restProps
 }) => {
   const {
     data: { themeMode = 'light' },
@@ -62,6 +63,7 @@ const Modal: FC<BaseModalProps> = ({
         widthContent={widthContent}
         position={position}
         data-testid="modal-content"
+        {...restProps}
       >
         {children}
         {isShowCloseIcon && (

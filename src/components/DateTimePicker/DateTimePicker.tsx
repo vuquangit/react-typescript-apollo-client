@@ -294,11 +294,20 @@ const DateTimePicker: FC<BaseDateTimePickerProps> = ({ typePicker }) => {
   }
 
   // calendar
-
   // open modal
   const [openCalendar, setOpenCalendar] = useState<boolean>(false)
   const onCalendarIconClick = () => setOpenCalendar(true)
   const onCloseCalendar = () => setOpenCalendar(false)
+  //
+  const handleSelectDateCalendar = (val: Date) => {
+    console.log('val', val)
+    setDatetime((prev) => ({
+      ...prev,
+      year: addLeadingZeros(val.getUTCFullYear(), FIELD_YEAR),
+      month: addLeadingZeros(val.getMonth(), FIELD_MONTH, true),
+      day: addLeadingZeros(val.getDate(), FIELD_DAY),
+    }))
+  }
 
   return (
     <DateTimePickerWrapper>
@@ -379,12 +388,16 @@ const DateTimePicker: FC<BaseDateTimePickerProps> = ({ typePicker }) => {
         show={openCalendar}
         onClose={onCloseCalendar}
         backgroundBlack={false}
-        widthContent={'250px'}
+        widthContent="200px"
         position="absolute"
         isShowCloseIcon={false}
+        padding={0}
+        pt="2px"
       >
         <CalenderWrapper isShortCalendar>
-          <DateTimePickerDetail />
+          <DateTimePickerDetail
+            handleSelectDateCalendar={handleSelectDateCalendar}
+          />
         </CalenderWrapper>
       </Modal>
     </DateTimePickerWrapper>

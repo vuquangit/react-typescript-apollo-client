@@ -178,8 +178,11 @@ const CalendarWrappers: FC<BaseCalendarWrapperProps> = ({
   }, [children, weeks])
 
   const renderDayNames = useCallback(
-    () => dayNames.map((item) => <div key={item}>{item}</div>),
-    []
+    () =>
+      dayNames.map((item) => (
+        <div key={item}>{isShortCalendar ? item.slice(0, 1) : item}</div>
+      )),
+    [isShortCalendar]
   )
 
   const renderMonthList = () =>
@@ -221,7 +224,7 @@ const CalendarWrappers: FC<BaseCalendarWrapperProps> = ({
       })
 
   return (
-    <CalendarWrapper>
+    <CalendarWrapper isShortCalendar={isShortCalendar}>
       <CalendarHeader isShortCalendar={isShortCalendar}>
         <CalendarHeaderDate isShortCalendar={isShortCalendar}>
           <Button

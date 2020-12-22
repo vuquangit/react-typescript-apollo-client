@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { prop, ifProp } from 'styled-tools'
+import { ifProp } from 'styled-tools'
 import {
   BaseDateTimePickerDetailProps,
   IDate,
@@ -7,7 +7,7 @@ import {
 import { AppButton } from '@/components/Button/Button.styled'
 
 export const DateTimePickerDetailWrapper = styled('div')<
-  BaseDateTimePickerDetailProps & IDate
+  Omit<BaseDateTimePickerDetailProps, 'handleSelectDateCalendar'>
 >`
   position: relative;
   display: flex;
@@ -21,14 +21,14 @@ export const DateTimePickerDetailWrapper = styled('div')<
   width: calc(100% / 7);
   height: 30px;
   background-color: #fff;
-  border: 1px solid ${ifProp({ isToday: true }, '#000', '#fff')}
 
-  &:hover {
-    background-color: #b5d3ff;
-  }
+  // border: 1px solid ${ifProp({ isToday: true }, '#000', '#fff')}
+  // &:hover {
+  //   background-color: #b5d3ff;
+  // }
 `
 
-export const DateItem = styled(AppButton)`
+export const DateItem = styled(AppButton)<IDate>`
   background-color: transparent;
   cursor: inherit;
   width: 100%;
@@ -36,4 +36,10 @@ export const DateItem = styled(AppButton)`
   border-radius: 0;
   margin: 0;
   padding: 0;
+
+  border: 1px solid ${ifProp({ isToday: true }, '#12ab4f', '#fff')};
+
+  &:hover {
+    background-color: #b5d3ff;
+  }
 `

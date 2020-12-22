@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import { ifProp, prop, switchProp } from 'styled-tools'
+import { space } from 'styled-system'
 
 import { IModalWrapper, IModalContent } from './Modal.types'
 
@@ -55,6 +56,8 @@ export const ModalContent = styled('div')<IModalContent>`
       color: #fff;
     `,
   })}
+
+  ${space};
 `
 
 export const ModalClose = styled('div')`

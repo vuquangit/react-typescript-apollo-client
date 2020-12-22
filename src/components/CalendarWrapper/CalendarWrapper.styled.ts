@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { TCalendarHeader } from './CalendarWrapper.types'
 import { prop, ifProp } from 'styled-tools'
 
-export const CalendarWrapper = styled('div')`
+export const CalendarWrapper = styled('div')<TCalendarHeader>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,6 +10,13 @@ export const CalendarWrapper = styled('div')`
   width: 100%;
   height: 100%;
   border: 1px solid #dadada;
+
+  ${ifProp(
+    'isShortCalendar',
+    css`
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    `
+  )}
 `
 
 export const CalendarContentWrapper = styled('div')`
@@ -25,7 +32,7 @@ export const CalendarDayNames = styled('div')`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
   height: 100%;
 `

@@ -1,3 +1,5 @@
+import { SpaceProps } from 'styled-system'
+
 export interface IModalWrapper {
   show: boolean
   widthContent?: string
@@ -6,7 +8,7 @@ export interface IModalWrapper {
   isShowCloseIcon?: boolean
 }
 
-export interface IModalContent {
+export interface IModalContent extends SpaceProps {
   themeMode: 'light' | 'dark'
   widthContent?: string
   position?: 'fixed' | 'absolute'
@@ -17,4 +19,4 @@ interface IModalProps {
   children: React.ReactNode
 }
 
-export declare type BaseModalProps = IModalWrapper & IModalProps
+export declare type BaseModalProps = IModalWrapper & IModalProps & SpaceProps
